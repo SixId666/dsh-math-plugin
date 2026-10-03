@@ -1,0 +1,23 @@
+### mathkit.calculus (43)
+apart, check_ode, derivative, diff, differential_equation, differentiate, dsolve, equation, expand, factor, int, integral, integrate, integrate_multi, iterated_integral, lim, limit, math_apart, math_derivative, math_dsolve, math_expand, math_factor, math_integrate, math_integrate_multi, math_limit, math_series, math_series_sum, math_simplify, math_solve, math_together, multiple_integral, ode, ode_check, series, series_sum, simplify, solve, solve_equation, sum, summation, taylor, together, verify_ode
+
+### mathkit.linalg (36)
+T, det, determinant, diagonalize, eigen, eigenvalues, inv, inverse, linear_system, matadd, math_det, math_diagonalize, math_eigen, math_inv, math_linear_system, math_matmul, math_matrix, math_quadratic, math_rank, math_rref, math_trace, math_transpose, matmul, matpow, matrix_add, matrix_analysis, matrix_info, matrix_multiply, matrix_power, quadratic, quadratic_form, rank, rref, solve_linear, trace, transpose
+
+### mathkit.numeric (25)
+compare_numeric, eval, find_root, math_compare, math_numeric, math_numeric_derivative, math_numeric_integrate, math_numeric_limit, math_numeric_matrix, math_numeric_solve, math_numeric_sum, math_optimize, maximize, minimize, n, numeric, numeric_compare, numeric_derivative, numeric_integrate, numeric_limit, numeric_matrix, numeric_optimize, numeric_solve, numeric_sum, quad
+
+### mathkit.probability (35)
+E, bayes, cdf, corr, correlation, cov, covariance, custom_pmf, dist, distribution, distribution_from_pmf, distribution_moments, expect, expectation, joint_marginal, marginal, math_correlation, math_covariance, math_custom_pmf, math_distribution, math_expectation, math_joint, math_mgf, math_moments, math_probability, math_variance, mean, mgf, moment_generating, moments, pdf, prob, probability, var, variance
+
+### mathkit.probability_extra (14)
+central_limit, clt, confidence_interval, estimate, hypothesis_test, interval_estimate, math_clt, math_confidence_interval, math_estimate, math_hypothesis_test, math_sampling_distribution, point_estimate, sampling_distribution, test
+
+### mathkit.symbolic_extra (36)
+asymptote, conditional_extremum, directional_derivative, domain, function_analysis, grad, gradient, hessian, implicit_diff, implicit_function_extremum, inequality, jacobian, lagrange, math_asymptote, math_directional_derivative, math_domain, math_extremum, math_function_analysis, math_gradient, math_hessian, math_implicit_diff, math_implicit_extremum, math_inequality, math_jacobian, math_lagrange, math_mean_value, math_parametric_derivative, math_partial, math_taylor_multivar, mean_value_point, multivar_extremum, parametric_derivative, partial, pderiv, solve_inequality, taylor_multivar
+
+### mathkit.vector_calc (16)
+curl_theorem, curve_integral, divergence_theorem, gauss, gauss_theorem, green, green_theorem, line_integral, math_curve_integral, math_gauss, math_green, math_stokes, math_surface_integral, stokes, stokes_theorem, surface_integral
+
+### mathkit.verifier (9)
+check, conditional_check, domain_check, math_check_conditions, math_domain_check, math_verify, verify, verify_conditions, verify_domain

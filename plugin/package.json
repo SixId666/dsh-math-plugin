@@ -1,0 +1,26 @@
+{
+  "name": "dsh-math",
+  "version": "1.0.2",
+  "private": true,
+  "type": "module",
+  "description": "考研数学一智能计算与验证插件：SymPy 驱动的精确计算 + 独立验证机制",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/entry.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "lib",
+    "engine",
+    "locale",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md"
+  ]
+}

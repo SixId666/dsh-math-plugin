@@ -1,0 +1,1725 @@
+{
+  "pass": [
+    {
+      "name": "极限 sin(x)/x (x→0)",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "sin(x)/x",
+        "var": "x",
+        "point": "0"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "等价无穷小 (1-cos x)/x²",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "(1-cos(x))/x^2",
+        "var": "x",
+        "point": "0"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "洛必达 (e^x-1-x)/x²",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "(exp(x)-1-x)/x^2",
+        "var": "x",
+        "point": "0"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "泰勒型 (x-sin x)/x³",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "(x-sin(x))/x^3",
+        "var": "x",
+        "point": "0"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "1^∞ 型 (1+1/x)^x (x→∞)",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "(1+1/x)^x",
+        "var": "x",
+        "point": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "左右极限：1/x 从右侧 → +∞",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "1/x",
+        "var": "x",
+        "point": "0",
+        "dir": "+"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "左右极限：1/x 从左侧 → -∞",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "1/x",
+        "var": "x",
+        "point": "0",
+        "dir": "-"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "数列极限 (1+1/n)^n",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "(1+1/n)^n",
+        "var": "n",
+        "point": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "趋向无穷的等价量 ln(x)/x",
+      "group": "calculus",
+      "op": "limit",
+      "args": {
+        "expr": "ln(x)/x",
+        "var": "x",
+        "point": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "基本求导 (x³-3x)'",
+      "group": "calculus",
+      "op": "diff",
+      "args": {
+        "expr": "x^3-3*x",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "复合求导 x^x",
+      "group": "calculus",
+      "op": "diff",
+      "args": {
+        "expr": "x^x",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "二阶导 sin(x) 二阶梯",
+      "group": "calculus",
+      "op": "diff",
+      "args": {
+        "expr": "sin(x)",
+        "var": "x",
+        "order": 2
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "四阶导 x⁴ 四阶梯",
+      "group": "calculus",
+      "op": "diff",
+      "args": {
+        "expr": "x^4",
+        "var": "x",
+        "order": 4
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "隐函数求导 x²+y²=1 → -x/y",
+      "group": "calculus",
+      "op": "implicit_diff",
+      "args": {
+        "equation": "x^2+y^2-1",
+        "vars": [
+          "x",
+          "y"
+        ]
+      },
+      "status": "ok",
+      "detail": "得到 {\"derivative\":\"-x/y\",\"derivative_label\":\"dy/dx\",\"order\":1,\"dependent\":\"y\",\"indep",
+      "note": "vars 顺序约定为 [自变量…, 因变量]"
+    },
+    {
+      "name": "隐函数求导（显式角色 dependent/independent）",
+      "group": "calculus",
+      "op": "implicit_diff",
+      "args": {
+        "equation": "x^2+y^2=1",
+        "dependent": "y",
+        "independent": "x"
+      },
+      "status": "ok",
+      "detail": "得到 {\"derivative\":\"-x/y\",\"derivative_label\":\"dy/dx\",\"order\":1,\"dependent\":\"y\",\"indep",
+      "note": "用显式角色参数避免 vars 顺序歧义"
+    },
+    {
+      "name": "参数方程求导 x=t-sin t, y=1-cos t",
+      "group": "calculus",
+      "op": "parametric_derivative",
+      "args": {
+        "x_expr": "t-sin(t)",
+        "y_expr": "1-cos(t)",
+        "param": "t"
+      },
+      "status": "ok",
+      "detail": "得到 {\"dx_dt\":\"1-cos(t)\",\"dy_dt\":\"sin(t)\",\"dy_dx\":\"-sin(t)/(cos(t)-1)\",\"numeric_note\"",
+      "note": ""
+    },
+    {
+      "name": "偏导 ∂/∂x (x²y+y³)",
+      "group": "calculus",
+      "op": "partial",
+      "args": {
+        "expr": "x^2*y+y^3",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "梯度 ∇(x²y+z)",
+      "group": "calculus",
+      "op": "gradient",
+      "args": {
+        "expr": "x^2*y+z",
+        "vars": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "不定积分 ∫x²dx",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "x^2",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "不定积分（换元）∫x e^{x²}dx",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "x*exp(x^2)",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"exp(x**2)/2\",\"latex\":\"\\\\frac{e^{x^{2}}}{2}\",\"antiderivative_note\":\"不定积分结果含任意常数C（通",
+      "note": "用户规格原文用例：应返回 (1/2)e^{x²}+C 的精确符号形式，不转小数"
+    },
+    {
+      "name": "分部积分 ∫x e^x dx",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "x*exp(x)",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"(x-1)*exp(x)\",\"latex\":\"\\\\left(x-1\\\\right)e^{x}\",\"antiderivative_note\":\"不定积分结果含任意常，验证=independent",
+      "note": ""
+    },
+    {
+      "name": "三角有理式 ∫sin²x dx",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "sin(x)^2",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "有理函数 ∫1/(x²-1) dx",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "1/(x^2-1)",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "定积分 ∫₀¹x²dx = 1/3",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "x^2",
+        "var": "x",
+        "lower": "0",
+        "upper": "1"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": "规格 6.4：必须直接调用工具，不得自写程序"
+    },
+    {
+      "name": "定积分 ∫₀^π sin x dx = 2",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "sin(x)",
+        "var": "x",
+        "lower": "0",
+        "upper": "pi"
+      },
+      "status": "ok",
+      "detail": "验证=cross",
+      "note": ""
+    },
+    {
+      "name": "反常积分 ∫₁^∞ 1/x² dx = 1",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "1/x^2",
+        "var": "x",
+        "lower": "1",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "反常积分 ∫₀^∞ e^{-x}dx = 1",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "exp(-x)",
+        "var": "x",
+        "lower": "0",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "无初等原函数 ∫x^x dx 必须如实报告",
+      "group": "calculus",
+      "op": "integrate",
+      "args": {
+        "expr": "x^x",
+        "var": "x"
+      },
+      "status": "unsolved",
+      "detail": "status=unsolved result={}",
+      "note": "规格 5.3 / 十二测试三：不得把未求值表达式当作成功（e^{x²} 有 erfi 闭式，故改用真正无初等原函数的 x^x）"
+    },
+    {
+      "name": "二重积分 ∬(x+y)dxdy（单位正方形）= 1",
+      "group": "calculus",
+      "op": "integrate_multi",
+      "args": {
+        "expr": "x+y",
+        "vars": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "二重积分 ∬xy（三角形 x+y≤1）= 1/24",
+      "group": "calculus",
+      "op": "integrate_multi",
+      "args": {
+        "expr": "x*y",
+        "vars": [
+          {
+            "var": "y",
+            "lower": "0",
+            "upper": "1-x"
+          },
+          {
+            "var": "x",
+            "lower": "0",
+            "upper": "1"
+          }
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "二重积分 ∬(x²+y²)（单位圆盘）= π/2",
+      "group": "calculus",
+      "op": "integrate_multi",
+      "args": {
+        "expr": "x^2+y^2",
+        "vars": [
+          {
+            "var": "y",
+            "lower": "-sqrt(1-x^2)",
+            "upper": "sqrt(1-x^2)"
+          },
+          {
+            "var": "x",
+            "lower": "-1",
+            "upper": "1"
+          }
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "三重积分 ∭xyz（单位立方体）= 1/8",
+      "group": "calculus",
+      "op": "integrate_multi",
+      "args": {
+        "expr": "x*y*z",
+        "vars": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "累次积分含参数 a 时必须标注未独立复核",
+      "group": "calculus",
+      "op": "integrate_multi",
+      "args": {
+        "expr": "a*x",
+        "vars": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok verify=unverified 方法=1 result={\"text\":\"a/2\",\"latex\":\"\\\\frac{a}{2}\"}",
+      "note": "规格 4.4 / 5.3：结果含参数时无法独立验证，必须明确标记而不是谎称已验证"
+    },
+    {
+      "name": "第一类曲线积分 ∮(x²+y²)ds（单位圆）= 2π",
+      "group": "calculus",
+      "op": "curve_integral",
+      "args": {
+        "kind": "first",
+        "expr": "x^2+y^2",
+        "x_expr": "cos(t)",
+        "y_expr": "sin(t)",
+        "var": "t",
+        "lower": "0",
+        "upper": "2*pi"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "第二类曲线积分 ∮(-y dx + x dy)（单位圆）= 2π",
+      "group": "calculus",
+      "op": "curve_integral",
+      "args": {
+        "kind": "second",
+        "expr": "-y",
+        "expr2": "x",
+        "x_expr": "cos(t)",
+        "y_expr": "sin(t)",
+        "var": "t",
+        "lower": "0",
+        "upper": "2*pi"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "第一类曲面积分 ∬dS（单位球面）= 4π",
+      "group": "calculus",
+      "op": "surface_integral",
+      "args": {
+        "kind": "first",
+        "expr": "1",
+        "x_expr": "sin(u)*cos(v)",
+        "y_expr": "sin(u)*sin(v)",
+        "z_expr": "cos(u)",
+        "u_var": "u",
+        "v_var": "v",
+        "u_lower": "0",
+        "u_upper": "pi",
+        "v_lower": "0",
+        "v_upper": "2*pi"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "格林公式 ∮(-y dx+x dy) 单位圆 = 2π",
+      "group": "calculus",
+      "op": "green",
+      "args": {
+        "p": "-y",
+        "q": "x",
+        "x_lower": "-1",
+        "x_upper": "1",
+        "y_lower_expr": "-sqrt(1-x^2)",
+        "y_upper_expr": "sqrt(1-x^2)"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "高斯公式 ∭∇·F dV（单位球，F=(x,y,z)）= 4π",
+      "group": "calculus",
+      "op": "gauss",
+      "args": {
+        "p": "x",
+        "q": "y",
+        "r_component": "z",
+        "r": "z",
+        "x_lower": "-1",
+        "x_upper": "1",
+        "y_lower_expr": "-sqrt(1-x^2)",
+        "y_upper_expr": "sqrt(1-x^2)",
+        "z_lower_expr": "-sqrt(1-x^2-y^2)",
+        "z_upper_expr": "sqrt(1-x^2-y^2)"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "斯托克斯 ∬(∇×F)·n dS（单位圆盘，F=(-y,x,0)）= 2π",
+      "group": "calculus",
+      "op": "stokes",
+      "args": {
+        "p": "-y",
+        "q": "x",
+        "r_component": "0",
+        "r": "0",
+        "x_expr": "r*cos(t)",
+        "y_expr": "r*sin(t)",
+        "z_expr": "0",
+        "u_var": "r",
+        "v_var": "t",
+        "u_lower": "0",
+        "u_upper": "1",
+        "v_lower": "0",
+        "v_upper": "2*pi"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "可分离变量 y'=x y",
+      "group": "calculus",
+      "op": "dsolve",
+      "args": {
+        "equations": "diff(y(x),x) - x*y(x)"
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"solution\":[\"y(x)=C1*exp(x**2/2)\"],\"arbitrary_constants\":[\"C1\"],\"ode_order\":1}",
+      "note": ""
+    },
+    {
+      "name": "一阶线性 y'+y=e^x",
+      "group": "calculus",
+      "op": "dsolve",
+      "args": {
+        "equations": "diff(y(x),x) + y(x) - exp(x)"
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"solution\":[\"y(x)=C1*exp(-x)+exp(x)/2\"],\"arbitrary_constants\":[\"C1\"],\"ode_order\":1}",
+      "note": ""
+    },
+    {
+      "name": "二阶常系数 y''-y=0",
+      "group": "calculus",
+      "op": "dsolve",
+      "args": {
+        "equations": "diff(y(x),x,2) - y(x)"
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"solution\":[\"y(x)=C1*exp(-x)+C2*exp(x)\"],\"arbitrary_constants\":[\"C1\",\"C2\"],\"ode_order\":2}",
+      "note": ""
+    },
+    {
+      "name": "ODE 解代回原方程复核 y'=y",
+      "group": "calculus",
+      "op": "ode_check",
+      "args": {
+        "equations": "diff(y(x),x) - y(x)",
+        "candidate": "C1*exp(x)"
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "几何级数 Σ(1/2)^n (n≥1) = 1",
+      "group": "calculus",
+      "op": "sum",
+      "args": {
+        "expr": "(1/2)^n",
+        "var": "n",
+        "lower": "1",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "Σ1/n² = π²/6",
+      "group": "calculus",
+      "op": "sum",
+      "args": {
+        "expr": "1/n^2",
+        "var": "n",
+        "lower": "1",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "Σ1/n 发散（调和级数）",
+      "group": "calculus",
+      "op": "sum",
+      "args": {
+        "expr": "1/n",
+        "var": "n",
+        "lower": "1",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "幂级数 Σ_{n≥1} x^n = x/(1-x)",
+      "group": "calculus",
+      "op": "sum",
+      "args": {
+        "expr": "x^n",
+        "var": "n",
+        "lower": "1",
+        "upper": "oo"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": "n 从 1 起；若 lower=0 则和是 1/(1-x)"
+    },
+    {
+      "name": "泰勒展开 e^x 到 x⁴ 含 1/24 项",
+      "group": "calculus",
+      "op": "series",
+      "args": {
+        "expr": "exp(x)",
+        "var": "x",
+        "point": "0",
+        "order": 4
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"x**4/24+x**3/6+x**2/2+x+1\",\"latex\":\"\\\\frac{x^{4}}{24}+\\\\frac{x^{3}}{6}+\\\\frac{x^{2}}{2}+x+1\",\"remainder\":\"o((x-",
+      "note": ""
+    },
+    {
+      "name": "泰勒展开 ln(1+x) 到 x⁴ 含 -x⁴/4",
+      "group": "calculus",
+      "op": "series",
+      "args": {
+        "expr": "ln(1+x)",
+        "var": "x",
+        "point": "0",
+        "order": 4
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"-x**4/4+x**3/3-x**2/2+x\",\"latex\":\"-\\\\frac{x^{4}}{4}+\\\\frac{x^{3}}{3}-\\\\frac{x^{2}}{2}+x\",\"remainder\":\"o((x-(0))",
+      "note": ""
+    },
+    {
+      "name": "化简 sin²x+cos²x → 1",
+      "group": "calculus",
+      "op": "simplify",
+      "args": {
+        "expr": "sin(x)^2+cos(x)^2"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "因式分解 x³-1",
+      "group": "calculus",
+      "op": "factor",
+      "args": {
+        "expr": "x^3-1"
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"(x-1)*(x**2+x+1)\",\"latex\":\"\\\\left(x-1\\\\right)\\\\left(x^{2}+x+1\\\\right)\"}",
+      "note": ""
+    },
+    {
+      "name": "函数分析 x³-3x 给出单调/极值结构",
+      "group": "calculus",
+      "op": "function_analysis",
+      "args": {
+        "expr": "x^3-3*x",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "status=ok 字段=['analysis', 'first_derivative', 'second_derivative', 'sections']",
+      "note": ""
+    },
+    {
+      "name": "定义域 sqrt(x-1)/(x-2)",
+      "group": "calculus",
+      "op": "domain",
+      "args": {
+        "expr": "sqrt(x-1)/(x-2)",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "status=ok 条件=['自然定义域 = 使表达式在实数范围内有意义的自变量集合（不含人为限制）', '偶次根式被开方数 _w_domain - 1 ≥ 0 → Interval(1, oo)', '分母 / 负幂底数 _w_domain - 2 ≠ 0 → Union(Interval.open(-oo, 2), Interval.open(2, oo))']",
+      "note": ""
+    },
+    {
+      "name": "等价无穷小替换被识别 (1-cos x)~x²/2",
+      "group": "calculus",
+      "op": "series",
+      "args": {
+        "expr": "1-cos(x)",
+        "var": "x",
+        "point": "0",
+        "order": 2
+      },
+      "status": "ok",
+      "detail": "得到 {\"text\":\"x**2/2\",\"latex\":\"\\\\frac{x^{2}}{2}\",\"remainder\":\"o((x-(0))^2)\"}",
+      "note": ""
+    },
+    {
+      "name": "行列式 |[[1,2],[3,4]]| = -2",
+      "group": "linalg",
+      "op": "det",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "3",
+            "4"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "行列式（含符号）|[[a,b],[c,d]]| = ad-bc",
+      "group": "linalg",
+      "op": "det",
+      "args": {
+        "matrix": [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "d"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "行列式（展开）|[[1,2,3],[4,5,6],[7,8,10]]| = -3",
+      "group": "linalg",
+      "op": "det",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8",
+            "10"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "矩阵求逆 [[1,2],[3,4]] 并核验乘积为单位阵",
+      "group": "linalg",
+      "op": "inv",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "3",
+            "4"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "不可逆矩阵求逆必须失败并说明原因",
+      "group": "linalg",
+      "op": "inv",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "2",
+            "4"
+          ]
+        ]
+      },
+      "status": "unsolved",
+      "detail": "status=unsolved error=矩阵不可逆：det = 0（0），因此不存在逆矩阵。若需要求解方程组，请改用 solve_linear 判断无解或无穷多解。",
+      "note": ""
+    },
+    {
+      "name": "矩阵秩 [[1,2,3],[2,4,6]] = 1",
+      "group": "linalg",
+      "op": "rank",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "2",
+            "4",
+            "6"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "矩阵乘法 [[1,2],[3,4]]·[[5,6],[7,8]] = [[19,22],[43,50]]",
+      "group": "linalg",
+      "op": "matmul",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "3",
+            "4"
+          ]
+        ],
+        "matrix_b": [
+          [
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "转置 [[1,2,3],[4,5,6]] → 3×2",
+      "group": "linalg",
+      "op": "transpose",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "4",
+            "5",
+            "6"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "迹 [[1,2],[3,4]] = 5",
+      "group": "linalg",
+      "op": "trace",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "3",
+            "4"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "行最简形 [[1,2,3],[4,5,6]] 首元为 1",
+      "group": "linalg",
+      "op": "rref",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "4",
+            "5",
+            "6"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"text\":\"[[1,0,-1],[0,1,2]]\",\"latex\":\"\\\\left[\\\\begin{matrix}1&0&-1\\\\\\\\0&1&2\\\\end{matrix}\\\\right]\",\"a",
+      "note": ""
+    },
+    {
+      "name": "线性方程组（唯一解）x+y=3, x-y=1 → x=2,y=1",
+      "group": "linalg",
+      "op": "solve_linear",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ]
+        ],
+        "rhs": [
+          "3",
+          "1"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"text\":\"[[2],[1]]\",\"latex\":\"\\\\left[\\\\begin{matrix}2\\\\\\\\1\\\\end{matrix}\\\\right]\",\"approx\":[[2.0],[1.0]],\"soluti",
+      "note": ""
+    },
+    {
+      "name": "线性方程组（无穷多解必须明确说明）",
+      "group": "linalg",
+      "op": "solve_linear",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ]
+        ],
+        "rhs": [
+          "1",
+          "2"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 条件=['方程组相容且 r(A) = 1 < n = 2，故有无穷多解；通解 = 特解 + 齐次通解，其中 tau0 为任意实数']",
+      "note": ""
+    },
+    {
+      "name": "特征值 [[2,1],[1,2]] = {3,1}",
+      "group": "linalg",
+      "op": "eigen",
+      "args": {
+        "matrix": [
+          [
+            "2",
+            "1"
+          ],
+          [
+            "1",
+            "2"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"eigenvalues\":[\"3\",\"1\"],\"eigenvalues_latex\":[\"3\",\"1\"],\"algebraic_multiplicities\":[1,1],\"eigenvalue_count\":2,\"",
+      "note": ""
+    },
+    {
+      "name": "特征值 [[1,1],[0,1]] 为二重 1",
+      "group": "linalg",
+      "op": "eigen",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"eigenvalues\":[\"1\"],\"eigenvalues_latex\":[\"1\"],\"algebraic_multiplicities\":[2],\"eigenvalue_count\":1,\"characteri",
+      "note": ""
+    },
+    {
+      "name": "可对角化 [[2,1],[1,2]]",
+      "group": "linalg",
+      "op": "diagonalize",
+      "args": {
+        "matrix": [
+          [
+            "2",
+            "1"
+          ],
+          [
+            "1",
+            "2"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "不可对角化 [[1,1],[0,1]] 必须明确说明",
+      "group": "linalg",
+      "op": "diagonalize",
+      "args": {
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "status": "unsolved",
+      "detail": "status=unsolved result={\"diagonalizable\":false,\"algebraic_multiplicities\":{\"1\":2},\"geometric_total\":1,\"required\":2}",
+      "note": ""
+    },
+    {
+      "name": "二次型 x²+2xy+y² 正定判定",
+      "group": "linalg",
+      "op": "quadratic_form",
+      "args": {
+        "expr": "x^2+2*x*y+y^2",
+        "variables": [
+          "x",
+          "y"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"coefficient_matrix\":[[\"1\",\"1\"],[\"1\",\"1\"]],\"coefficient_matrix_text\":\"[[1,1],[1,1]]\",\"coefficient_matrix_late",
+      "note": ""
+    },
+    {
+      "name": "二次型 x²+y² 正定",
+      "group": "linalg",
+      "op": "quadratic_form",
+      "args": {
+        "expr": "x^2+y^2",
+        "variables": [
+          "x",
+          "y"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 得到 {\"coefficient_matrix\":[[\"1\",\"0\"],[\"0\",\"1\"]],\"coefficient_matrix_text\":\"[[1,0],[0,1]]\",\"coefficient_matrix_late",
+      "note": ""
+    },
+    {
+      "name": "矩阵分析 [[2,0],[0,3]] 给出秩/行列式/特征值",
+      "group": "linalg",
+      "op": "matrix_analysis",
+      "args": {
+        "matrix": [
+          [
+            "2",
+            "0"
+          ],
+          [
+            "0",
+            "3"
+          ]
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok 字段=['algebraic_multiplicities', 'approx', 'characteristic_polynomial', 'det_latex', 'det_text', 'eigenvalues', 'eigenvalues_latex', 'eigenvectors_note', 'invertibility', 'invertible']",
+      "note": ""
+    },
+    {
+      "name": "条件概率 P(A|B)=P(AB)/P(B)",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "conditional",
+        "joint": "0.2",
+        "given": "0.5"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "全概率公式 ΣP(Ai)P(B|Ai)",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "total_probability",
+        "prior": "0.4,0.6",
+        "likelihood": "0.5,0.3"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "贝叶斯公式后验，并核验后验之和=1",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "bayes",
+        "prior": "0.5,0.5",
+        "likelihood": "0.8,0.2"
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "独立性判定 P(AB)=P(A)P(B)",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "independent_check",
+        "joint": "0.2",
+        "pa": "0.5",
+        "pb": "0.4"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "容斥公式（无交）P(A∪B)=P(A)+P(B)",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "inclusion_exclusion",
+        "pa": "0.3",
+        "pb": "0.4",
+        "joint": "0"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "正态分布密度归一化检查",
+      "group": "probability",
+      "op": "distribution",
+      "args": {
+        "kind": "pdf",
+        "dist": "normal",
+        "mu": "0",
+        "sigma": "1"
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "二项分布分布律 B(5,1/2) k=2 → 5/16",
+      "group": "probability",
+      "op": "probability",
+      "args": {
+        "kind": "at",
+        "dist": "binomial",
+        "n": "5",
+        "p": "1/2",
+        "point": "2"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "正态分布分位数 z_{0.975} ≈ 1.96 并回代复核",
+      "group": "probability",
+      "op": "distribution",
+      "args": {
+        "kind": "quantile",
+        "dist": "normal",
+        "mu": "0",
+        "sigma": "1",
+        "point": "0.975"
+      },
+      "status": "ok",
+      "detail": "得到 1.38590382434968*sqrt(2)",
+      "note": ""
+    },
+    {
+      "name": "二项分布 E[X] = np",
+      "group": "probability",
+      "op": "expectation",
+      "args": {
+        "dist": "binomial",
+        "n": "10",
+        "p": "1/3"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "正态分布 E[X] = μ",
+      "group": "probability",
+      "op": "expectation",
+      "args": {
+        "dist": "normal",
+        "mu": "2",
+        "sigma": "3"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "泊松分布 E[X] = λ",
+      "group": "probability",
+      "op": "expectation",
+      "args": {
+        "dist": "poisson",
+        "lam": "3"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "自定义分布律 E[X]（均匀骰子）= 3.5",
+      "group": "probability",
+      "op": "expectation",
+      "args": {
+        "pmf": "1/6,1/6,1/6,1/6,1/6,1/6",
+        "values": "1,2,3,4,5,6"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "二项分布 Var(X)=np(1-p)",
+      "group": "probability",
+      "op": "variance",
+      "args": {
+        "dist": "binomial",
+        "n": "10",
+        "p": "1/3"
+      },
+      "status": "ok",
+      "detail": "验证=independent 得到 20/9",
+      "note": ""
+    },
+    {
+      "name": "均匀分布 Var(X) U(0,1) = 1/12",
+      "group": "probability",
+      "op": "variance",
+      "args": {
+        "dist": "uniform",
+        "a": "0",
+        "b": "1"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "指数分布 Var(X) = 1/λ²",
+      "group": "probability",
+      "op": "variance",
+      "args": {
+        "dist": "exponential",
+        "lam": "2"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "联合分布律的边缘分布与独立性判定",
+      "group": "probability",
+      "op": "joint_marginal",
+      "args": {
+        "joint_pmf": "[[1/4,1/4],[1/4,1/4]]",
+        "x_values": "0,1",
+        "y_values": "0,1"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"[[1/2,1/2]]\",\"latex\":\"\\\\left[\\\\begin{matrix}\\\\frac{1}{2}&\\\\frac{1}{2}\\\\end{matrix}\\\\right]\",\"approx\":",
+      "note": ""
+    },
+    {
+      "name": "不具有独立性的联合分布必须判不独立",
+      "group": "probability",
+      "op": "joint_marginal",
+      "args": {
+        "joint_pmf": "[[0,1/2],[1/2,0]]",
+        "x_values": "0,1",
+        "y_values": "0,1"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"[[1/2,1/2]]\",\"latex\":\"\\\\left[\\\\begin{matrix}\\\\frac{1}{2}&\\\\frac{1}{2}\\\\end{matrix}\\\\right]\",\"approx\":",
+      "note": ""
+    },
+    {
+      "name": "离散联合分布协方差 Cov(X,Y)=0（独立）",
+      "group": "probability",
+      "op": "covariance",
+      "args": {
+        "joint_pmf": "[[1/4,1/4],[1/4,1/4]]",
+        "x_values": "0,1",
+        "y_values": "0,1"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "离散联合分布相关系数 ρ=0（不相关）",
+      "group": "probability",
+      "op": "correlation",
+      "args": {
+        "joint_pmf": "[[1/4,1/4],[1/4,1/4]]",
+        "x_values": "0,1",
+        "y_values": "0,1"
+      },
+      "status": "ok",
+      "detail": "",
+      "note": ""
+    },
+    {
+      "name": "矩母函数 M(t) 与 M(0)=1 复核",
+      "group": "probability",
+      "op": "moment_generating",
+      "args": {
+        "dist": "binomial",
+        "n": "3",
+        "p": "1/2"
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=independent",
+      "note": ""
+    },
+    {
+      "name": "矩估计（正态）σ̂ 用样本",
+      "group": "probability",
+      "op": "point_estimate",
+      "args": {
+        "samples": "1,2,3,4,5",
+        "dist": "normal",
+        "method": "both"
+      },
+      "status": "ok",
+      "detail": "status=ok 验证=cross",
+      "note": ""
+    },
+    {
+      "name": "区间估计（正态均值，σ 已知，0.95）",
+      "group": "probability",
+      "op": "interval_estimate",
+      "args": {
+        "samples": "2,3,4,5,6",
+        "dist": "normal",
+        "sigma": "1",
+        "confidence": "0.95",
+        "kind": "mean"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"单正态总体均值的置信区间（1-α=19/20）：[-sqrt(10)*erfinv(19/20)/5+4,sqrt(10)*erfinv(19/20)/5+4]，长度=2*sqrt(10)*erfinv",
+      "note": ""
+    },
+    {
+      "name": "假设检验（正态 U 检验，双侧）",
+      "group": "probability",
+      "op": "hypothesis_test",
+      "args": {
+        "kind": "z_test",
+        "samples": "2,3,4,5,6",
+        "sigma": "1",
+        "mu0": "3",
+        "alpha": "0.05"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"H₀:μ=3，H₁:μ≠3；统计量=sqrt(5)，临界值=sqrt(2)*erfinv(19/20)，p值=erfc(sqrt(10)/2)→拒绝H₀\",\"latex\":\"H₀:μ=3，H₁:μ≠3；",
+      "note": ""
+    },
+    {
+      "name": "中心极限定理近似 P(S_n ≤ 55), n=100, p=0.5",
+      "group": "probability",
+      "op": "central_limit",
+      "args": {
+        "dist": "binomial",
+        "n": "100",
+        "p": "0.5",
+        "target": "P(S_n <= 55)"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"P(S_n<=55)≈0.8643339391（正态近似，已连续性修正）\",\"latex\":\"P(S_n<=55)≈0.8643339391（正态近似，已连续性修正）\",\"approx\":\"P(S_n<",
+      "note": ""
+    },
+    {
+      "name": "多元函数极值 x²+y²+2x-4y 的极小点",
+      "group": "multivar",
+      "op": "multivar_extremum",
+      "args": {
+        "expr": "x^2+y^2+2*x-4*y",
+        "vars": [
+          "x",
+          "y"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"stationary_points\":[{\"x\":\"-1\",\"y\":\"2\"}],\"classification\":[{\"point\":{\"x\":\"-1\",\"y\":\"2\"},\"value\":\"-5\",\"kind\":\"min\",\"reaso",
+      "note": ""
+    },
+    {
+      "name": "拉格朗日乘子 x²+y² s.t. x+y=1",
+      "group": "multivar",
+      "op": "lagrange",
+      "args": {
+        "expr": "x^2+y^2",
+        "constraints": [
+          "x+y-1"
+        ],
+        "vars": [
+          "x",
+          "y"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"maximum_candidate\":{\"x\":\"1/2\",\"y\":\"1/2\"},\"minimum_candidate\":{\"x\":\"1/2\",\"y\":\"1/2\"},\"candidates\":[{\"point\":{\"x\":\"1/2\",\"",
+      "note": ""
+    },
+    {
+      "name": "多元泰勒展开 e^x·cos y 到二阶",
+      "group": "multivar",
+      "op": "taylor_multivar",
+      "args": {
+        "expr": "exp(x)*cos(y)",
+        "vars": [
+          "x",
+          "y"
+        ],
+        "point": [
+          "0",
+          "0"
+        ],
+        "order": 2
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"x**2/2+x-y**2/2+1/2\",\"latex\":\"\\\\frac{x^{2}}{2}+x-\\\\frac{y^{2}}{2}+\\\\frac{1}{2}\",\"order\":2,\"point\":\"(0,0)\",\"rema",
+      "note": ""
+    },
+    {
+      "name": "方向导数 ∂f/∂l 沿 (1,1)",
+      "group": "multivar",
+      "op": "directional_derivative",
+      "args": {
+        "expr": "x^2+y^2",
+        "vars": [
+          "x",
+          "y"
+        ],
+        "point": [
+          "1",
+          "1"
+        ],
+        "dir": [
+          "1",
+          "1"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"directional_derivative\":\"2*sqrt(2)\",\"directional_derivative_approx\":2.828427124746213,\"gradient_at_point\":\"[[2],[2]]\",",
+      "note": ""
+    },
+    {
+      "name": "渐近线 y=(x²+1)/x",
+      "group": "multivar",
+      "op": "asymptote",
+      "args": {
+        "expr": "(x^2+1)/x",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"horizontal\":[],\"vertical\":[{\"x\":\"0\",\"one_sided_limits\":{\"x→c⁺\":\"oo\",\"x→c⁻\":\"-oo\"},\"basis\":\"x→c⁺趋于无穷；x→c⁻趋于无穷",
+      "note": ""
+    },
+    {
+      "name": "不等式分析 x²-1 ≥ 0 的解集",
+      "group": "multivar",
+      "op": "inequality",
+      "args": {
+        "expr": "x^2-1 >= 0",
+        "var": "x"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"intervals\":[\"(-∞,-1)\",\"(1,+∞)\"],\"interval_text\":\"(-∞,-1)∪(1,+∞)\",\"solution_set\":\"Union(Interval(-oo,-1),Inte",
+      "note": ""
+    },
+    {
+      "name": "高精度数值 π（30 位）",
+      "group": "numeric",
+      "op": "numeric",
+      "args": {
+        "expr": "pi",
+        "digits": 30
+      },
+      "status": "ok",
+      "detail": "得到 {\"cross_route_deviation\":0.0,\"text\":\"3.14159265358979323846264338328\",\"latex\":\"3",
+      "note": ""
+    },
+    {
+      "name": "数值积分 ∫₀¹e^{-x²}dx ≈ 0.7468241328",
+      "group": "numeric",
+      "op": "numeric_integrate",
+      "args": {
+        "expr": "exp(-x^2)",
+        "var": "x",
+        "lower": "0",
+        "upper": "1",
+        "digits": 12
+      },
+      "status": "ok",
+      "detail": "得到 0.746824132812000",
+      "note": ""
+    },
+    {
+      "name": "数值解方程 cos(x)=x 的根 ≈ 0.739085",
+      "group": "numeric",
+      "op": "numeric_solve",
+      "args": {
+        "equations": "cos(x)-x",
+        "vars": [
+          "x"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"0.739085133215161\",\"latex\":\"0.739085133215161\",\"approx\":0.7390851332151607,\"digits\":15,\"abs_error\":0.",
+      "note": ""
+    },
+    {
+      "name": "数值导数 (sin x)' 在 x=0 处 = 1",
+      "group": "numeric",
+      "op": "numeric_derivative",
+      "args": {
+        "expr": "sin(x)",
+        "var": "x",
+        "point": "0",
+        "digits": 12
+      },
+      "status": "ok",
+      "detail": "得到 1.00000000000000",
+      "note": ""
+    },
+    {
+      "name": "数值优化 min x²-2x 在 x=1",
+      "group": "numeric",
+      "op": "numeric_optimize",
+      "args": {
+        "expr": "x^2-2*x",
+        "vars": [
+          "x"
+        ],
+        "mode": "min"
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"{'point':[0.999999994614927],'value':-1.00000000000000,'mode':'min'}\",\"latex\":\"{'point':[0.9999999946",
+      "note": ""
+    },
+    {
+      "name": "数值极限 sin(x)/x → 1",
+      "group": "numeric",
+      "op": "numeric_limit",
+      "args": {
+        "expr": "sin(x)/x",
+        "var": "x",
+        "point": "0",
+        "digits": 12
+      },
+      "status": "ok",
+      "detail": "得到 1.00000000000000",
+      "note": ""
+    },
+    {
+      "name": "数值级数 Σ1/n² ≈ π²/6",
+      "group": "numeric",
+      "op": "numeric_sum",
+      "args": {
+        "expr": "1/n^2",
+        "var": "n",
+        "lower": "1",
+        "upper": "oo",
+        "digits": 12
+      },
+      "status": "ok",
+      "detail": "得到 1.64493406685000",
+      "note": ""
+    },
+    {
+      "name": "数值 vs 符号一致性比对 ∫₀^π sin x dx",
+      "group": "numeric",
+      "op": "compare_numeric",
+      "args": {
+        "expr": "sin(x)",
+        "candidate": "2",
+        "vars": [
+          "x"
+        ]
+      },
+      "status": "ok",
+      "detail": "status=ok result={\"text\":\"{'agree':False,'max_rel_dev':0.8364026516019238,'note':'抽样点不一致：{x:1/3}处0.327194696796vs2；{x:1/2}处0.479425538604",
+      "note": ""
+    }
+  ],
+  "fail": [],
+  "skip": []
+}

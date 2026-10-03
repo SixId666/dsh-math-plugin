@@ -1,0 +1,4 @@
+{
+  "name": "Kaoyan Math Compute & Verify",
+  "description": "SymPy-backed exact computation and independent verification tools for Chinese postgraduate entrance exam math (calculus, linear algebra, probability), with validity conditions and verification status"
+}

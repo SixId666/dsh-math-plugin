@@ -1,0 +1,1781 @@
+﻿[
+ {
+  "name": "math_simplify",
+  "title": "化简与恒等变形",
+  "declared_op": "simplify",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "mode",
+   "var"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "expand",
+    "op": "expand",
+    "arg_keys": [
+     "expr"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "factor",
+    "op": "factor",
+    "arg_keys": [
+     "expr"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "together",
+    "op": "together",
+    "arg_keys": [
+     "expr"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "apart",
+    "op": "apart",
+    "arg_keys": [
+     "expr",
+     "var"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_solve",
+  "title": "解方程与方程组",
+  "declared_op": "solve",
+  "has_args_fn": true,
+  "params": [
+   "equations",
+   "vars"
+  ],
+  "calls": [
+   {
+    "selector": null,
+    "choice": null,
+    "op": "solve",
+    "arg_keys": [
+     "equations",
+     "vars"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_limit",
+  "title": "极限",
+  "declared_op": "limit",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "var",
+   "point",
+   "dir"
+  ],
+  "calls": [
+   {
+    "selector": null,
+    "choice": null,
+    "op": "limit",
+    "arg_keys": [
+     "expr",
+     "var",
+     "point",
+     "dir"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_derivative",
+  "title": "导数与微分",
+  "declared_op": "diff",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "var",
+   "order",
+   "variables",
+   "mode",
+   "point",
+   "direction",
+   "equation",
+   "x_expr",
+   "y_expr",
+   "param"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "partial",
+    "op": "partial",
+    "arg_keys": [
+     "expr",
+     "var",
+     "order"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "gradient",
+    "op": "gradient",
+    "arg_keys": [
+     "expr",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "jacobian",
+    "op": "jacobian",
+    "arg_keys": [
+     "exprs",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "hessian",
+    "op": "hessian",
+    "arg_keys": [
+     "expr",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "directional",
+    "op": "directional_derivative",
+    "arg_keys": [
+     "expr",
+     "vars",
+     "point",
+     "direction"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "implicit",
+    "op": "implicit_diff",
+    "arg_keys": [
+     "equation",
+     "vars",
+     "order"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "parametric",
+    "op": "parametric_derivative",
+    "arg_keys": [
+     "x_expr",
+     "y_expr",
+     "param",
+     "order"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_integrate",
+  "title": "积分",
+  "declared_op": "integrate",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "var",
+   "lower",
+   "upper"
+  ],
+  "calls": [
+   {
+    "selector": null,
+    "choice": null,
+    "op": "integrate",
+    "arg_keys": [
+     "expr",
+     "var",
+     "lower",
+     "upper"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_series",
+  "title": "级数与泰勒展开",
+  "declared_op": "series",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "var",
+   "point",
+   "order",
+   "mode",
+   "lower",
+   "upper"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "taylor",
+    "op": "series",
+    "arg_keys": [
+     "expr",
+     "var",
+     "point",
+     "order"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "sum",
+    "op": "sum",
+    "arg_keys": [
+     "expr",
+     "var",
+     "lower",
+     "upper"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_dsolve",
+  "title": "微分方程",
+  "declared_op": "dsolve",
+  "has_args_fn": true,
+  "params": [
+   "equations",
+   "vars",
+   "funcs",
+   "candidate",
+   "mode"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "solve",
+    "op": "dsolve",
+    "arg_keys": [
+     "equations",
+     "vars",
+     "funcs"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "check",
+    "op": "ode_check",
+    "arg_keys": [
+     "equations",
+     "candidate",
+     "vars",
+     "funcs"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_matrix",
+  "title": "矩阵与线性代数",
+  "declared_op": "matrix_analysis",
+  "has_args_fn": true,
+  "params": [
+   "matrix",
+   "matrix_b",
+   "expr",
+   "variables",
+   "operation",
+   "rhs",
+   "order"
+  ],
+  "calls": [
+   {
+    "selector": "operation",
+    "choice": "det",
+    "op": "det",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "inv",
+    "op": "inv",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "rank",
+    "op": "rank",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "transpose",
+    "op": "transpose",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "matmul",
+    "op": "matmul",
+    "arg_keys": [
+     "matrix",
+     "matrix_b"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "matadd",
+    "op": "matadd",
+    "arg_keys": [
+     "matrix",
+     "matrix_b"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "trace",
+    "op": "trace",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "rref",
+    "op": "rref",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "solve_linear",
+    "op": "solve_linear",
+    "arg_keys": [
+     "matrix",
+     "rhs"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "eigen",
+    "op": "eigen",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "diagonalize",
+    "op": "diagonalize",
+    "arg_keys": [
+     "matrix"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "quadratic",
+    "op": "quadratic_form",
+    "arg_keys": [
+     "expr",
+     "matrix",
+     "variables"
+    ],
+    "error": null
+   },
+   {
+    "selector": "operation",
+    "choice": "power",
+    "op": "matrix_power",
+    "arg_keys": [
+     "matrix",
+     "order"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_probability",
+  "title": "概率统计",
+  "declared_op": "probability",
+  "has_args_fn": true,
+  "params": [
+   "kind",
+   "dist",
+   "prior",
+   "likelihood",
+   "joint",
+   "pa",
+   "pb",
+   "given",
+   "expr",
+   "var",
+   "lower",
+   "upper",
+   "point",
+   "params",
+   "p",
+   "n",
+   "lam",
+   "mu",
+   "sigma",
+   "samples",
+   "method",
+   "confidence",
+   "alpha",
+   "side",
+   "mu0"
+  ],
+  "calls": [
+   {
+    "selector": "kind",
+    "choice": "total_probability",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "conditional",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "independent_check",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "inclusion_exclusion",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "interval",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "at",
+    "op": "probability",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "distribution",
+    "op": "distribution",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "expectation",
+    "op": "expectation",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "variance",
+    "op": "variance",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "covariance",
+    "op": "covariance",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "correlation",
+    "op": "correlation",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "joint_marginal",
+    "op": "joint_marginal",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "moments",
+    "op": "distribution_moments",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "custom_pmf",
+    "op": "distribution_from_pmf",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "estimate",
+    "op": "point_estimate",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "interval_estimate",
+    "op": "interval_estimate",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "hypothesis_test",
+    "op": "hypothesis_test",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "sampling",
+    "op": "sampling_distribution",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "clt",
+    "op": "central_limit",
+    "arg_keys": [
+     "mu",
+     "sigma",
+     "kind",
+     "dist",
+     "prior",
+     "likelihood",
+     "joint",
+     "pa",
+     "pb",
+     "given",
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "point",
+     "p",
+     "n",
+     "lam",
+     "samples",
+     "method",
+     "confidence",
+     "alpha",
+     "side",
+     "mu0"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_numeric",
+  "title": "高精度数值计算",
+  "declared_op": "numeric",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "mode",
+   "var",
+   "vars",
+   "values",
+   "lower",
+   "upper",
+   "point",
+   "candidate",
+   "digits",
+   "order",
+   "samples"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "integrate",
+    "op": "numeric_integrate",
+    "arg_keys": [
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "solve",
+    "op": "numeric_solve",
+    "arg_keys": [
+     "equations",
+     "vars",
+     "guesses"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "optimize",
+    "op": "numeric_optimize",
+    "arg_keys": [
+     "expr",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "derivative",
+    "op": "numeric_derivative",
+    "arg_keys": [
+     "expr",
+     "var",
+     "point",
+     "order",
+     "digits"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "limit",
+    "op": "numeric_limit",
+    "arg_keys": [
+     "expr",
+     "var",
+     "point",
+     "digits"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "sum",
+    "op": "numeric_sum",
+    "arg_keys": [
+     "expr",
+     "var",
+     "lower",
+     "upper",
+     "digits"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "compare",
+    "op": "compare_numeric",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "vars",
+     "samples"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_vector_calculus",
+  "title": "曲线曲面积分与三大公式",
+  "declared_op": "curve_integral",
+  "has_args_fn": true,
+  "params": [
+   "mode",
+   "kind",
+   "expr",
+   "expr2",
+   "expr3",
+   "r",
+   "x_expr",
+   "y_expr",
+   "z_expr",
+   "var",
+   "lower",
+   "upper",
+   "u_var",
+   "v_var",
+   "u_lower",
+   "u_upper",
+   "v_lower",
+   "v_upper",
+   "x_lower",
+   "x_upper",
+   "y_lower_expr",
+   "y_upper_expr",
+   "z_lower_expr",
+   "z_upper_expr",
+   "y_lower",
+   "y_upper",
+   "z_lower",
+   "z_upper",
+   "orientation"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "surface",
+    "op": "surface_integral",
+    "arg_keys": [
+     "expr",
+     "expr2",
+     "expr3",
+     "x_expr",
+     "y_expr",
+     "z_expr",
+     "u_var",
+     "v_var",
+     "u_lower",
+     "u_upper",
+     "v_lower",
+     "v_upper",
+     "kind"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "green",
+    "op": "green",
+    "arg_keys": [
+     "p",
+     "q",
+     "x_lower",
+     "x_upper",
+     "y_lower",
+     "y_upper",
+     "y_lower_expr",
+     "y_upper_expr",
+     "orientation"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "gauss",
+    "op": "gauss",
+    "arg_keys": [
+     "p",
+     "q",
+     "r_component",
+     "x_lower",
+     "x_upper",
+     "y_lower",
+     "y_upper",
+     "z_lower",
+     "z_upper",
+     "y_lower_expr",
+     "y_upper_expr",
+     "z_lower_expr",
+     "z_upper_expr"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "stokes",
+    "op": "stokes",
+    "arg_keys": [
+     "p",
+     "q",
+     "r_component",
+     "x_expr",
+     "y_expr",
+     "z_expr",
+     "u_var",
+     "v_var",
+     "u_lower",
+     "u_upper",
+     "v_lower",
+     "v_upper"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_verify",
+  "title": "独立验证结果",
+  "declared_op": "verify",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "candidate",
+   "kind",
+   "var",
+   "vars",
+   "equations",
+   "point",
+   "lower",
+   "upper",
+   "matrix",
+   "matrix_b",
+   "conditions"
+  ],
+  "calls": [
+   {
+    "selector": "kind",
+    "choice": "derivative",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "integral",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "definite_integral",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "limit",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "equation_solution",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "identity",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "simplify",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "factor",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "expand",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "matrix_inverse",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "determinant",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "eigen",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "probability",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "expectation",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "variance",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   },
+   {
+    "selector": "kind",
+    "choice": "normalization",
+    "op": "verify",
+    "arg_keys": [
+     "expr",
+     "candidate",
+     "kind",
+     "var",
+     "vars",
+     "equations",
+     "point",
+     "lower",
+     "upper",
+     "matrix",
+     "matrix_b",
+     "conditions"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_analysis",
+  "title": "函数分析与定义域",
+  "declared_op": "function_analysis",
+  "has_args_fn": true,
+  "params": [
+   "expr",
+   "var",
+   "variables",
+   "mode",
+   "constraints",
+   "point",
+   "order",
+   "inequality"
+  ],
+  "calls": [
+   {
+    "selector": "mode",
+    "choice": "domain",
+    "op": "domain",
+    "arg_keys": [
+     "expr",
+     "var"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "asymptote",
+    "op": "asymptote",
+    "arg_keys": [
+     "expr",
+     "var"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "extremum",
+    "op": "multivar_extremum",
+    "arg_keys": [
+     "expr",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "lagrange",
+    "op": "lagrange",
+    "arg_keys": [
+     "expr",
+     "constraints",
+     "vars"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "taylor",
+    "op": "taylor_multivar",
+    "arg_keys": [
+     "expr",
+     "vars",
+     "point",
+     "order"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "inequality",
+    "op": "inequality",
+    "arg_keys": [
+     "expr",
+     "var"
+    ],
+    "error": null
+   },
+   {
+    "selector": "mode",
+    "choice": "mean_value",
+    "op": "mean_value_point",
+    "arg_keys": [
+     "expr",
+     "var"
+    ],
+    "error": null
+   }
+  ]
+ },
+ {
+  "name": "math_status",
+  "title": "数学引擎状态",
+  "declared_op": "@cache_stats",
+  "has_args_fn": true,
+  "params": [
+   "action"
+  ],
+  "calls": [
+   {
+    "selector": "action",
+    "choice": "status",
+    "op": "@cache_stats",
+    "arg_keys": [],
+    "error": null
+   },
+   {
+    "selector": "action",
+    "choice": "ops",
+    "op": "@cache_stats",
+    "arg_keys": [],
+    "error": null
+   },
+   {
+    "selector": "action",
+    "choice": "cache_stats",
+    "op": "@cache_stats",
+    "arg_keys": [],
+    "error": null
+   },
+   {
+    "selector": "action",
+    "choice": "cache_clear",
+    "op": "@cache_stats",
+    "arg_keys": [],
+    "error": null
+   }
+  ]
+ }
+]

@@ -1,0 +1,2750 @@
+{
+ "A1_integrate_def": {
+  "op": "integrate",
+  "args": {
+   "expr": "x*sin(x)",
+   "var": "x",
+   "lower": "0",
+   "upper": "pi"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "integrate",
+   "method": "定积分：sp.integrate(expr, (var, a, b))",
+   "input": {
+    "expr": "x*sin(x)",
+    "var": "x",
+    "lower": "0",
+    "upper": "pi"
+   },
+   "result": {
+    "text": "pi",
+    "latex": "\\pi",
+    "approx": 3.141592653589793
+   },
+   "conditions": [
+    "被积函数在闭区间 [0, pi]（去掉内部瑕点后）可积"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "numeric_integrate 加固数值路线（多路线 + 收敛守卫，与 sp.integrate 相互独立）",
+      "numeric_value": "3.14159",
+      "symbolic_value": "3.14159",
+      "max_rel_dev": 0.0,
+      "numeric_abs_error": null,
+      "numeric_reliable_digits": null
+     }
+    ],
+    "note": "符号结果与独立数值积分（多路线 + 收敛守卫）一致（数值交叉验证，非符号证明）。"
+   },
+   "warnings": [],
+   "elapsed_ms": 154.59
+  }
+ },
+ "A2_eigen": {
+  "op": "eigen",
+  "args": {
+   "matrix": "2,1;1,2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "eigen",
+   "method": "SymPy Matrix.eigenvals / eigenvects（特征多项式精确求根）",
+   "input": {
+    "matrix_shape": "2x2"
+   },
+   "result": {
+    "eigenvalues": [
+     "3",
+     "1"
+    ],
+    "eigenvalues_latex": [
+     "3",
+     "1"
+    ],
+    "algebraic_multiplicities": [
+     1,
+     1
+    ],
+    "eigenvalue_count": 2,
+    "characteristic_polynomial": "(lambda - 3)*(lambda - 1)",
+    "text": "[3, 1]",
+    "latex": "\\left[ 3, \\  1\\right]",
+    "approx": [
+     3.0,
+     1.0
+    ],
+    "eigenvectors": [
+     {
+      "eigenvalue": "1",
+      "algebraic_multiplicity": 1,
+      "geometric_multiplicity": 1,
+      "eigenvectors": [
+       "[[-1], [1]]"
+      ],
+      "eigenvectors_latex": [
+       "\\left[\\begin{matrix}-1\\\\1\\end{matrix}\\right]"
+      ]
+     },
+     {
+      "eigenvalue": "3",
+      "algebraic_multiplicity": 1,
+      "geometric_multiplicity": 1,
+      "eigenvectors": [
+       "[[1], [1]]"
+      ],
+      "eigenvectors_latex": [
+       "\\left[\\begin{matrix}1\\\\1\\end{matrix}\\right]"
+      ]
+     }
+    ]
+   },
+   "conditions": [
+    "λ 为 A 的特征值 ⟺ det(λI − A) = 0（特征多项式的根）",
+    "代数重数之和 = 矩阵阶数；几何重数 ≤ 代数重数",
+    "A 为实对称矩阵：特征值全为实数，且存在正交矩阵 Q 使 QᵀAQ = Λ（可用正交对角化）",
+    "已确认特征值全为实数，与实对称矩阵的谱定理一致"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "特征多项式重构：∏(λ − λᵢ)^mᵢ 与 charpoly(A) 展开后逐项相同",
+      "charpoly": "(lambda - 3)*(lambda - 1)",
+      "reconstructed": "(lambda - 3)*(lambda - 1)",
+      "agree": true
+     },
+     {
+      "method": "迹校验：trace(A) = Σ mᵢλᵢ（用特征值求和，独立于特征多项式）",
+      "expected": "4",
+      "got": "4",
+      "agree": true
+     },
+     {
+      "method": "行列式校验：det(A) = ∏ λᵢ^mᵢ",
+      "expected": "3",
+      "got": "3",
+      "agree": true
+     }
+    ],
+    "note": "验证通过：特征多项式、迹与行列式三条独立关系全部吻合。"
+   },
+   "warnings": [],
+   "elapsed_ms": 9.64
+  }
+ },
+ "A2b_matrix_analysis": {
+  "op": "matrix_analysis",
+  "args": {
+   "matrix": "2,1;1,2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "matrix_analysis",
+   "method": "汇总视图：行列式/秩/迹/可逆性/特征值（只读汇总，不做求解）",
+   "input": {
+    "matrix_shape": "2x2"
+   },
+   "result": {
+    "view": "SUMMARY ONLY（只读汇总视图，不做求解）",
+    "is_square": true,
+    "det_text": "3",
+    "det_latex": "3",
+    "invertible": true,
+    "invertibility": "可逆（det ≠ 0）",
+    "rank": 2,
+    "pivot_columns": [
+     1,
+     2
+    ],
+    "rank_definition": "rank = 行最简形非零行数 = 主元个数",
+    "rref": [
+     [
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "rref_text": "[[1, 0], [0, 1]]",
+    "trace_text": "4",
+    "trace_latex": "4",
+    "eigenvalues": [
+     "3",
+     "1"
+    ],
+    "eigenvalues_latex": [
+     "3",
+     "1"
+    ],
+    "algebraic_multiplicities": [
+     1,
+     1
+    ],
+    "eigenvectors_note": "未计算：特征向量求解失败（ValueError: not enough values to unpack (expected 4, got 3)）",
+    "characteristic_polynomial": "(lambda - 3)*(lambda - 1)",
+    "text": "2×2 矩阵的只读汇总视图",
+    "latex": "2×2 矩阵的只读汇总视图",
+    "approx": "2×2 矩阵的只读汇总视图",
+    "not_computed": [
+     "eigenvectors"
+    ],
+    "note": "本工具为汇总视图，未执行任何求解；需要具体结果请调用对应算子"
+   },
+   "conditions": [
+    "所有数值均为精确符号值；含自由符号时结论依赖于符号取值",
+    "可逆 ⟺ det ≠ 0 ⟺ 满秩 ⟺ 特征值全不为 0"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "秩判据复核可逆性：r(A) = n ⟺ A 可逆（det ≠ 0 等价于满秩）",
+      "rank": 2,
+      "n": 2,
+      "agree": true
+     },
+     {
+      "method": "秩的两种计数：rank() 与行最简形非零行数",
+      "rank": 2,
+      "nonzero_rows": 2,
+      "agree": true
+     },
+     {
+      "method": "迹与行列式的谱关系：trace(A) = Σ mᵢλᵢ 且 det(A) = ∏ λᵢ^mᵢ",
+      "trace": "4",
+      "eigen_sum": "4",
+      "det": "3",
+      "eigen_product": "3",
+      "agree": true
+     }
+    ],
+    "note": "汇总视图内部用秩判据与谱关系交叉印证了可逆性与特征值统计。"
+   },
+   "warnings": [],
+   "elapsed_ms": 5.84
+  }
+ },
+ "B1_verify_integral_wrong": {
+  "op": "verify",
+  "args": {
+   "kind": "integral",
+   "expr": "x*exp(x)",
+   "candidate": "x*exp(x)+exp(x)",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=integral）",
+   "input": {
+    "kind": "integral",
+    "expr": "x*exp(x)",
+    "candidate": "x*exp(x)+exp(x)",
+    "var": "x"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+     "level": "symbolic",
+     "evidence": {
+      "derivative_of_candidate": "x*exp(x) + 2*exp(x)",
+      "derivative_of_candidate_latex": "\\left(x + 2\\right) e^{x}",
+      "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+      "difference": "-2*exp(x)",
+      "numeric": {
+       "agree": false,
+       "max_rel_dev": 1.2130613194252668,
+       "checked_points": 12,
+       "note": "抽样点不一致：{x: -1/2} 处 -0.303265329856 vs 0.909795989569（相对偏差 1.21306）"
+      },
+      "finite_difference": {
+       "agree": false,
+       "max_rel_dev": 0.8571428571444826,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 8.571e-01；反例：{x: 1/3} 处差分导数 3.2564289919 vs 候选 0.465204141695"
+      },
+      "check_antiderivative_agree": false,
+      "domain_caveats": [],
+      "counterexample": "在 {x: -1/2} 处：左边 = -0.303265329856，右边 = 0.909795989569（相对偏差 1.21306）"
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+       "passed": false,
+       "evidence": {
+        "derivative_of_candidate": "(x + 2)*exp(x)",
+        "difference": "-2*exp(x)"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": false,
+       "evidence": {
+        "max_rel_dev": 1.2130613194252668,
+        "note": "抽样点不一致：{x: -1/2} 处 -0.303265329856 vs 0.909795989569（相对偏差 1.21306）"
+       }
+      },
+      {
+       "method": "中心差分独立估计候选原函数的导数",
+       "passed": false,
+       "evidence": {
+        "max_rel_dev": 0.8571428571444826,
+        "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 8.571e-01；反例：{x: 1/3} 处差分导数 3.2564289919 vs 候选 0.465204141695"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": [],
+    "counterexample": "在 {x: -1/2} 处：左边 = -0.303265329856，右边 = 0.909795989569（相对偏差 1.21306）"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+      "passed": false,
+      "evidence": {
+       "derivative_of_candidate": "(x + 2)*exp(x)",
+       "difference": "-2*exp(x)"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": false,
+      "evidence": {
+       "max_rel_dev": 1.2130613194252668,
+       "note": "抽样点不一致：{x: -1/2} 处 -0.303265329856 vs 0.909795989569（相对偏差 1.21306）"
+      }
+     },
+     {
+      "method": "中心差分独立估计候选原函数的导数",
+      "passed": false,
+      "evidence": {
+       "max_rel_dev": 0.8571428571444826,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 8.571e-01；反例：{x: 1/3} 处差分导数 3.2564289919 vs 候选 0.465204141695"
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "evidence": {
+     "derivative_of_candidate": "x*exp(x) + 2*exp(x)",
+     "derivative_of_candidate_latex": "\\left(x + 2\\right) e^{x}",
+     "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+     "difference": "-2*exp(x)",
+     "numeric": {
+      "agree": false,
+      "max_rel_dev": 1.2130613194252668,
+      "checked_points": 12,
+      "note": "抽样点不一致：{x: -1/2} 处 -0.303265329856 vs 0.909795989569（相对偏差 1.21306）"
+     },
+     "finite_difference": {
+      "agree": false,
+      "max_rel_dev": 0.8571428571444826,
+      "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 8.571e-01；反例：{x: 1/3} 处差分导数 3.2564289919 vs 候选 0.465204141695"
+     },
+     "check_antiderivative_agree": false,
+     "domain_caveats": [],
+     "counterexample": "在 {x: -1/2} 处：左边 = -0.303265329856，右边 = 0.909795989569（相对偏差 1.21306）"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：在 {x: -1/2} 处：左边 = -0.303265329856，右边 = 0.909795989569（相对偏差 1.21306）"
+   ],
+   "elapsed_ms": 144.84
+  }
+ },
+ "B1b_verify_integral_right": {
+  "op": "verify",
+  "args": {
+   "kind": "integral",
+   "expr": "x*exp(x)",
+   "candidate": "x*exp(x)-exp(x)",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=integral）",
+   "input": {
+    "kind": "integral",
+    "expr": "x*exp(x)",
+    "candidate": "x*exp(x)-exp(x)",
+    "var": "x"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（差式构造上即为 0）",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（差式构造上即为 0）",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（差式构造上即为 0）",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "符号差式复核（差式构造上即为 0）",
+     "level": "symbolic",
+     "evidence": {
+      "derivative_of_candidate": "x*exp(x)",
+      "derivative_of_candidate_latex": "x e^{x}",
+      "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+      "difference": "0",
+      "numeric": {
+       "agree": true,
+       "max_rel_dev": 0.0,
+       "checked_points": 12,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      },
+      "finite_difference": {
+       "agree": true,
+       "max_rel_dev": 4.029088174206663e-11,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.029e-11"
+      },
+      "check_antiderivative_agree": true,
+      "domain_caveats": []
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+       "passed": true,
+       "evidence": {
+        "derivative_of_candidate": "x*exp(x)",
+        "difference": "0"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 0.0,
+        "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+       }
+      },
+      {
+       "method": "中心差分独立估计候选原函数的导数",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 4.029088174206663e-11,
+        "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.029e-11"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+      "passed": true,
+      "evidence": {
+       "derivative_of_candidate": "x*exp(x)",
+       "difference": "0"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 0.0,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      }
+     },
+     {
+      "method": "中心差分独立估计候选原函数的导数",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 4.029088174206663e-11,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.029e-11"
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "符号差式复核（差式构造上即为 0）",
+    "evidence": {
+     "derivative_of_candidate": "x*exp(x)",
+     "derivative_of_candidate_latex": "x e^{x}",
+     "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+     "difference": "0",
+     "numeric": {
+      "agree": true,
+      "max_rel_dev": 0.0,
+      "checked_points": 12,
+      "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+     },
+     "finite_difference": {
+      "agree": true,
+      "max_rel_dev": 4.029088174206663e-11,
+      "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.029e-11"
+     },
+     "check_antiderivative_agree": true,
+     "domain_caveats": []
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 9.54
+  }
+ },
+ "B2_ode_check_wrong": {
+  "op": "ode_check",
+  "args": {
+   "equations": [
+    "y' - 2*y = 0"
+   ],
+   "candidate": "2*exp(2*x)",
+   "vars": [
+    "x"
+   ],
+   "funcs": [
+    "y"
+   ]
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "ode_check",
+   "method": "独立验证：候选解代回原 ODE，化简 lhs-rhs 检查残差是否为 0",
+   "input": {
+    "equations": [
+     "-2*y(x) + Derivative(y(x), x)"
+    ],
+    "candidate": [
+     "y(x) = 2*exp(2*x)"
+    ]
+   },
+   "result": {
+    "residuals": [
+     "0"
+    ],
+    "residual_count": 1,
+    "text": "残差化简为 0：候选解满足原微分方程",
+    "latex": "残差化简为 0：候选解满足原微分方程",
+    "approx": "残差化简为 0：候选解满足原微分方程"
+   },
+   "conditions": [],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "独立机制：把候选解代入原方程并化简残差（不依赖 sp.dsolve 的求解过程）",
+      "agree": true,
+      "residuals": [
+       "0"
+      ]
+     }
+    ],
+    "note": "结论仅说明「满足方程」，初值条件与定义域仍需单独核对。"
+   },
+   "warnings": [],
+   "elapsed_ms": 5.97
+  }
+ },
+ "B2b_ode_check_wrong2": {
+  "op": "ode_check",
+  "args": {
+   "equations": [
+    "y' - 2*y = 0"
+   ],
+   "candidate": "C1*exp(2*x)+x",
+   "vars": [
+    "x"
+   ],
+   "funcs": [
+    "y"
+   ]
+  },
+  "resp": {
+   "success": false,
+   "status": "partial",
+   "operation": "ode_check",
+   "method": "独立验证：候选解代回原 ODE，化简 lhs-rhs 检查残差是否为 0",
+   "input": {
+    "equations": [
+     "-2*y(x) + Derivative(y(x), x)"
+    ],
+    "candidate": [
+     "y(x) = C1*exp(2*x) + x"
+    ]
+   },
+   "result": {
+    "residuals": [
+     "1 - 2*x",
+     "（数值抽样判定：different；抽样点不一致：{x: 1/3} 处 0.333333333333 vs 0；{x: 2/3} 处 -0.333333333333 vs 0；{x: 3/2} 处 -2 vs 0）"
+    ],
+    "residual_count": 2,
+    "text": "残差不为 0：候选解不满足原微分方程",
+    "latex": "残差不为 0：候选解不满足原微分方程",
+    "approx": "残差不为 0：候选解不满足原微分方程"
+   },
+   "conditions": [],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "独立机制：把候选解代入原方程并化简残差（不依赖 sp.dsolve 的求解过程）",
+      "agree": false,
+      "residuals": [
+       "1 - 2*x",
+       "（数值抽样判定：different；抽样点不一致：{x: 1/3} 处 0.333333333333 vs 0；{x: 2/3} 处 -0.333333333333 vs 0；{x: 3/2} 处 -2 vs 0）"
+      ]
+     }
+    ],
+    "note": "已独立判定该候选解是错误的（残差非 0），这属于「验证失败」而非「未能验证」。"
+   },
+   "warnings": [
+    "候选解未通过代回验证，残差见 extra.residuals。"
+   ],
+   "elapsed_ms": 17.63
+  }
+ },
+ "B2c_ode_check_right": {
+  "op": "ode_check",
+  "args": {
+   "equations": [
+    "y' - 2*y = 0"
+   ],
+   "candidate": "C1*exp(2*x)",
+   "vars": [
+    "x"
+   ],
+   "funcs": [
+    "y"
+   ]
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "ode_check",
+   "method": "独立验证：候选解代回原 ODE，化简 lhs-rhs 检查残差是否为 0",
+   "input": {
+    "equations": [
+     "-2*y(x) + Derivative(y(x), x)"
+    ],
+    "candidate": [
+     "y(x) = C1*exp(2*x)"
+    ]
+   },
+   "result": {
+    "residuals": [
+     "0"
+    ],
+    "residual_count": 1,
+    "text": "残差化简为 0：候选解满足原微分方程",
+    "latex": "残差化简为 0：候选解满足原微分方程",
+    "approx": "残差化简为 0：候选解满足原微分方程"
+   },
+   "conditions": [],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "独立机制：把候选解代入原方程并化简残差（不依赖 sp.dsolve 的求解过程）",
+      "agree": true,
+      "residuals": [
+       "0"
+      ]
+     }
+    ],
+    "note": "结论仅说明「满足方程」，初值条件与定义域仍需单独核对。"
+   },
+   "warnings": [],
+   "elapsed_ms": 3.23
+  }
+ },
+ "B3_verify_derivative_wrong": {
+  "op": "verify",
+  "args": {
+   "kind": "derivative",
+   "expr": "x^x",
+   "candidate": "x^x",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=derivative）",
+   "input": {
+    "kind": "derivative",
+    "expr": "x^x",
+    "candidate": "x^x",
+    "var": "x"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+     "level": "symbolic",
+     "evidence": {
+      "independent_derivative": "x**x*(log(x) + 1)",
+      "independent_derivative_latex": "x^{x} \\left(\\log{\\left(x \\right)} + 1\\right)",
+      "sympy_core_method": "解析求导并与候选结果作符号比较",
+      "difference": "x**x*log(x)",
+      "numeric": {
+       "agree": false,
+       "max_rel_dev": 0.7617352164881879,
+       "checked_points": 8,
+       "note": "抽样点不一致：{x: 1/3} 处 -0.0683739421376 vs 0.693361274351（相对偏差 0.761735）"
+      },
+      "finite_difference": {
+       "agree": false,
+       "max_rel_dev": 0.7617352164698611,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 7.617e-01；反例：{x: 1/3} 处差分导数 -0.0683739421192 vs 候选 0.693361274351"
+      },
+      "check_derivative_agree": false,
+      "condition_refined_difference": "x**x*(log(x) + 1) - x**x",
+      "counterexample": "在 {x: 1/3} 处：左边 = -0.0683739421376，右边 = 0.693361274351（相对偏差 0.761735）"
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "独立符号求导 + 差式化简（sympy_core.check_derivative）",
+       "passed": false,
+       "evidence": {
+        "expected": "x**x*(log(x) + 1)",
+        "difference": "x**x*log(x)"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": false,
+       "evidence": {
+        "max_rel_dev": 0.7617352164881879,
+        "note": "抽样点不一致：{x: 1/3} 处 -0.0683739421376 vs 0.693361274351（相对偏差 0.761735）",
+        "counterexample": {
+         "x": "1/3"
+        }
+       }
+      },
+      {
+       "method": "中心差分独立估计导数（与符号求导无关的机制）",
+       "passed": false,
+       "evidence": {
+        "max_rel_dev": 0.7617352164698611,
+        "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 7.617e-01；反例：{x: 1/3} 处差分导数 -0.0683739421192 vs 候选 0.693361274351"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": [],
+    "counterexample": "在 {x: 1/3} 处：左边 = -0.0683739421376，右边 = 0.693361274351（相对偏差 0.761735）"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "独立符号求导 + 差式化简（sympy_core.check_derivative）",
+      "passed": false,
+      "evidence": {
+       "expected": "x**x*(log(x) + 1)",
+       "difference": "x**x*log(x)"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": false,
+      "evidence": {
+       "max_rel_dev": 0.7617352164881879,
+       "note": "抽样点不一致：{x: 1/3} 处 -0.0683739421376 vs 0.693361274351（相对偏差 0.761735）",
+       "counterexample": {
+        "x": "1/3"
+       }
+      }
+     },
+     {
+      "method": "中心差分独立估计导数（与符号求导无关的机制）",
+      "passed": false,
+      "evidence": {
+       "max_rel_dev": 0.7617352164698611,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 7.617e-01；反例：{x: 1/3} 处差分导数 -0.0683739421192 vs 候选 0.693361274351"
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "evidence": {
+     "independent_derivative": "x**x*(log(x) + 1)",
+     "independent_derivative_latex": "x^{x} \\left(\\log{\\left(x \\right)} + 1\\right)",
+     "sympy_core_method": "解析求导并与候选结果作符号比较",
+     "difference": "x**x*log(x)",
+     "numeric": {
+      "agree": false,
+      "max_rel_dev": 0.7617352164881879,
+      "checked_points": 8,
+      "note": "抽样点不一致：{x: 1/3} 处 -0.0683739421376 vs 0.693361274351（相对偏差 0.761735）"
+     },
+     "finite_difference": {
+      "agree": false,
+      "max_rel_dev": 0.7617352164698611,
+      "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数不一致，最大相对偏差 7.617e-01；反例：{x: 1/3} 处差分导数 -0.0683739421192 vs 候选 0.693361274351"
+     },
+     "check_derivative_agree": false,
+     "condition_refined_difference": "x**x*(log(x) + 1) - x**x",
+     "counterexample": "在 {x: 1/3} 处：左边 = -0.0683739421376，右边 = 0.693361274351（相对偏差 0.761735）"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：在 {x: 1/3} 处：左边 = -0.0683739421376，右边 = 0.693361274351（相对偏差 0.761735）"
+   ],
+   "elapsed_ms": 59.29
+  }
+ },
+ "B4_verify_eq_wrong": {
+  "op": "verify",
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x^2-3*x+2=0"
+   ],
+   "candidate": "x=1, x=-2"
+  },
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "verify",
+   "method": "verify",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 2.5,
+   "error": {
+    "kind": "invalid_input",
+    "message": "复核缺少必需参数：cand"
+   }
+  }
+ },
+ "B5_verify_matrix_inverse_wrong": {
+  "op": "verify",
+  "args": {
+   "kind": "matrix_inverse",
+   "matrix": "1,2;3,4",
+   "candidate": "-2,1;3/2,-1/2"
+  },
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "verify",
+   "method": "verify",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 1.5,
+   "error": {
+    "kind": "invalid_input",
+    "message": "复核缺少必需参数：cand"
+   }
+  }
+ },
+ "C1_domain": {
+  "op": "domain",
+  "args": {
+   "expr": "x^2*log(x)",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "domain",
+   "method": "表达式树遍历收集限制条件 + sp.solve_univariate_inequality/sp.continuous_domain",
+   "input": {
+    "expr": "x**2*log(x)",
+    "var": "x"
+   },
+   "result": {
+    "domain": "(0, +∞)",
+    "intervals": [
+     "(0, +∞)"
+    ],
+    "domain_text": "(0, +∞)",
+    "restrictions": [
+     "对数真数 _w_domain > 0 → Interval.open(0, oo)"
+    ],
+    "continuous_domain_note": "sp.continuous_domain 交叉核对得到 Interval.open(0, oo)"
+   },
+   "conditions": [
+    "自然定义域 = 使表达式在实数范围内有意义的自变量集合（不含人为限制）",
+    "对数真数 _w_domain > 0 → Interval.open(0, oo)"
+   ],
+   "verification": {
+    "status": "partially_verified",
+    "methods": [
+     {
+      "method": "定义域内逐点代入检验（要求有限实数值）",
+      "agree": false,
+      "note": "定义域内抽样 0 点全部取到有限实数值"
+     },
+     {
+      "method": "sp.continuous_domain 独立交叉核对",
+      "note": "sp.continuous_domain 交叉核对得到 Interval.open(0, oo)",
+      "agree": true
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 23.12
+  }
+ },
+ "C2_numeric_sum": {
+  "op": "numeric_sum",
+  "args": {
+   "expr": "n/(2^n)",
+   "var": "n",
+   "lower": "1",
+   "upper": "oo"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "numeric_sum",
+   "method": "高精度数值求和（mpmath，目标 15 位有效数字）",
+   "input": {
+    "expr": "n/(2^n)",
+    "var": "n",
+    "lower": "1",
+    "upper": "oo",
+    "digits": 15,
+    "terms": 200
+   },
+   "result": {
+    "text": "2.00000000000000",
+    "latex": "2.0",
+    "approx": 2.0,
+    "digits": 15,
+    "abs_error": 4.2338863081839495e-60,
+    "relative_error": 2.1169431540919748e-60,
+    "is_approximate": true,
+    "terms_used": 200,
+    "routes": [
+     {
+      "route": "nsum[r]",
+      "value": "2.0",
+      "error": null,
+      "used_for_error": true
+     },
+     {
+      "route": "nsum[s]",
+      "value": "2.0",
+      "error": null,
+      "used_for_error": false
+     },
+     {
+      "route": "nsum[d]",
+      "value": "2.0",
+      "error": null,
+      "used_for_error": false
+     },
+     {
+      "route": "euler_maclaurin",
+      "value": "2.0",
+      "error": 4.2338863081839495e-60,
+      "used_for_error": true
+     }
+    ],
+    "chosen_route": "部分和(200 项) + Euler–Maclaurin 尾项（∫_N^∞ − f(N)/2 − f'(N)/12 + f'''(N)/720 − …）",
+    "trusted_routes": [
+     "nsum[r]",
+     "euler_maclaurin"
+    ],
+    "confirming_routes": [
+     "nsum[s]",
+     "nsum[d]"
+    ],
+    "partial_sum_at_N": "2.0",
+    "partial_sum_growth": 0.0,
+    "slow_convergence": false,
+    "suspected_closed_form": "2",
+    "abs_error_note": "abs_error = max(所选路线误差界, 高精度路线(nsum[r]/Euler–Maclaurin)之间的最大偏差)；nsum[s]/nsum[d] 只作参考，不参与误差聚合"
+   },
+   "conditions": [
+    "mpmath.nsum 的加速（Richardson/Shanks）只对**收敛**级数有效；发散级数会给出无意义的数值",
+    "Euler–Maclaurin 尾项要求通项对求和指标是光滑函数（含 floor/Mod/(-1)^n/factorial 时自动跳过）"
+   ],
+   "verification": {
+    "status": "numeric",
+    "methods": [
+     "mpmath.nsum method='r'（Richardson 外推）",
+     "mpmath.nsum method='s'（Shanks 变换）",
+     "mpmath.nsum method='d'（直接求和）",
+     "部分和(200 项) + Euler–Maclaurin 尾项（∫_N^∞ − f(N)/2 − f'(N)/12 + f'''(N)/720 − …）"
+    ],
+    "note": "数值求和：采用「部分和(200 项) + Euler–Maclaurin 尾项（∫_N^∞ − f(N)/2 − f'(N)/12 + f'''(N)/720 − …）」= 2.0，各路线最大偏差 0.0，误差界 4.2338863081839495e-60。**数值加速只对收敛级数有效**，发散级数的任何截断和都没有意义；结论不构成解析证明。"
+   },
+   "warnings": [],
+   "elapsed_ms": 24.0
+  }
+ },
+ "C2b_numeric_sum_partial": {
+  "op": "numeric_sum",
+  "args": {
+   "expr": "n/(2^n)",
+   "var": "n",
+   "lower": "1",
+   "upper": "20"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "numeric_sum",
+   "method": "高精度数值求和（mpmath，目标 15 位有效数字）",
+   "input": {
+    "expr": "n/(2^n)",
+    "var": "n",
+    "lower": "1",
+    "upper": "20",
+    "digits": 15,
+    "terms": 200
+   },
+   "result": {
+    "text": "1.99997901916504",
+    "latex": "1.99997901916504",
+    "approx": 1.999979019165039,
+    "digits": 15,
+    "abs_error": 9.375e-16,
+    "is_approximate": false,
+    "terms_summed": 20,
+    "exact_rational_sum": "1.99997901916504",
+    "method": "mpmath.fsum 高精度逐项求和；另用 SymPy 精确有理数求和交叉验证",
+    "abs_error_note": "abs_error = mpmath.fsum 与 SymPy 精确有理求和之差（无精确路线时为 digits 位舍入界）"
+   },
+   "conditions": [],
+   "verification": {
+    "status": "numeric",
+    "methods": [
+     "mpmath.fsum 逐项高精度求和",
+     "SymPy 精确有理数求和（独立路线）"
+    ],
+    "note": "有限项求和：20 项，结果 1.9999790191650390625，与精确有理求和偏差 9.375e-16。有限项求和是确定的（只受浮点舍入影响）。"
+   },
+   "warnings": [],
+   "elapsed_ms": 8.27
+  }
+ },
+ "X1_diff": {
+  "op": "diff",
+  "args": {
+   "expr": "log(x+sqrt(1+x^2))",
+   "var": "x",
+   "order": 1
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "diff",
+   "method": "sp.diff 逐阶符号求导（1 阶）",
+   "input": {
+    "expr": "log(x + sqrt(x**2 + 1))",
+    "var": "x",
+    "order": 1
+   },
+   "result": {
+    "text": "(x/sqrt(x**2 + 1) + 1)/(x + sqrt(x**2 + 1))",
+    "latex": "\\frac{\\frac{x}{\\sqrt{x^{2} + 1}} + 1}{x + \\sqrt{x^{2} + 1}}"
+   },
+   "conditions": [
+    "函数需在考察区间内 1 阶可导",
+    "以下等式在其成立区间（函数有定义的区间）内成立",
+    "对数要求 对数内表达式 > 0（定义域限制）",
+    "根号内表达式须 ≥ 0（定义域限制）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "解析求导并与候选结果作符号比较",
+      "independent": false,
+      "note": "与主计算同源（均为符号求导），仅作一致性检查",
+      "order": 1,
+      "expected": "(x/sqrt(x**2 + 1) + 1)/(x + sqrt(x**2 + 1))",
+      "expected_latex": "\\frac{\\frac{x}{\\sqrt{x^{2} + 1}} + 1}{x + \\sqrt{x^{2} + 1}}",
+      "agree": true
+     },
+     {
+      "method": "mpmath 数值微分独立核验",
+      "independent": true,
+      "agree": "equal",
+      "max_rel_dev": 2.220446049250313e-16,
+      "note": "在 5 个抽样点上用 mpmath 数值微分（中心差分，1 阶）独立核验，最大相对偏差 2.220e-16"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 11.04
+  }
+ },
+ "X1b_verify_integral": {
+  "op": "verify",
+  "args": {
+   "kind": "integral",
+   "expr": "1/sqrt(1+x^2)",
+   "candidate": "log(x+sqrt(1+x^2))",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=integral）",
+   "input": {
+    "kind": "integral",
+    "expr": "1/sqrt(1+x^2)",
+    "candidate": "log(x+sqrt(1+x^2))",
+    "var": "x"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "符号差式复核（sp.simplify 化简为 0）",
+     "level": "symbolic",
+     "evidence": {
+      "derivative_of_candidate": "(x/sqrt(x**2 + 1) + 1)/(x + sqrt(x**2 + 1))",
+      "derivative_of_candidate_latex": "\\frac{1}{\\sqrt{x^{2} + 1}}",
+      "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+      "difference": "0",
+      "numeric": {
+       "agree": true,
+       "max_rel_dev": 0.0,
+       "checked_points": 12,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      },
+      "finite_difference": {
+       "agree": true,
+       "max_rel_dev": 4.547767717966167e-11,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.548e-11"
+      },
+      "check_antiderivative_agree": true,
+      "domain_caveats": []
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+       "passed": true,
+       "evidence": {
+        "derivative_of_candidate": "1/sqrt(x**2 + 1)",
+        "difference": "0"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 0.0,
+        "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+       }
+      },
+      {
+       "method": "中心差分独立估计候选原函数的导数",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 4.547767717966167e-11,
+        "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.548e-11"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "对候选原函数求导并与被积函数作符号比较（sympy_core.check_antiderivative）",
+      "passed": true,
+      "evidence": {
+       "derivative_of_candidate": "1/sqrt(x**2 + 1)",
+       "difference": "0"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 0.0,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      }
+     },
+     {
+      "method": "中心差分独立估计候选原函数的导数",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 4.547767717966167e-11,
+       "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.548e-11"
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "符号差式复核（sp.simplify 化简为 0）",
+    "evidence": {
+     "derivative_of_candidate": "(x/sqrt(x**2 + 1) + 1)/(x + sqrt(x**2 + 1))",
+     "derivative_of_candidate_latex": "\\frac{1}{\\sqrt{x^{2} + 1}}",
+     "sympy_core_method": "对候选原函数求导，检查是否等于被积函数",
+     "difference": "0",
+     "numeric": {
+      "agree": true,
+      "max_rel_dev": 0.0,
+      "checked_points": 12,
+      "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+     },
+     "finite_difference": {
+      "agree": true,
+      "max_rel_dev": 4.547767717966167e-11,
+      "note": "中心差分（步长 1/1000000）在 5 个点上与候选导数一致，最大相对偏差 4.548e-11"
+     },
+     "check_antiderivative_agree": true,
+     "domain_caveats": []
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 43.85
+  }
+ },
+ "X2_diff": {
+  "op": "diff",
+  "args": {
+   "expr": "x^3-3*x",
+   "var": "x",
+   "order": 1
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "diff",
+   "method": "sp.diff 逐阶符号求导（1 阶）",
+   "input": {
+    "expr": "x**3 - 3*x",
+    "var": "x",
+    "order": 1
+   },
+   "result": {
+    "text": "3*x**2 - 3",
+    "latex": "3 x^{2} - 3"
+   },
+   "conditions": [
+    "函数需在考察区间内 1 阶可导",
+    "以下等式在其成立区间（函数有定义的区间）内成立"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "解析求导并与候选结果作符号比较",
+      "independent": false,
+      "note": "与主计算同源（均为符号求导），仅作一致性检查",
+      "order": 1,
+      "expected": "3*x**2 - 3",
+      "expected_latex": "3 x^{2} - 3",
+      "agree": true
+     },
+     {
+      "method": "mpmath 数值微分独立核验",
+      "independent": true,
+      "agree": "equal",
+      "max_rel_dev": 1.5419764230904954e-16,
+      "note": "在 5 个抽样点上用 mpmath 数值微分（中心差分，1 阶）独立核验，最大相对偏差 1.542e-16"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 5.09
+  }
+ },
+ "X2_solve": {
+  "op": "solve",
+  "args": {
+   "equations": [
+    "3*x^2-3=0"
+   ],
+   "vars": [
+    "x"
+   ]
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "solve",
+   "method": "代数方程求解：sp.solve(..., dict=True)",
+   "input": {
+    "equations": [
+     "3*x**2 - 3"
+    ],
+    "vars": [
+     "x"
+    ]
+   },
+   "result": {
+    "solution_count": 2,
+    "solutions": [
+     "解 1: x = -1（代回残差：0）",
+     "解 2: x = 1（代回残差：0）"
+    ],
+    "text": "[-1, 1]",
+    "latex": "\\left[ -1, \\  1\\right]",
+    "approx": [
+     -1.0,
+     1.0
+    ]
+   },
+   "conditions": [
+    "共有 2 组解（已全部给出）",
+    "解已通过代回原方程验算（残差为 0）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "C.check_solution：把每组解代回原方程，检查残差是否为 0",
+      "agree": true,
+      "detail": [
+       "解 1: x = -1（代回残差：0）",
+       "解 2: x = 1（代回残差：0）"
+      ]
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 3.09
+  }
+ },
+ "X2b_diff2": {
+  "op": "diff",
+  "args": {
+   "expr": "x^3-3*x",
+   "var": "x",
+   "order": 2
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "diff",
+   "method": "sp.diff 逐阶符号求导（2 阶）",
+   "input": {
+    "expr": "x**3 - 3*x",
+    "var": "x",
+    "order": 2
+   },
+   "result": {
+    "text": "6*x",
+    "latex": "6 x"
+   },
+   "conditions": [
+    "函数需在考察区间内 2 阶可导",
+    "以下等式在其成立区间（函数有定义的区间）内成立"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "解析求导并与候选结果作符号比较",
+      "independent": false,
+      "note": "与主计算同源（均为符号求导），仅作一致性检查",
+      "order": 2,
+      "expected": "6*x",
+      "expected_latex": "6 x",
+      "agree": true
+     },
+     {
+      "method": "对 1 阶导数再求导一次，与候选 2 阶导数比较",
+      "residual": "0",
+      "agree": true,
+      "independent": true
+     },
+     {
+      "method": "mpmath 数值微分独立核验",
+      "independent": true,
+      "agree": "equal",
+      "max_rel_dev": 0.0,
+      "note": "在 5 个抽样点上用 mpmath 数值微分（中心差分，2 阶）独立核验，最大相对偏差 0.000e+00"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 3.46
+  }
+ },
+ "X2c_analysis": {
+  "op": "function_analysis",
+  "args": {
+   "expr": "x^3-3*x",
+   "var": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "function_analysis",
+   "method": "逐项符号分析（定义域/一阶导/二阶导/极限）",
+   "input": {
+    "expr": "x**3 - 3*x",
+    "var": "x"
+   },
+   "result": {
+    "analysis": {
+     "定义域": {
+      "result": "(-∞, +∞)",
+      "restrictions": [],
+      "status": "ok"
+     },
+     "一阶导数": "3*x**2 - 3",
+     "二阶导数": "6*x",
+     "单调区间": [
+      {
+       "interval": "(-oo, -1)",
+       "trend": "递增",
+       "basis": "取 -2 处 f′=9.000000000000000000000000"
+      },
+      {
+       "interval": "(-1, 1)",
+       "trend": "递减",
+       "basis": "取 0 处 f′=-3.000000000000000000000000"
+      },
+      {
+       "interval": "(1, oo)",
+       "trend": "递增",
+       "basis": "取 2 处 f′=9.000000000000000000000000"
+      }
+     ],
+     "极值": [
+      {
+       "x": "-1",
+       "f(x)": "2",
+       "kind": "极大值",
+       "reason": "f″(-1) = -6.000000000000000000000000 < 0（二阶充分条件）"
+      },
+      {
+       "x": "1",
+       "f(x)": "-2",
+       "kind": "极小值",
+       "reason": "f″(1) = 6.000000000000000000000000 > 0（二阶充分条件）"
+      }
+     ],
+     "凹凸区间": [
+      {
+       "interval": "(-oo, 0)",
+       "shape": "凸（上凸）",
+       "basis": "取 -1 处 f″=-6.000000000000000000000000"
+      },
+      {
+       "interval": "(0, oo)",
+       "shape": "凹（下凸）",
+       "basis": "取 1 处 f″=6.000000000000000000000000"
+      }
+     ],
+     "拐点": [
+      {
+       "x": "0",
+       "y": "0",
+       "kind": "拐点",
+       "reason": "f″=0 左右变号（左 -0.06000000000000000000000000，右 0.06000000000000000000000000），且函数在该点连续"
+      }
+     ],
+     "水平渐近线": "无",
+     "垂直渐近线": "无",
+     "斜渐近线": "无"
+    },
+    "first_derivative": "3*x**2 - 3",
+    "second_derivative": "6*x",
+    "sections": {
+     "定义域": {
+      "result": "(-∞, +∞)",
+      "restrictions": [],
+      "status": "ok"
+     },
+     "一阶导数": "3*x**2 - 3",
+     "二阶导数": "6*x",
+     "单调区间": [
+      {
+       "interval": "(-oo, -1)",
+       "trend": "递增",
+       "basis": "取 -2 处 f′=9.000000000000000000000000"
+      },
+      {
+       "interval": "(-1, 1)",
+       "trend": "递减",
+       "basis": "取 0 处 f′=-3.000000000000000000000000"
+      },
+      {
+       "interval": "(1, oo)",
+       "trend": "递增",
+       "basis": "取 2 处 f′=9.000000000000000000000000"
+      }
+     ],
+     "极值": [
+      {
+       "x": "-1",
+       "f(x)": "2",
+       "kind": "极大值",
+       "reason": "f″(-1) = -6.000000000000000000000000 < 0（二阶充分条件）"
+      },
+      {
+       "x": "1",
+       "f(x)": "-2",
+       "kind": "极小值",
+       "reason": "f″(1) = 6.000000000000000000000000 > 0（二阶充分条件）"
+      }
+     ],
+     "凹凸区间": [
+      {
+       "interval": "(-oo, 0)",
+       "shape": "凸（上凸）",
+       "basis": "取 -1 处 f″=-6.000000000000000000000000"
+      },
+      {
+       "interval": "(0, oo)",
+       "shape": "凹（下凸）",
+       "basis": "取 1 处 f″=6.000000000000000000000000"
+      }
+     ],
+     "拐点": [
+      {
+       "x": "0",
+       "y": "0",
+       "kind": "拐点",
+       "reason": "f″=0 左右变号（左 -0.06000000000000000000000000，右 0.06000000000000000000000000），且函数在该点连续"
+      }
+     ],
+     "水平渐近线": "无",
+     "垂直渐近线": "无",
+     "斜渐近线": "无"
+    }
+   },
+   "conditions": [
+    "所有结论都基于符号计算：单调性由 f′ 符号、凹凸性由 f″ 符号、极值由一阶/二阶充分条件给出",
+    "未成功计算的项在结果中标记为「未计算」，不做推测"
+   ],
+   "verification": {
+    "status": "verified",
+    "methods": [
+     {
+      "method": "极值点处 f′=0、拐点处 f″=0 的必要条件复核",
+      "agree": true,
+      "note": "极值候选 x=-1 处 f′=0 → 驻点；极值候选 x=1 处 f′=0 → 驻点；拐点 x=0 处 f″=0 → 满足必要条件"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 37.01
+  }
+ },
+ "X3_prob_interval": {
+  "op": "probability",
+  "args": {
+   "kind": "interval",
+   "dist": "normal",
+   "mu": "0",
+   "sigma": "1",
+   "lower": "-1.96",
+   "upper": "1.96"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "probability",
+   "method": "区间概率：分布函数差分与直接积分/求和两条路径",
+   "input": {
+    "kind": "interval",
+    "dist": "normal",
+    "param": "mu = 0, sigma = 1",
+    "lower": "-1.96000000000000",
+    "upper": "1.96000000000000"
+   },
+   "result": {
+    "text": "erf(0.98*sqrt(2))",
+    "latex": "\\operatorname{erf}{\\left(0.98 \\sqrt{2} \\right)}",
+    "approx": 0.950004209703593,
+    "formula": "P(a < X ≤ b) = F(b) - F(a)",
+    "F_lower": "1/2 - erf(0.98*sqrt(2))/2",
+    "F_upper": "erf(0.98*sqrt(2))/2 + 1/2",
+    "by_cdf": "erf(0.98*sqrt(2))",
+    "by_integral": "erf(0.98*sqrt(2))",
+    "interval": "-1.96000000000000 < X ≤ 1.96000000000000"
+   },
+   "conditions": [
+    "sigma = 1 > 0（注意参数约定：N(mu, sigma^2)，sigma 是标准差）",
+    "mu = 0 为实数",
+    "f(x) = exp(-(x-mu)^2/(2 sigma^2)) / (sigma sqrt(2 pi))",
+    "连续型：单点概率为 0，P(a<X<b) = P(a≤X≤b) = F(b)-F(a)"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "name": "F(b)-F(a) 与 ∫f 两条路径互印",
+      "passed": true,
+      "detail": "差式化简为 0",
+      "values": {
+       "路径一": "erf(0.98*sqrt(2))",
+       "路径二": "erf(0.98*sqrt(2))"
+      }
+     },
+     {
+      "name": "区间概率落在 [0,1]",
+      "passed": "True",
+      "detail": "P = erf(0.98*sqrt(2))"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 252.8
+  }
+ },
+ "X3b_distribution_cdf": {
+  "op": "distribution",
+  "args": {
+   "dist": "normal",
+   "mu": "0",
+   "sigma": "1",
+   "kind": "cdf",
+   "point": "1.96"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "distribution",
+   "method": "对密度逐点积分（离散型为求和）",
+   "input": {
+    "dist": "normal",
+    "kind": "cdf",
+    "param": "mu = 0, sigma = 1"
+   },
+   "result": {
+    "text": "erf(sqrt(2)*x/2)/2 + 1/2",
+    "latex": "\\frac{\\operatorname{erf}{\\left(\\frac{\\sqrt{2} x}{2} \\right)}}{2} + \\frac{1}{2}",
+    "cdf_text": "erf(sqrt(2)*x/2)/2 + 1/2",
+    "cdf_latex": "\\frac{\\operatorname{erf}{\\left(\\frac{\\sqrt{2} x}{2} \\right)}}{2} + \\frac{1}{2}"
+   },
+   "conditions": [
+    "sigma = 1 > 0（注意参数约定：N(mu, sigma^2)，sigma 是标准差）",
+    "mu = 0 为实数",
+    "f(x) = exp(-(x-mu)^2/(2 sigma^2)) / (sigma sqrt(2 pi))"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "name": "分布函数端点检查",
+      "passed": true,
+      "detail": "F(-oo) = 0, F(+oo) = 1"
+     },
+     {
+      "name": "分布函数单调不减（4 点抽查）",
+      "passed": true,
+      "detail": "在 x = -3/2, -1/2, 1/2, 3/2 上检查，逆序点 0 个"
+     },
+     {
+      "name": "F'(x)=f(x) 数值抽查",
+      "passed": true,
+      "detail": "4 个点（中心差分）：dF/dx 与 f(x) 的最大相对偏差 1.750e-11"
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 140.65
+  }
+ },
+ "X3c_numeric_integrate": {
+  "op": "numeric_integrate",
+  "args": {
+   "expr": "exp(-x^2/2)/sqrt(2*pi)",
+   "var": "x",
+   "lower": "-1.96",
+   "upper": "1.96",
+   "digits": 15
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "numeric_integrate",
+   "method": "mpmath 高精度数值积分（tanh-sinh / 高斯-勒让德求积，目标 15 位有效数字）",
+   "input": {
+    "expr": "exp(-x^2/2)/sqrt(2*pi)",
+    "var": "x",
+    "lower": "-1.96",
+    "upper": "1.96",
+    "digits": 15
+   },
+   "result": {
+    "text": "0.950004209703559",
+    "latex": "0.950004209703559",
+    "approx": 0.9500042097035591,
+    "digits": 15,
+    "abs_error": 1e-65,
+    "reliable_digits": 15,
+    "relative_error": 1e-65,
+    "is_approximate": true,
+    "routes": [
+     {
+      "method": "mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）",
+      "value": "0.950004209703559128",
+      "error": 1e-65,
+      "kind": "direct",
+      "reliable": true
+     },
+     {
+      "method": "mpmath.quad(method='gauss-legendre') 高斯-勒让德求积",
+      "value": "0.950004209703559128",
+      "error": 1e-62,
+      "kind": "gauss",
+      "reliable": true
+     }
+    ],
+    "chosen_route": "mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）",
+    "chosen_route_note": "对整个区间一次求积",
+    "route_spread": 0.0,
+    "abs_error_note": "abs_error = max(所选路线自身的求积误差估计, 与所选路线精度可比的其他路线之间的最大偏差)；误差估计明显偏大的路线只作弃用记录，不计入误差界"
+   },
+   "conditions": [
+    "数值积分给出的是定积分近似值；被积函数的原函数是否存在、积分是否收敛需另行判定"
+   ],
+   "verification": {
+    "status": "numeric",
+    "methods": [
+     "mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）",
+     "mpmath.quad(method='gauss-legendre') 高斯-勒让德求积"
+    ],
+    "note": "数值积分：2 条路线（mpmath.quad([a,b]) 直接求积；mpmath.quad(method='gauss-legendre') 高斯-勒让德求积）；采用「mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）」，误差界 1e-65，各路线最大偏差 0.0。不同路线一致只说明数值上自洽，**不构成解析证明**；请与符号积分(integrate)交叉确认。"
+   },
+   "warnings": [],
+   "elapsed_ms": 431.75
+  }
+ },
+ "X4_green": {
+  "op": "green",
+  "args": {
+   "p": "2*x*y-x^2",
+   "q": "x+y^2",
+   "x_lower": "-1",
+   "x_upper": "1",
+   "y_lower_expr": "x^2",
+   "y_upper_expr": "1"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "green",
+   "method": "格林公式：∬_D (∂Q/∂x − ∂P/∂y) dx dy（SymPy 精确积分）",
+   "input": {
+    "region": {
+     "x": [
+      "-1",
+      "1"
+     ],
+     "y": [
+      "x**2",
+      "1"
+     ]
+    }
+   },
+   "result": {
+    "P": "-x**2 + 2*x*y",
+    "Q": "x + y**2",
+    "curl": "1 - 2*x",
+    "text": "4/3",
+    "latex": "\\frac{4}{3}",
+    "approx": 1.3333333333333333,
+    "value_text": "4/3"
+   },
+   "conditions": [
+    "L 为区域 D 的正向（逆时针）边界，且分段光滑、闭曲线",
+    "P、Q 在 D 上有一阶连续偏导数（格林公式成立的前提）"
+   ],
+   "verification": {
+    "status": "unverified",
+    "methods": [
+     {
+      "method": "独立复核：交换积分次序重算（∬ 的结果应与次序无关）",
+      "alternative_order_result": "2 - 2*x**2",
+      "agree": false
+     }
+    ],
+    "note": "交换次序复核未通过或无法执行，请人工确认区域描述是否正确。"
+   },
+   "warnings": [
+    "交换积分次序得到不同结果，区域描述可能有误，请复核上下边界。"
+   ],
+   "elapsed_ms": 33.07
+  }
+ },
+ "X4b_curve_bottom": {
+  "op": "curve_integral",
+  "args": {
+   "expr": "2*x*y-x^2",
+   "expr2": "x+y^2",
+   "x_expr": "t",
+   "y_expr": "t^2",
+   "var": "t",
+   "lower": "-1",
+   "upper": "1",
+   "kind": "second"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "curve_integral",
+   "method": "参数化 + 弧长元/坐标微分（SymPy 精确积分）",
+   "input": {
+    "kind": "第二类（坐标）",
+    "parametrization": {
+     "t": [
+      "-1",
+      "1"
+     ]
+    }
+   },
+   "result": {
+    "x_of_t": "t",
+    "y_of_t": "t**2",
+    "integrand_of_t": "t**2*(2*t**3 + 2*t + 1)",
+    "formula": "∫ (P dx + Q dy + R dz)，代入 x(t),y(t),z(t) 后化为对 t 的一元积分",
+    "text": "2/3",
+    "latex": "\\frac{2}{3}",
+    "approx": 0.6666666666666666,
+    "value_text": "2/3"
+   },
+   "conditions": [
+    "曲线需分段光滑，且参数化在 [a, b] 上连续可导",
+    "第一类曲线积分与曲线方向无关（弧长元 ds ≥ 0）",
+    "第二类曲线积分与曲线方向有关：反向则结果取负号",
+    "定向为 t 从 -1 增到 1"
+   ],
+   "verification": {
+    "status": "symbolic+numeric",
+    "methods": [
+     {
+      "method": "独立数值复核：mpmath 高精度数值积分（tanh-sinh）与该参数化下的符号结果对比",
+      "numeric": "0.666666666666667",
+      "symbolic": "0.666666666666667",
+      "relative_deviation": "0.000e+00",
+      "agree": true
+     }
+    ],
+    "note": "符号结果由 SymPy 精确求出，并通过独立的 mpmath 数值积分复核。"
+   },
+   "warnings": [],
+   "elapsed_ms": 26.04
+  }
+ },
+ "X4c_curve_top": {
+  "op": "curve_integral",
+  "args": {
+   "expr": "2*x*y-x^2",
+   "expr2": "x+y^2",
+   "x_expr": "t",
+   "y_expr": "1",
+   "var": "t",
+   "lower": "1",
+   "upper": "-1",
+   "kind": "second"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "curve_integral",
+   "method": "参数化 + 弧长元/坐标微分（SymPy 精确积分）",
+   "input": {
+    "kind": "第二类（坐标）",
+    "parametrization": {
+     "t": [
+      "1",
+      "-1"
+     ]
+    }
+   },
+   "result": {
+    "x_of_t": "t",
+    "y_of_t": "1",
+    "integrand_of_t": "t*(2 - t)",
+    "formula": "∫ (P dx + Q dy + R dz)，代入 x(t),y(t),z(t) 后化为对 t 的一元积分",
+    "text": "2/3",
+    "latex": "\\frac{2}{3}",
+    "approx": 0.6666666666666666,
+    "value_text": "2/3"
+   },
+   "conditions": [
+    "曲线需分段光滑，且参数化在 [a, b] 上连续可导",
+    "第一类曲线积分与曲线方向无关（弧长元 ds ≥ 0）",
+    "第二类曲线积分与曲线方向有关：反向则结果取负号",
+    "定向为 t 从 1 增到 -1"
+   ],
+   "verification": {
+    "status": "symbolic+numeric",
+    "methods": [
+     {
+      "method": "独立数值复核：mpmath 高精度数值积分（tanh-sinh）与该参数化下的符号结果对比",
+      "numeric": "0.666666666666667",
+      "symbolic": "0.666666666666667",
+      "relative_deviation": "0.000e+00",
+      "agree": true
+     }
+    ],
+    "note": "符号结果由 SymPy 精确求出，并通过独立的 mpmath 数值积分复核。"
+   },
+   "warnings": [],
+   "elapsed_ms": 14.62
+  }
+ },
+ "X5_verify_eigen": {
+  "op": "verify",
+  "args": {
+   "kind": "eigen",
+   "matrix": "2,1;1,2",
+   "candidate": "1,3"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=eigen）",
+   "input": {
+    "kind": "eigen",
+    "candidate": "1,3",
+    "matrix": "[[2, 1], [1, 2]]"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+     "level": "symbolic",
+     "evidence": {
+      "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+      "independent_eigenvalues": {
+       "3": 1,
+       "1": 1
+      },
+      "candidate": [
+       {
+        "value": "1",
+        "multiplicity": null
+       },
+       {
+        "value": "3",
+        "multiplicity": null
+       }
+      ],
+      "rows": [
+       {
+        "value": "1",
+        "charpoly_at_value": "0",
+        "is_eigenvalue": true,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": 1
+       },
+       {
+        "value": "3",
+        "charpoly_at_value": "0",
+        "is_eigenvalue": true,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": 1
+       }
+      ]
+     },
+     "unhandled_conditions": [
+      "本次只复核特征值（及其重数），未复核特征向量",
+      "候选未给出代数重数，未核对重数"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+       "passed": true,
+       "evidence": {
+        "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+        "rows": [
+         {
+          "value": "1",
+          "charpoly_at_value": "0",
+          "is_eigenvalue": true,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": 1
+         },
+         {
+          "value": "3",
+          "charpoly_at_value": "0",
+          "is_eigenvalue": true,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": 1
+         }
+        ]
+       }
+      },
+      {
+       "method": "独立求特征值并核对代数量数",
+       "passed": true,
+       "evidence": {
+        "eigenvalues": {
+         "3": 1,
+         "1": 1
+        }
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：本次只复核特征值（及其重数），未复核特征向量",
+    "未处理条件：候选未给出代数重数，未核对重数"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+      "passed": true,
+      "evidence": {
+       "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+       "rows": [
+        {
+         "value": "1",
+         "charpoly_at_value": "0",
+         "is_eigenvalue": true,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": 1
+        },
+        {
+         "value": "3",
+         "charpoly_at_value": "0",
+         "is_eigenvalue": true,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": 1
+        }
+       ]
+      }
+     },
+     {
+      "method": "独立求特征值并核对代数量数",
+      "passed": true,
+      "evidence": {
+       "eigenvalues": {
+        "3": 1,
+        "1": 1
+       }
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+    "evidence": {
+     "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+     "independent_eigenvalues": {
+      "3": 1,
+      "1": 1
+     },
+     "candidate": [
+      {
+       "value": "1",
+       "multiplicity": null
+      },
+      {
+       "value": "3",
+       "multiplicity": null
+      }
+     ],
+     "rows": [
+      {
+       "value": "1",
+       "charpoly_at_value": "0",
+       "is_eigenvalue": true,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": 1
+      },
+      {
+       "value": "3",
+       "charpoly_at_value": "0",
+       "is_eigenvalue": true,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": 1
+      }
+     ]
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 5.55
+  }
+ },
+ "X5b_verify_eigen_wrong": {
+  "op": "verify",
+  "args": {
+   "kind": "eigen",
+   "matrix": "2,1;1,2",
+   "candidate": "0,4"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=eigen）",
+   "input": {
+    "kind": "eigen",
+    "candidate": "0,4",
+    "matrix": "[[2, 1], [1, 2]]"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+     "level": "symbolic",
+     "evidence": {
+      "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+      "independent_eigenvalues": {
+       "3": 1,
+       "1": 1
+      },
+      "candidate": [
+       {
+        "value": "0",
+        "multiplicity": null
+       },
+       {
+        "value": "4",
+        "multiplicity": null
+       }
+      ],
+      "rows": [
+       {
+        "value": "0",
+        "charpoly_at_value": "3",
+        "is_eigenvalue": false,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": null
+       },
+       {
+        "value": "4",
+        "charpoly_at_value": "3",
+        "is_eigenvalue": false,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": null
+       }
+      ],
+      "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+     },
+     "unhandled_conditions": [
+      "本次只复核特征值（及其重数），未复核特征向量",
+      "候选未给出代数重数，未核对重数"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+       "passed": false,
+       "evidence": {
+        "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+        "rows": [
+         {
+          "value": "0",
+          "charpoly_at_value": "3",
+          "is_eigenvalue": false,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": null
+         },
+         {
+          "value": "4",
+          "charpoly_at_value": "3",
+          "is_eigenvalue": false,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": null
+         }
+        ]
+       }
+      },
+      {
+       "method": "独立求特征值并核对代数量数",
+       "passed": false,
+       "evidence": {
+        "eigenvalues": {
+         "3": 1,
+         "1": 1
+        }
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "conditions_used": [],
+    "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：本次只复核特征值（及其重数），未复核特征向量",
+    "未处理条件：候选未给出代数重数，未核对重数"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+      "passed": false,
+      "evidence": {
+       "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+       "rows": [
+        {
+         "value": "0",
+         "charpoly_at_value": "3",
+         "is_eigenvalue": false,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": null
+        },
+        {
+         "value": "4",
+         "charpoly_at_value": "3",
+         "is_eigenvalue": false,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": null
+        }
+       ]
+      }
+     },
+     {
+      "method": "独立求特征值并核对代数量数",
+      "passed": false,
+      "evidence": {
+       "eigenvalues": {
+        "3": 1,
+        "1": 1
+       }
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+    "evidence": {
+     "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+     "independent_eigenvalues": {
+      "3": 1,
+      "1": 1
+     },
+     "candidate": [
+      {
+       "value": "0",
+       "multiplicity": null
+      },
+      {
+       "value": "4",
+       "multiplicity": null
+      }
+     ],
+     "rows": [
+      {
+       "value": "0",
+       "charpoly_at_value": "3",
+       "is_eigenvalue": false,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": null
+      },
+      {
+       "value": "4",
+       "charpoly_at_value": "3",
+       "is_eigenvalue": false,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": null
+      }
+     ],
+     "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+   ],
+   "elapsed_ms": 6.3
+  }
+ },
+ "X6_integrate_erf": {
+  "op": "integrate",
+  "args": {
+   "expr": "exp(-x^2)",
+   "var": "x",
+   "lower": "0",
+   "upper": "1"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "integrate",
+   "method": "定积分：sp.integrate(expr, (var, a, b))",
+   "input": {
+    "expr": "exp(-x**2)",
+    "var": "x",
+    "lower": "0",
+    "upper": "1"
+   },
+   "result": {
+    "text": "sqrt(pi)*erf(1)/2",
+    "latex": "\\frac{\\sqrt{\\pi} \\operatorname{erf}{\\left(1 \\right)}}{2}",
+    "approx": 0.746824132812427
+   },
+   "conditions": [],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "numeric_integrate 加固数值路线（多路线 + 收敛守卫，与 sp.integrate 相互独立）",
+      "numeric_value": "0.746824",
+      "symbolic_value": "0.746824",
+      "max_rel_dev": 0.0,
+      "numeric_abs_error": null,
+      "numeric_reliable_digits": null
+     }
+    ],
+    "note": "符号结果与独立数值积分（多路线 + 收敛守卫）一致（数值交叉验证，非符号证明）。"
+   },
+   "warnings": [],
+   "elapsed_ms": 4622.25
+  }
+ },
+ "X6b_numeric_recheck": {
+  "op": "numeric_integrate",
+  "args": {
+   "expr": "exp(-x^2)",
+   "var": "x",
+   "lower": "0",
+   "upper": "1",
+   "digits": 15
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "numeric_integrate",
+   "method": "mpmath 高精度数值积分（tanh-sinh / 高斯-勒让德求积，目标 15 位有效数字）",
+   "input": {
+    "expr": "exp(-x^2)",
+    "var": "x",
+    "lower": "0",
+    "upper": "1",
+    "digits": 15
+   },
+   "result": {
+    "text": "0.746824132812427",
+    "latex": "0.746824132812427",
+    "approx": 0.746824132812427,
+    "digits": 15,
+    "abs_error": 1e-46,
+    "reliable_digits": 15,
+    "relative_error": 1e-46,
+    "is_approximate": true,
+    "routes": [
+     {
+      "method": "mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）",
+      "value": "0.746824132812427025",
+      "error": 1e-40,
+      "kind": "direct",
+      "reliable": true
+     },
+     {
+      "method": "mpmath.quad(method='gauss-legendre') 高斯-勒让德求积",
+      "value": "0.746824132812427025",
+      "error": 1e-46,
+      "kind": "gauss",
+      "reliable": true
+     }
+    ],
+    "chosen_route": "mpmath.quad(method='gauss-legendre') 高斯-勒让德求积",
+    "chosen_route_note": "与主路线不同的求积法则",
+    "route_spread": 0.0,
+    "abs_error_note": "abs_error = max(所选路线自身的求积误差估计, 与所选路线精度可比的其他路线之间的最大偏差)；误差估计明显偏大的路线只作弃用记录，不计入误差界"
+   },
+   "conditions": [
+    "数值积分给出的是定积分近似值；被积函数的原函数是否存在、积分是否收敛需另行判定"
+   ],
+   "verification": {
+    "status": "numeric",
+    "methods": [
+     "mpmath.quad([a,b]) 直接求积（含无穷端点的区间变换）",
+     "mpmath.quad(method='gauss-legendre') 高斯-勒让德求积"
+    ],
+    "note": "数值积分：2 条路线（mpmath.quad([a,b]) 直接求积；mpmath.quad(method='gauss-legendre') 高斯-勒让德求积）；采用「mpmath.quad(method='gauss-legendre') 高斯-勒让德求积」，误差界 1e-46，各路线最大偏差 0.0。不同路线一致只说明数值上自洽，**不构成解析证明**；请与符号积分(integrate)交叉确认。"
+   },
+   "warnings": [],
+   "elapsed_ms": 2137.91
+  }
+ },
+ "Y1_integrate_halflimit": {
+  "op": "integrate",
+  "args": {
+   "expr": "x*sin(x)",
+   "var": "x",
+   "lower": "0",
+   "upper": "pi/2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "integrate",
+   "method": "定积分：sp.integrate(expr, (var, a, b))",
+   "input": {
+    "expr": "x*sin(x)",
+    "var": "x",
+    "lower": "0",
+    "upper": "pi/2"
+   },
+   "result": {
+    "text": "1",
+    "latex": "1",
+    "approx": 1.0
+   },
+   "conditions": [
+    "被积函数在闭区间 [0, pi/2]（去掉内部瑕点后）可积"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "numeric_integrate 加固数值路线（多路线 + 收敛守卫，与 sp.integrate 相互独立）",
+      "numeric_value": "1",
+      "symbolic_value": "1",
+      "max_rel_dev": 0.0,
+      "numeric_abs_error": null,
+      "numeric_reliable_digits": null
+     }
+    ],
+    "note": "符号结果与独立数值积分（多路线 + 收敛守卫）一致（数值交叉验证，非符号证明）。"
+   },
+   "warnings": [],
+   "elapsed_ms": 41.42
+  }
+ },
+ "Y2_matrix_3x3": {
+  "op": "matrix_analysis",
+  "args": {
+   "matrix": "2,1,1;1,2,1;1,1,2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "matrix_analysis",
+   "method": "汇总视图：行列式/秩/迹/可逆性/特征值（只读汇总，不做求解）",
+   "input": {
+    "matrix_shape": "3x3"
+   },
+   "result": {
+    "view": "SUMMARY ONLY（只读汇总视图，不做求解）",
+    "is_square": true,
+    "det_text": "4",
+    "det_latex": "4",
+    "invertible": true,
+    "invertibility": "可逆（det ≠ 0）",
+    "rank": 3,
+    "pivot_columns": [
+     1,
+     2,
+     3
+    ],
+    "rank_definition": "rank = 行最简形非零行数 = 主元个数",
+    "rref": [
+     [
+      "1",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "1"
+     ]
+    ],
+    "rref_text": "[[1, 0, 0], [0, 1, 0], [0, 0, 1]]",
+    "trace_text": "6",
+    "trace_latex": "6",
+    "eigenvalues": [
+     "4",
+     "1"
+    ],
+    "eigenvalues_latex": [
+     "4",
+     "1"
+    ],
+    "algebraic_multiplicities": [
+     1,
+     2
+    ],
+    "eigenvectors_note": "未计算：特征向量求解失败（ValueError: not enough values to unpack (expected 4, got 3)）",
+    "characteristic_polynomial": "(lambda - 4)*(lambda - 1)**2",
+    "text": "3×3 矩阵的只读汇总视图",
+    "latex": "3×3 矩阵的只读汇总视图",
+    "approx": "3×3 矩阵的只读汇总视图",
+    "not_computed": [
+     "eigenvectors"
+    ],
+    "note": "本工具为汇总视图，未执行任何求解；需要具体结果请调用对应算子"
+   },
+   "conditions": [
+    "所有数值均为精确符号值；含自由符号时结论依赖于符号取值",
+    "可逆 ⟺ det ≠ 0 ⟺ 满秩 ⟺ 特征值全不为 0"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "秩判据复核可逆性：r(A) = n ⟺ A 可逆（det ≠ 0 等价于满秩）",
+      "rank": 3,
+      "n": 3,
+      "agree": true
+     },
+     {
+      "method": "秩的两种计数：rank() 与行最简形非零行数",
+      "rank": 3,
+      "nonzero_rows": 3,
+      "agree": true
+     },
+     {
+      "method": "迹与行列式的谱关系：trace(A) = Σ mᵢλᵢ 且 det(A) = ∏ λᵢ^mᵢ",
+      "trace": "6",
+      "eigen_sum": "6",
+      "det": "4",
+      "eigen_product": "4",
+      "agree": true
+     }
+    ],
+    "note": "汇总视图内部用秩判据与谱关系交叉印证了可逆性与特征值统计。"
+   },
+   "warnings": [],
+   "elapsed_ms": 8.61
+  }
+ },
+ "D1_dsolve": {
+  "op": "dsolve",
+  "args": {
+   "equations": [
+    "diff(y(x),x,2)-3*diff(y(x),x)+2*y(x)=exp(x)"
+   ],
+   "vars": [
+    "x"
+   ],
+   "funcs": [
+    "y"
+   ]
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "dsolve",
+   "method": "常微分方程求解：sp.dsolve（分类后套用对应解法）",
+   "input": {
+    "equations": [
+     "2*y(x) - exp(x) - 3*Derivative(y(x), x) + Derivative(y(x), (x, 2))"
+    ],
+    "funcs": [
+     "y"
+    ],
+    "independent": "x"
+   },
+   "result": {
+    "solution": [
+     "y(x) = (C1 + C2*exp(x) - x)*exp(x)"
+    ],
+    "arbitrary_constants": [
+     "C1",
+     "C2"
+    ],
+    "ode_order": 2
+   },
+   "conditions": [
+    "通解含任意常数 C1, C2（C1, C2, ... 由初值条件确定）",
+    "解在自变量取值的连续区间内成立（分段系数不连续时需分段讨论）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把通解代回原微分方程，检查残差 simplify(lhs - rhs) 是否为 0",
+      "agree": true,
+      "residuals": [
+       "0"
+      ]
+     }
+    ]
+   },
+   "warnings": [],
+   "elapsed_ms": 181.08
+  }
+ },
+ "D1b_ode_check": {
+  "op": "ode_check",
+  "args": {
+   "equations": [
+    "diff(y(x),x,2)-3*diff(y(x),x)+2*y(x)=exp(x)"
+   ],
+   "candidate": "C1*exp(x)+C2*exp(2*x)-x*exp(x)",
+   "vars": [
+    "x"
+   ],
+   "funcs": [
+    "y"
+   ]
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "ode_check",
+   "method": "独立验证：候选解代回原 ODE，化简 lhs-rhs 检查残差是否为 0",
+   "input": {
+    "equations": [
+     "2*y(x) - exp(x) - 3*Derivative(y(x), x) + Derivative(y(x), (x, 2))"
+    ],
+    "candidate": [
+     "y(x) = C1*exp(x) + C2*exp(2*x) - x*exp(x)"
+    ]
+   },
+   "result": {
+    "residuals": [
+     "0"
+    ],
+    "residual_count": 1,
+    "text": "残差化简为 0：候选解满足原微分方程",
+    "latex": "残差化简为 0：候选解满足原微分方程",
+    "approx": "残差化简为 0：候选解满足原微分方程"
+   },
+   "conditions": [],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "独立机制：把候选解代入原方程并化简残差（不依赖 sp.dsolve 的求解过程）",
+      "agree": true,
+      "residuals": [
+       "0"
+      ]
+     }
+    ],
+    "note": "结论仅说明「满足方程」，初值条件与定义域仍需单独核对。"
+   },
+   "warnings": [],
+   "elapsed_ms": 19.94
+  }
+ },
+ "D2_status": {
+  "op": "@cache_stats",
+  "args": {},
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "@cache_stats",
+   "method": "@cache_stats",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 0.07,
+   "error": {
+    "kind": "unknown_operation",
+    "message": "未知操作 '@cache_stats'；可用操作：E, T, apart, asymptote, bayes, cdf, central_limit, check, check_ode, clt, compare_numeric, conditional_check, conditional_extremum, confidence_interval, corr, correlation, cov, covariance, curl_theorem, curve_integral, custom_pmf, derivative, det, determinant, diagonalize, diff, differential_equation, differentiate, directional_derivative, dist, distribution, distribution_from_pmf, distribution_moments, divergence_theorem, domain, domain_check, dsolve, eigen, eigenvalues, equation, estimate, eval, expand, expect, expectation, factor, find_root, function_analysis, gauss, gauss_theorem, grad, gradient, green, green_theorem, hessian, hypothesis_test, implicit_diff, implicit_function_extremum, inequality, int, integral, integrate, integrate_multi, interval_estimate, inv, inverse, iterated_integral, jacobian, joint_marginal, lagrange, lim, limit, line_integral, linear_system, marginal, matadd, math_apart, math_asymptote, math_check_conditions, math_clt, math_compare, math_confidence_interval, math_correlation, math_covariance, math_curve_integral, math_custom_pmf, math_derivative, math_det, math_diagonalize, math_directional_derivative, math_distribution, math_domain, math_domain_check, math_dsolve, math_eigen, math_estimate, math_expand, math_expectation, math_extremum, math_factor, math_function_analysis, math_gauss, math_gradient, math_green, math_hessian, math_hypothesis_test, math_implicit_diff, math_implicit_extremum, math_inequality, math_integrate, math_integrate_multi, math_inv, math_jacobian, math_joint, math_lagrange, math_limit, math_linear_system, math_matmul, math_matrix, math_mean_value, math_mgf, math_moments, math_numeric, math_numeric_derivative, math_numeric_integrate, math_numeric_limit, math_numeric_matrix, math_numeric_solve, math_numeric_sum, math_optimize, math_parametric_derivative, math_partial, math_probability, math_quadratic, math_rank, math_rref, math_sampling_distribution, math_series, math_series_sum, math_simplify, math_solve, math_stokes, math_surface_integral, math_taylor_multivar, math_together, math_trace, math_transpose, math_variance, math_verify, matmul, matpow, matrix_add, matrix_analysis, matrix_info, matrix_multiply, matrix_power, maximize, mean, mean_value_point, mgf, minimize, moment_generating, moments, multiple_integral, multivar_extremum, n, numeric, numeric_compare, numeric_derivative, numeric_integrate, numeric_limit, numeric_matrix, numeric_optimize, numeric_solve, numeric_sum, ode, ode_check, parametric_derivative, partial, pderiv, pdf, point_estimate, prob, probability, quad, quadratic, quadratic_form, rank, rref, sampling_distribution, series, series_sum, simplify, solve, solve_equation, solve_inequality, solve_linear, stokes, stokes_theorem, sum, summation, surface_integral, taylor, taylor_multivar, test, together, trace, transpose, var, variance, verify, verify_conditions, verify_domain, verify_ode"
+   }
+  }
+ }
+}

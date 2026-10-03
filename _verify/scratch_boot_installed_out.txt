@@ -1,0 +1,108 @@
+installed copy source: C:/Users/HP/.dsh/profiles/desktop/node_modules/dsh-math version: 1.0.2
+layers: @deepseek-ai/dsh-base | dsh-math | skipped: []
+patch count: 3
+dsh: warning: 2 entries did not activate
+plugin-manager (@deepseek-ai/dsh-plugin-manager): TypeError: this.profile.startedBundles is not iterable
+    at new PluginManager (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/dsh-plugin-manager/lib/index.js:1384:36)
+    at Fiber.execute (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1068:24)
+    at file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1142:34
+    at file:///E:/dsh-math/_verify/profile-clone-installed/#plugin-manager
+    at file:///E:/dsh-math/_verify/profile-clone-installed/#include
+hmr (@deepseek-ai/dsh-hmr): Error: Profile HMR requires application readiness
+    at [cordis.init] (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/dsh-hmr/lib/index.js:342:33)
+    at file:///E:/dsh-math/_verify/profile-clone-installed/#hmr
+    at file:///E:/dsh-math/_verify/profile-clone-installed/#include
+BOOT OK; entries active
+registered tools: 38 | math_* : 14
+math names: math_simplify, math_solve, math_limit, math_derivative, math_integrate, math_series, math_dsolve, math_matrix, math_probability, math_numeric, math_vector_calculus, math_verify, math_analysis, math_status
+-- math_status (0ms):
+数学引擎状态 — 引擎尚未启动（首次调用任意数学工具时会自动拉起 Python 引擎）
+Python 解释器: 未探测
+worker: E:\dsh-math\_verify\profile-clone-installed\node_modules\dsh-math\engine\worker.py
+
+-- math_integrate (1659ms):
+【积分】integrate — 成功
+结果: 1/3   ≈ 0.3333333333333333
+验证: 交叉验证通过
+
+-- math_vector_calculus (117ms):
+【曲线曲面积分与三大公式】green — 成功
+结果: 4/3   ≈ 1.3333333333333333
+变换矩阵 P: -x**2 + 2*x*y
+Q: x + y**2
+curl: 1 - 2*x
+value_text: 4/3
+成立条件: L 为区域 D 的正向（逆时针）边界，且分段光滑、闭曲线；P、Q 在 D 上有一阶连续偏导数（格林公式成立的前提）
+验证: 独立机制核验通过
+
+-- math_verify (6ms):
+【独立验证结果】verify — 成功
+结果: 复核结论：通过（验证等级：symbolic）；方式：矩阵求逆复核：M·C 与单位矩阵作符号比较
+conditions_used: 
+conditions_actually_used: 
+成立条件: 本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）；未处理条件：未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+验证: 通过 — 符号级独立核验通过（矩阵求逆复核：M·C 与单位矩阵作符号比较）
+未纳入验证的条件: 未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+
+-- math_verify (4ms):
+【独立验证结果】verify — 成功
+结果: 复核结论：不通过（验证等级：symbolic）；方式：矩阵求逆复核：M·C 与单位矩阵作符号比较
+conditions_used: 
+反例: M·C − I 不为零矩阵：第(1,2)项 = 2（应为 0）；第(2,1)项 = 3（应为 0）；第(2,2)项 = 3（应为 0）
+conditions_actually_used: 
+成立条件: 本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）；未处理条件：未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+验证: 未通过 — 符号级独立核验未通过（矩阵求逆复核：M·C 与单位矩阵作符号比较）
+关键证据: 反例: M·C − I 不为零矩阵：第(1,2)项 = 2（应为 0）；第(2,1)项 = 3（应为 0）；第(2,2)项 = 3（应为 0）；数值抽样: 数值核对：M·C 与单位矩阵最大偏差 3.000e+0
+  · [未通过] 把候选代回做矩阵乘法，检查 M·C 是否等于单位矩阵：差式: [[0, 2], [3, 3]]
+  · [未通过] 数值矩阵乘法核对（与符号乘法独立）
+未纳入验证的条件: 未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+注意: 复核未通过：M·C − I 不为零矩阵：第(1,2)项 = 2（应为 0）；第(2,1)项 = 3（应为 0）；第(2,2)项 = 3（应为 0）
+
+-- math_verify (0ms):
+【独立验证结果】verify — 成功
+结果: 复核结论：通过（验证等级：symbolic）；方式：矩阵求逆复核：M·C 与单位矩阵作符号比较
+conditions_used: 
+conditions_actually_used: 
+成立条件: 本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）；未处理条件：未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+验证: 通过 — 符号级独立核验通过（矩阵求逆复核：M·C 与单位矩阵作符号比较）
+未纳入验证的条件: 未声明「A 可逆」：已由 det(A) ≠ 0 自行判定可逆，故本次复核不依赖该条件
+缓存: 命中（完全相同的表达式与条件，直接复用此前结果，未重复计算）
+
+-- math_verify (2ms):
+【独立验证结果】verify — 成功
+结果: 复核结论：通过（验证等级：symbolic）；方式：行列式复核：符号差式复核（差式构造上即为 0）
+成立条件: 本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）
+验证: 通过 — 符号级独立核验通过（行列式复核：符号差式复核（差式构造上即为 0））
+
+-- math_matrix (2ms):
+【矩阵与线性代数】matmul — 成功
+结果: [[19, 22], [43, 50]]
+product_text: [[19, 22], [43, 50]]
+成立条件: 乘积矩阵的维数为 2×2
+验证: 独立机制核验通过
+
+-- math_matrix (231ms):
+【矩阵与线性代数】quadratic_form — 成功
+结果: 正定
+coefficient_matrix: 1,1；1,3
+coefficient_matrix_text: [[1, 1], [1, 3]]
+coefficient_matrix_latex: \left[\begin{matrix}1 & 1\\1 & 3\end{matrix}\right]
+symbol_extraction: 二次型变量 = ['x1', 'x2']（枚举符号子集，取「每个单项式在子集上的次数都恰好为 2」的最大子集）
+quadratic_text: x1**2 + 2*x1*x2 + 3*x2**2
+quadratic_latex: x_{1}^{2} + 2 x_{1} x_{2} + 3 x_{2}^{2}
+kind: x1**2 + 2*x1*x2 + 3*x2**2
+正定性: 正定
+definiteness_code: positive_definite
+leading_principal_minors: 1；2
+leading_principal_minors_latex: 1；2
+特征值: 2 - sqrt(2)；sqrt(2) + 2
+eigenvalues_latex: 2 - \sqrt{2}；\sqrt{2} + 2
+eigenvalue_signs: +；+
+canonical_form_text: -sqrt(2)*y1**2 + 2*y1**2 + sqrt(2)*y2**2 + 2*y2**2
+standard_form_text: -x1**2*y2**2/4 - 3*x1*y2**2/2 + y1**2 + 3*y2**2
+standard_form_latex: - \frac{x_{1}^{2} y_{2}^{2}}{4} - \frac{3 x_{1} y_{2}^{2}}{2} + y_{1}^{2} + 3 y_{2}^{2}
+normal_form_text: +1·z1², +1·z2²
+orthonormal_matrix: (-sqrt(2) - 1)/sqrt(1 + (1 + sqrt(2))**2),(-1 + sqrt(2))/sqrt((-1 + sqrt(2))**2 + 1)；1/sqrt(1 + (1 + sqrt(2))**2),1/sqrt((-1 + sqrt(2))**2 + 1)
+orthonormal_matrix_text: [[(-sqrt(2) - 1)/sqrt(1 + (1 + sqrt(2))**2), (-1 + sqrt(2))/sqrt((-1 + sqrt(2))**2 + 1)], [1/sqrt(1 + (1 + sqrt(2))**2), 1/sqrt((-1 
+
+disposed

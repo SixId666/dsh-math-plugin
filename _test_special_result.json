@@ -1,0 +1,104 @@
+[
+  {
+    "test": 1,
+    "name": "简单积分 ∫₀¹x²dx 直接返回精确结果 1/3",
+    "passed": true,
+    "evidence": "status=ok result={\"text\": \"1/3\", \"latex\": \"\\\\frac{1}{3}\", \"approx\": 0.3333333333333333} 验证方法数=1",
+    "extra": {
+      "elapsed_ms": 73.34
+    }
+  },
+  {
+    "test": 2,
+    "name": "复杂积分 ∫xe^x dx 结果正确且缓存可复用（不重复计算）",
+    "passed": true,
+    "evidence": "结果正确=True 缓存首次未命中/二次命中=True result={\"text\":\"(x-1)*exp(x)\",\"latex\":\"\\\\left(x-1\\\\right)e^{x}\",\"antiderivative_note\":\"不定积分结果含任意常数C（通解为F(x)+C）\"}",
+    "extra": {
+      "cache_key": "integrate::{\"expr\": \"x*exp(x)\", \"var\": \"x\"}"
+    }
+  },
+  {
+    "test": 3,
+    "name": "无法求得初等原函数的积分必须如实报告且不重复尝试",
+    "passed": true,
+    "evidence": "status=unsolved 误报成功=False 有失败原因=True 失败已记账=True",
+    "extra": {
+      "error": {
+        "kind": "unsolved",
+        "message": "SymPy 未能求出该不定积分，返回未求值形式 Integral(x**x, x)；可尝试：换元法（凑微分）、分部积分、有理函数部分分式分解（apart）、三角恒等变形、根式代换（如 sqrt(a^2-x^2) 用 x=a*sin t）。"
+      },
+      "warnings": []
+    }
+  },
+  {
+    "test": 4,
+    "name": "连续追问可复用前一轮结果（导函数 → 极值点）",
+    "passed": true,
+    "evidence": "第一轮导函数={\"text\":\"3*x**2-3\",\"latex\":\"3x^{2}-3\"} 第二轮解={\"solution_count\":2,\"solutions\":[\"解1:x=-1（代回残差：0）\",\"解2:x=1（代回残差：0）\"],\"text\":\"[-1 缓存复用=True"
+  },
+  {
+    "test": 5,
+    "name": "验证模式能定位错误步骤（漏乘积法则项 / 错误原函数均被判否）",
+    "passed": true,
+    "evidence": "正确判定通过=True 漏项判定失败=True 错误原函数判否=True 证据={\"independent_derivative\": \"x**2*cos(x) + 2*x*sin(x)\", \"independent_derivative_latex\": \"x^{2} \\\\cos{\\\\left(x \\\\right)} + 2 x \\\\sin{\\\\left(x \\\\right)}\", \"sympy_c"
+  },
+  {
+    "test": 6,
+    "name": "思路分析模式有客观要素支撑（函数分析 + 定义域结构化输出）",
+    "passed": true,
+    "evidence": "函数分析字段=['analysis', 'first_derivative', 'second_derivative', 'sections'] 定义域输出={\"domain\": \"(1, 2) ∪ (2, +∞)\", \"intervals\": [\"(1, 2)\", \"(2, +∞)\"], \"domain_text\": \"(1, 2) ∪ (2, +∞)\", \"restrictions\": [\"偶次根式被开方数 _w_domain -",
+    "extra": {
+      "structured_keys": []
+    }
+  },
+  {
+    "test": 7,
+    "name": "重要结果经过独立验证且验证级别诚实标注",
+    "passed": true,
+    "evidence": "定积分验证级别=cross 方法数=1；求逆验证级别=independent 方法数=3",
+    "extra": {
+      "integrate_verification": {
+        "status": "cross",
+        "methods": [
+          {
+            "method": "numeric_integrate 加固数值路线（多路线 + 收敛守卫，与 sp.integrate 相互独立）",
+            "numeric_value": "2",
+            "symbolic_value": "2",
+            "max_rel_dev": 0.0,
+            "numeric_abs_error": null,
+            "numeric_reliable_digits": null
+          }
+        ],
+        "note": "符号结果与独立数值积分（多路线 + 收敛守卫）一致（数值交叉验证，非符号证明）。"
+      },
+      "inverse_verification": {
+        "status": "independent",
+        "methods": [
+          {
+            "method": "矩阵乘积为单位矩阵：逐元素比较 A·A⁻¹ 与 I",
+            "product_text": "[[1, 0], [0, 1]]",
+            "agree": true
+          },
+          {
+            "method": "反向乘积为单位矩阵：逐元素比较 A⁻¹·A 与 I",
+            "product_text": "[[1, 0], [0, 1]]",
+            "agree": true
+          },
+          {
+            "method": "det(A⁻¹) = 1/det(A)（独立标量恒等式）",
+            "expected": "-1/2",
+            "got": "-1/2",
+            "agree": true
+          }
+        ],
+        "note": "验证通过：矩阵乘积为单位矩阵。"
+      }
+    }
+  },
+  {
+    "test": 8,
+    "name": "相似表达式缓存：同条件命中，不同条件（定/不定、变量、方向、精度）不混用",
+    "passed": true,
+    "evidence": "同条件命中=True 定积分不误命中=True 换变量不误命中=True 极限方向不混用=True 精度不混用=True"
+  }
+]

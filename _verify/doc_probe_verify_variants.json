@@ -1,0 +1,1661 @@
+{
+ "eq_cand_x_eq_1": {
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x^2-3*x+2=0"
+   ],
+   "candidate": "x=1"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=equation_solution）",
+   "input": {
+    "kind": "equation_solution",
+    "candidate": "x=1"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+     "level": "symbolic",
+     "evidence": {
+      "candidate_substitution": {
+       "x": "1"
+      },
+      "residuals": [
+       "0"
+      ],
+      "sympy_core_method": "代回原方程检查残差",
+      "independent_solution_set": [
+       "1",
+       "2"
+      ]
+     },
+     "unhandled_conditions": [
+      "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+       "passed": true,
+       "evidence": {
+        "residuals": [
+         "0"
+        ]
+       }
+      },
+      {
+       "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+       "passed": true,
+       "evidence": {
+        "solutions": [
+         "1",
+         "2"
+        ]
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+    ],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+      "passed": true,
+      "evidence": {
+       "residuals": [
+        "0"
+       ]
+      }
+     },
+     {
+      "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+      "passed": true,
+      "evidence": {
+       "solutions": [
+        "1",
+        "2"
+       ]
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+    "evidence": {
+     "candidate_substitution": {
+      "x": "1"
+     },
+     "residuals": [
+      "0"
+     ],
+     "sympy_core_method": "代回原方程检查残差",
+     "independent_solution_set": [
+      "1",
+      "2"
+     ]
+    },
+    "unhandled_conditions": [
+     "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 33.52
+  }
+ },
+ "eq_cand_1": {
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x^2-3*x+2=0"
+   ],
+   "candidate": "1"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=equation_solution）",
+   "input": {
+    "kind": "equation_solution",
+    "candidate": "1"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+     "level": "symbolic",
+     "evidence": {
+      "candidate_substitution": {
+       "x": "1"
+      },
+      "residuals": [
+       "0"
+      ],
+      "sympy_core_method": "代回原方程检查残差",
+      "independent_solution_set": [
+       "1",
+       "2"
+      ]
+     },
+     "unhandled_conditions": [
+      "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+       "passed": true,
+       "evidence": {
+        "residuals": [
+         "0"
+        ]
+       }
+      },
+      {
+       "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+       "passed": true,
+       "evidence": {
+        "solutions": [
+         "1",
+         "2"
+        ]
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+    ],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+      "passed": true,
+      "evidence": {
+       "residuals": [
+        "0"
+       ]
+      }
+     },
+     {
+      "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+      "passed": true,
+      "evidence": {
+       "solutions": [
+        "1",
+        "2"
+       ]
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+    "evidence": {
+     "candidate_substitution": {
+      "x": "1"
+     },
+     "residuals": [
+      "0"
+     ],
+     "sympy_core_method": "代回原方程检查残差",
+     "independent_solution_set": [
+      "1",
+      "2"
+     ]
+    },
+    "unhandled_conditions": [
+     "验证的是「候选值满足方程」，不涉及解的完备性（是否还有别的解）"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 3.64
+  }
+ },
+ "eq_cand_list": {
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x^2-3*x+2=0"
+   ],
+   "candidate": "[1, 2]"
+  },
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "verify",
+   "method": "verify",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 2.88,
+   "error": {
+    "kind": "invalid_input",
+    "message": "候选解无法解析：表达式无法解析（已规范化为 '[1'）: ('unexpected EOF in multi-line statement', (1, 0))"
+   }
+  }
+ },
+ "eq_wrong_one": {
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x^2-3*x+2=0"
+   ],
+   "candidate": "-2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=equation_solution）",
+   "input": {
+    "kind": "equation_solution",
+    "candidate": "-2"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：方程（组）复核：代回检查残差 + 独立求解对照",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+     "level": "symbolic",
+     "evidence": {
+      "candidate_substitution": {
+       "x": "-2"
+      },
+      "residuals": [
+       "12"
+      ],
+      "sympy_core_method": "代回原方程检查残差",
+      "counterexample": "第 1 个方程代入后残差为 12 ≠ 0",
+      "independent_solution_set": [
+       "1",
+       "2"
+      ],
+      "independent_note": "独立求解得到的解集为 ['1', '2']，候选值不在其中"
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+       "passed": false,
+       "evidence": {
+        "residuals": [
+         "12"
+        ]
+       }
+      },
+      {
+       "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+       "passed": false,
+       "evidence": {
+        "solutions": [
+         "1",
+         "2"
+        ]
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": [],
+    "counterexample": "第 1 个方程代入后残差为 12 ≠ 0"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选解代回原方程逐条检查残差（sympy_core.check_solution）",
+      "passed": false,
+      "evidence": {
+       "residuals": [
+        "12"
+       ]
+      }
+     },
+     {
+      "method": "独立求解原方程并与候选解比对（与代回残差互相独立）",
+      "passed": false,
+      "evidence": {
+       "solutions": [
+        "1",
+        "2"
+       ]
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "方程（组）复核：代回检查残差 + 独立求解对照",
+    "evidence": {
+     "candidate_substitution": {
+      "x": "-2"
+     },
+     "residuals": [
+      "12"
+     ],
+     "sympy_core_method": "代回原方程检查残差",
+     "counterexample": "第 1 个方程代入后残差为 12 ≠ 0",
+     "independent_solution_set": [
+      "1",
+      "2"
+     ],
+     "independent_note": "独立求解得到的解集为 ['1', '2']，候选值不在其中"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：第 1 个方程代入后残差为 12 ≠ 0"
+   ],
+   "elapsed_ms": 5.15
+  }
+ },
+ "eq_two_eqs_wrong": {
+  "args": {
+   "kind": "equation_solution",
+   "equations": [
+    "x+y=3",
+    "x-y=1"
+   ],
+   "candidate": "x=2"
+  },
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "verify",
+   "method": "verify",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 1.81,
+   "error": {
+    "kind": "invalid_input",
+    "message": "候选解缺少部分未知量的取值"
+   }
+  }
+ },
+ "inv_cand_matrix": {
+  "args": {
+   "kind": "matrix_inverse",
+   "matrix": "1,2;3,4",
+   "candidate": "Matrix([[-2,1],[3/2,-1/2]])"
+  },
+  "resp": {
+   "success": false,
+   "status": "unsolved",
+   "operation": "verify",
+   "method": "独立复核（kind=matrix_inverse）",
+   "input": {
+    "kind": "matrix_inverse",
+    "candidate": "Matrix([[-2,1],[3/2,-1/2]])"
+   },
+   "result": {
+    "text": "复核结论：无法判定（验证等级：none）；方式：矩阵求逆复核",
+    "latex": "复核结论：无法判定（验证等级：none）；方式：矩阵求逆复核",
+    "approx": "复核结论：无法判定（验证等级：none）；方式：矩阵求逆复核",
+    "verification": {
+     "passed": null,
+     "method": "矩阵求逆复核",
+     "level": "none",
+     "evidence": {
+      "original_matrix": "[[1, 2], [3, 4]]",
+      "parse_note": "候选无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": "候选结果无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))",
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "矩阵求逆复核",
+       "passed": null,
+       "evidence": {
+        "original_matrix": "[[1, 2], [3, 4]]",
+        "parse_note": "候选无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": "候选结果无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))",
+    "conditions_used": []
+   },
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": [
+     {
+      "method": "矩阵求逆复核",
+      "passed": null,
+      "evidence": {
+       "original_matrix": "[[1, 2], [3, 4]]",
+       "parse_note": "候选无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+      }
+     }
+    ],
+    "passed": null,
+    "level": "none",
+    "method": "矩阵求逆复核",
+    "evidence": {
+     "original_matrix": "[[1, 2], [3, 4]]",
+     "parse_note": "候选无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": "候选结果无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))",
+    "conditions_used": []
+   },
+   "warnings": [
+    "候选结果无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+   ],
+   "elapsed_ms": 2.33,
+   "error": {
+    "kind": "unsolved",
+    "message": "候选结果无法解析为矩阵：表达式无法解析（已规范化为 'Matrix([[-2'）: ('unexpected EOF in multi-line statement', (1, 0))"
+   }
+  }
+ },
+ "inv_cand_plain": {
+  "args": {
+   "kind": "matrix_inverse",
+   "matrix": "1,2;3,4",
+   "candidate": "-2,1;3/2,-1/2"
+  },
+  "resp": {
+   "success": false,
+   "status": "error",
+   "operation": "verify",
+   "method": "verify",
+   "input": {},
+   "result": {},
+   "conditions": [],
+   "verification": {
+    "status": "unverified",
+    "methods": []
+   },
+   "warnings": [],
+   "elapsed_ms": 1.11,
+   "error": {
+    "kind": "invalid_input",
+    "message": "复核缺少必需参数：cand"
+   }
+  }
+ },
+ "det_cand": {
+  "args": {
+   "kind": "determinant",
+   "matrix": "1,2;3,4",
+   "candidate": "-2"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=determinant）",
+   "input": {
+    "kind": "determinant",
+    "candidate": "-2",
+    "matrix": "[[1, 2], [3, 4]]"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：行列式复核：符号差式复核（差式构造上即为 0）",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：行列式复核：符号差式复核（差式构造上即为 0）",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：行列式复核：符号差式复核（差式构造上即为 0）",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "行列式复核：符号差式复核（差式构造上即为 0）",
+     "level": "symbolic",
+     "evidence": {
+      "independent_determinant": "-2",
+      "difference": "0",
+      "numeric": {
+       "agree": true,
+       "max_rel_dev": 0.0,
+       "checked_points": 1,
+       "note": "在 1 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      },
+      "matrix": "[[1, 2], [3, 4]]",
+      "numpy_determinant": {
+       "value": [
+        -2.0000000000000004,
+        0.0
+       ],
+       "note": "numpy.linalg.det 数值核对（独立于 sympy）"
+      }
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "独立计算行列式（sympy det）并与候选比较",
+       "passed": true,
+       "evidence": {
+        "determinant": "-2",
+        "difference": "0"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 0.0,
+        "note": "在 1 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+       }
+      },
+      {
+       "method": "numpy.linalg.det 数值核对",
+       "passed": null,
+       "evidence": {
+        "value": [
+         -2.0000000000000004,
+         0.0
+        ],
+        "note": "numpy.linalg.det 数值核对（独立于 sympy）"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "独立计算行列式（sympy det）并与候选比较",
+      "passed": true,
+      "evidence": {
+       "determinant": "-2",
+       "difference": "0"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 0.0,
+       "note": "在 1 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      }
+     },
+     {
+      "method": "numpy.linalg.det 数值核对",
+      "passed": null,
+      "evidence": {
+       "value": [
+        -2.0000000000000004,
+        0.0
+       ],
+       "note": "numpy.linalg.det 数值核对（独立于 sympy）"
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "行列式复核：符号差式复核（差式构造上即为 0）",
+    "evidence": {
+     "independent_determinant": "-2",
+     "difference": "0",
+     "numeric": {
+      "agree": true,
+      "max_rel_dev": 0.0,
+      "checked_points": 1,
+      "note": "在 1 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+     },
+     "matrix": "[[1, 2], [3, 4]]",
+     "numpy_determinant": {
+      "value": [
+       -2.0000000000000004,
+       0.0
+      ],
+      "note": "numpy.linalg.det 数值核对（独立于 sympy）"
+     }
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 2.11
+  }
+ },
+ "eigen_ok": {
+  "args": {
+   "kind": "eigen",
+   "matrix": "2,1;1,2",
+   "candidate": "1,3"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=eigen）",
+   "input": {
+    "kind": "eigen",
+    "candidate": "1,3",
+    "matrix": "[[2, 1], [1, 2]]"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+     "level": "symbolic",
+     "evidence": {
+      "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+      "independent_eigenvalues": {
+       "3": 1,
+       "1": 1
+      },
+      "candidate": [
+       {
+        "value": "1",
+        "multiplicity": null
+       },
+       {
+        "value": "3",
+        "multiplicity": null
+       }
+      ],
+      "rows": [
+       {
+        "value": "1",
+        "charpoly_at_value": "0",
+        "is_eigenvalue": true,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": 1
+       },
+       {
+        "value": "3",
+        "charpoly_at_value": "0",
+        "is_eigenvalue": true,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": 1
+       }
+      ]
+     },
+     "unhandled_conditions": [
+      "本次只复核特征值（及其重数），未复核特征向量",
+      "候选未给出代数重数，未核对重数"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+       "passed": true,
+       "evidence": {
+        "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+        "rows": [
+         {
+          "value": "1",
+          "charpoly_at_value": "0",
+          "is_eigenvalue": true,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": 1
+         },
+         {
+          "value": "3",
+          "charpoly_at_value": "0",
+          "is_eigenvalue": true,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": 1
+         }
+        ]
+       }
+      },
+      {
+       "method": "独立求特征值并核对代数量数",
+       "passed": true,
+       "evidence": {
+        "eigenvalues": {
+         "3": 1,
+         "1": 1
+        }
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：本次只复核特征值（及其重数），未复核特征向量",
+    "未处理条件：候选未给出代数重数，未核对重数"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+      "passed": true,
+      "evidence": {
+       "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+       "rows": [
+        {
+         "value": "1",
+         "charpoly_at_value": "0",
+         "is_eigenvalue": true,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": 1
+        },
+        {
+         "value": "3",
+         "charpoly_at_value": "0",
+         "is_eigenvalue": true,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": 1
+        }
+       ]
+      }
+     },
+     {
+      "method": "独立求特征值并核对代数量数",
+      "passed": true,
+      "evidence": {
+       "eigenvalues": {
+        "3": 1,
+        "1": 1
+       }
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+    "evidence": {
+     "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+     "independent_eigenvalues": {
+      "3": 1,
+      "1": 1
+     },
+     "candidate": [
+      {
+       "value": "1",
+       "multiplicity": null
+      },
+      {
+       "value": "3",
+       "multiplicity": null
+      }
+     ],
+     "rows": [
+      {
+       "value": "1",
+       "charpoly_at_value": "0",
+       "is_eigenvalue": true,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": 1
+      },
+      {
+       "value": "3",
+       "charpoly_at_value": "0",
+       "is_eigenvalue": true,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": 1
+      }
+     ]
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 4.99
+  }
+ },
+ "eigen_wrong": {
+  "args": {
+   "kind": "eigen",
+   "matrix": "2,1;1,2",
+   "candidate": "0,4"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=eigen）",
+   "input": {
+    "kind": "eigen",
+    "candidate": "0,4",
+    "matrix": "[[2, 1], [1, 2]]"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：特征值复核：特征多项式代入 + 独立特征值对照",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+     "level": "symbolic",
+     "evidence": {
+      "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+      "independent_eigenvalues": {
+       "3": 1,
+       "1": 1
+      },
+      "candidate": [
+       {
+        "value": "0",
+        "multiplicity": null
+       },
+       {
+        "value": "4",
+        "multiplicity": null
+       }
+      ],
+      "rows": [
+       {
+        "value": "0",
+        "charpoly_at_value": "3",
+        "is_eigenvalue": false,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": null
+       },
+       {
+        "value": "4",
+        "charpoly_at_value": "3",
+        "is_eigenvalue": false,
+        "claimed_multiplicity": null,
+        "actual_multiplicity": null
+       }
+      ],
+      "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+     },
+     "unhandled_conditions": [
+      "本次只复核特征值（及其重数），未复核特征向量",
+      "候选未给出代数重数，未核对重数"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+       "passed": false,
+       "evidence": {
+        "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+        "rows": [
+         {
+          "value": "0",
+          "charpoly_at_value": "3",
+          "is_eigenvalue": false,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": null
+         },
+         {
+          "value": "4",
+          "charpoly_at_value": "3",
+          "is_eigenvalue": false,
+          "claimed_multiplicity": null,
+          "actual_multiplicity": null
+         }
+        ]
+       }
+      },
+      {
+       "method": "独立求特征值并核对代数量数",
+       "passed": false,
+       "evidence": {
+        "eigenvalues": {
+         "3": 1,
+         "1": 1
+        }
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "conditions_used": [],
+    "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：本次只复核特征值（及其重数），未复核特征向量",
+    "未处理条件：候选未给出代数重数，未核对重数"
+   ],
+   "verification": {
+    "status": "independent",
+    "methods": [
+     {
+      "method": "把候选特征值代入特征多项式检查是否为 0（独立于求解器）",
+      "passed": false,
+      "evidence": {
+       "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+       "rows": [
+        {
+         "value": "0",
+         "charpoly_at_value": "3",
+         "is_eigenvalue": false,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": null
+        },
+        {
+         "value": "4",
+         "charpoly_at_value": "3",
+         "is_eigenvalue": false,
+         "claimed_multiplicity": null,
+         "actual_multiplicity": null
+        }
+       ]
+      }
+     },
+     {
+      "method": "独立求特征值并核对代数量数",
+      "passed": false,
+      "evidence": {
+       "eigenvalues": {
+        "3": 1,
+        "1": 1
+       }
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "特征值复核：特征多项式代入 + 独立特征值对照",
+    "evidence": {
+     "characteristic_polynomial": "lambda**2 - 4*lambda + 3",
+     "independent_eigenvalues": {
+      "3": 1,
+      "1": 1
+     },
+     "candidate": [
+      {
+       "value": "0",
+       "multiplicity": null
+      },
+      {
+       "value": "4",
+       "multiplicity": null
+      }
+     ],
+     "rows": [
+      {
+       "value": "0",
+       "charpoly_at_value": "3",
+       "is_eigenvalue": false,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": null
+      },
+      {
+       "value": "4",
+       "charpoly_at_value": "3",
+       "is_eigenvalue": false,
+       "claimed_multiplicity": null,
+       "actual_multiplicity": null
+      }
+     ],
+     "counterexample": "0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+    },
+    "unhandled_conditions": [
+     "本次只复核特征值（及其重数），未复核特征向量",
+     "候选未给出代数重数，未核对重数"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：0 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）；4 不是特征值：特征多项式在该点取值 3 ≠ 0（独立求得的特征值为 {'3': 1, '1': 1}）"
+   ],
+   "elapsed_ms": 5.02
+  }
+ },
+ "normalization_wrong": {
+  "args": {
+   "kind": "normalization",
+   "expr": "k*x",
+   "candidate": "1",
+   "lower": "0",
+   "upper": "1"
+  },
+  "resp": {
+   "success": false,
+   "status": "unsolved",
+   "operation": "verify",
+   "method": "独立复核（kind=normalization）",
+   "input": {
+    "kind": "normalization",
+    "candidate": "1",
+    "expr": "k*x"
+   },
+   "result": {
+    "text": "复核结论：无法判定（验证等级：none）；方式：归一化复核：符号差式无法归零，数值抽样也失效",
+    "latex": "复核结论：无法判定（验证等级：none）；方式：归一化复核：符号差式无法归零，数值抽样也失效",
+    "approx": "复核结论：无法判定（验证等级：none）；方式：归一化复核：符号差式无法归零，数值抽样也失效",
+    "verification": {
+     "passed": null,
+     "method": "归一化复核：符号差式无法归零，数值抽样也失效",
+     "level": "none",
+     "evidence": {
+      "integrand": "k*x",
+      "domain": [
+       "0",
+       "1"
+      ],
+      "total_integral": "x/2",
+      "total_integral_approx": null,
+      "interpretation": "候选被解释为归一化常数 C，检查 C·∫f = 1",
+      "independent_constant": "2/x",
+      "check_expression": "x/2",
+      "candidate": "1"
+     },
+     "unhandled_conditions": [
+      "总测度含自由参数（x/2）：归一化只在特定参数取值下成立，本次未验证参数范围"
+     ],
+     "cannot_verify_reason": "既无法获得符号级证明（差式化简不收敛），也拿不到有效的数值抽样点（表达式含未定义函数/参数或处处非实数），因此无法验证",
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "独立计算在整个支撑上的积分（sympy）",
+       "passed": null,
+       "evidence": {
+        "total": "x/2",
+        "approx": null
+       }
+      },
+      {
+       "method": "归一化条件 C·∫f = 1（或 ∫候选 = 1）的符号/数值检查",
+       "passed": null,
+       "evidence": {
+        "check_quantity": "x/2",
+        "difference_from_1": "x/2 - 1"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "总测度含自由参数（x/2）：归一化只在特定参数取值下成立，本次未验证参数范围"
+    ],
+    "cannot_verify_reason": "既无法获得符号级证明（差式化简不收敛），也拿不到有效的数值抽样点（表达式含未定义函数/参数或处处非实数），因此无法验证",
+    "conditions_used": []
+   },
+   "conditions": [
+    "未处理条件：总测度含自由参数（x/2）：归一化只在特定参数取值下成立，本次未验证参数范围"
+   ],
+   "verification": {
+    "status": "unverified",
+    "methods": [
+     {
+      "method": "独立计算在整个支撑上的积分（sympy）",
+      "passed": null,
+      "evidence": {
+       "total": "x/2",
+       "approx": null
+      }
+     },
+     {
+      "method": "归一化条件 C·∫f = 1（或 ∫候选 = 1）的符号/数值检查",
+      "passed": null,
+      "evidence": {
+       "check_quantity": "x/2",
+       "difference_from_1": "x/2 - 1"
+      }
+     }
+    ],
+    "passed": null,
+    "level": "none",
+    "method": "归一化复核：符号差式无法归零，数值抽样也失效",
+    "evidence": {
+     "integrand": "k*x",
+     "domain": [
+      "0",
+      "1"
+     ],
+     "total_integral": "x/2",
+     "total_integral_approx": null,
+     "interpretation": "候选被解释为归一化常数 C，检查 C·∫f = 1",
+     "independent_constant": "2/x",
+     "check_expression": "x/2",
+     "candidate": "1"
+    },
+    "unhandled_conditions": [
+     "总测度含自由参数（x/2）：归一化只在特定参数取值下成立，本次未验证参数范围"
+    ],
+    "cannot_verify_reason": "既无法获得符号级证明（差式化简不收敛），也拿不到有效的数值抽样点（表达式含未定义函数/参数或处处非实数），因此无法验证",
+    "conditions_used": []
+   },
+   "warnings": [
+    "既无法获得符号级证明（差式化简不收敛），也拿不到有效的数值抽样点（表达式含未定义函数/参数或处处非实数），因此无法验证"
+   ],
+   "elapsed_ms": 117.39,
+   "error": {
+    "kind": "unsolved",
+    "message": "既无法获得符号级证明（差式化简不收敛），也拿不到有效的数值抽样点（表达式含未定义函数/参数或处处非实数），因此无法验证"
+   }
+  }
+ },
+ "identity_wrong": {
+  "args": {
+   "kind": "identity",
+   "expr": "sin(x)^2+cos(x)^2=1",
+   "candidate": "1"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=identity）",
+   "input": {
+    "kind": "identity",
+    "expr": "sin(x)^2+cos(x)^2=1",
+    "candidate": "1"
+   },
+   "result": {
+    "text": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "latex": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "approx": "复核结论：通过（验证等级：symbolic）；方式：符号差式复核（sp.simplify 化简为 0）",
+    "passed": true,
+    "verification": {
+     "passed": true,
+     "method": "符号差式复核（sp.simplify 化简为 0）",
+     "level": "symbolic",
+     "evidence": {
+      "simplified_difference": "0",
+      "sympy_core_method": "差式化简为 0",
+      "numeric": {
+       "agree": true,
+       "max_rel_dev": 0.0,
+       "checked_points": 12,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      },
+      "domain_caveats": [],
+      "condition_refined_difference": "sin(x)**2 + cos(x)**2 - 1"
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "差式符号化简（sympy_core.verify_identity）",
+       "passed": true,
+       "evidence": {
+        "simplified_difference": "0"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": true,
+       "evidence": {
+        "max_rel_dev": 0.0,
+        "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": []
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "差式符号化简（sympy_core.verify_identity）",
+      "passed": true,
+      "evidence": {
+       "simplified_difference": "0"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": true,
+      "evidence": {
+       "max_rel_dev": 0.0,
+       "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+      }
+     }
+    ],
+    "passed": true,
+    "level": "symbolic",
+    "method": "符号差式复核（sp.simplify 化简为 0）",
+    "evidence": {
+     "simplified_difference": "0",
+     "sympy_core_method": "差式化简为 0",
+     "numeric": {
+      "agree": true,
+      "max_rel_dev": 0.0,
+      "checked_points": 12,
+      "note": "在 12 个抽样点上数值一致（最大相对偏差 0.000e+00）——仅为数值证据，不是符号证明"
+     },
+     "domain_caveats": [],
+     "condition_refined_difference": "sin(x)**2 + cos(x)**2 - 1"
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [],
+   "elapsed_ms": 34.9
+  }
+ },
+ "limit_wrong": {
+  "args": {
+   "kind": "limit",
+   "expr": "sin(x)/x",
+   "candidate": "0",
+   "var": "x",
+   "point": "0"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=limit）",
+   "input": {
+    "kind": "limit",
+    "expr": "sin(x)/x",
+    "candidate": "0",
+    "var": "x",
+    "point": "0"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：极限复核：独立求极限 + 数值逼近",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：极限复核：独立求极限 + 数值逼近",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：极限复核：独立求极限 + 数值逼近",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "极限复核：独立求极限 + 数值逼近",
+     "level": "symbolic",
+     "evidence": {
+      "point": "0",
+      "direction": "双侧",
+      "independent_limit": "1",
+      "difference": "1",
+      "counterexample": "独立求得的极限为 1，候选为 0；差式化简为 1",
+      "numeric_approach": {
+       "rows": [
+        {
+         "point": "1/100000",
+         "value": 0.9999999999833333,
+         "rel_dev": 0.9999999999833333
+        },
+        {
+         "point": "1/100000000",
+         "value": 1.0,
+         "rel_dev": 1.0
+        },
+        {
+         "point": "-1/100000",
+         "value": 0.9999999999833333,
+         "rel_dev": 0.9999999999833333
+        },
+        {
+         "point": "-1/100000000",
+         "value": 1.0,
+         "rel_dev": 1.0
+        }
+       ],
+       "max_rel_dev": 1.0,
+       "note": "数值逼近不一致：在 1/100000000 处函数值 1，候选 0（相对偏差 1）"
+      }
+     },
+     "unhandled_conditions": [],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "用 sympy 独立求极限后与候选作符号比较",
+       "passed": false,
+       "evidence": {
+        "independent_limit": "1",
+        "difference": "1"
+       }
+      },
+      {
+       "method": "数值逼近（自变量逐步趋近该点，独立于符号求极限）",
+       "passed": false,
+       "evidence": {
+        "rows": [
+         {
+          "point": "1/100000",
+          "value": 0.9999999999833333,
+          "rel_dev": 0.9999999999833333
+         },
+         {
+          "point": "1/100000000",
+          "value": 1.0,
+          "rel_dev": 1.0
+         },
+         {
+          "point": "-1/100000",
+          "value": 0.9999999999833333,
+          "rel_dev": 0.9999999999833333
+         },
+         {
+          "point": "-1/100000000",
+          "value": 1.0,
+          "rel_dev": 1.0
+         }
+        ],
+        "max_rel_dev": 1.0,
+        "note": "数值逼近不一致：在 1/100000000 处函数值 1，候选 0（相对偏差 1）"
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [],
+    "conditions_used": [],
+    "counterexample": "独立求得的极限为 1，候选为 0；差式化简为 1"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "用 sympy 独立求极限后与候选作符号比较",
+      "passed": false,
+      "evidence": {
+       "independent_limit": "1",
+       "difference": "1"
+      }
+     },
+     {
+      "method": "数值逼近（自变量逐步趋近该点，独立于符号求极限）",
+      "passed": false,
+      "evidence": {
+       "rows": [
+        {
+         "point": "1/100000",
+         "value": 0.9999999999833333,
+         "rel_dev": 0.9999999999833333
+        },
+        {
+         "point": "1/100000000",
+         "value": 1.0,
+         "rel_dev": 1.0
+        },
+        {
+         "point": "-1/100000",
+         "value": 0.9999999999833333,
+         "rel_dev": 0.9999999999833333
+        },
+        {
+         "point": "-1/100000000",
+         "value": 1.0,
+         "rel_dev": 1.0
+        }
+       ],
+       "max_rel_dev": 1.0,
+       "note": "数值逼近不一致：在 1/100000000 处函数值 1，候选 0（相对偏差 1）"
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "极限复核：独立求极限 + 数值逼近",
+    "evidence": {
+     "point": "0",
+     "direction": "双侧",
+     "independent_limit": "1",
+     "difference": "1",
+     "counterexample": "独立求得的极限为 1，候选为 0；差式化简为 1",
+     "numeric_approach": {
+      "rows": [
+       {
+        "point": "1/100000",
+        "value": 0.9999999999833333,
+        "rel_dev": 0.9999999999833333
+       },
+       {
+        "point": "1/100000000",
+        "value": 1.0,
+        "rel_dev": 1.0
+       },
+       {
+        "point": "-1/100000",
+        "value": 0.9999999999833333,
+        "rel_dev": 0.9999999999833333
+       },
+       {
+        "point": "-1/100000000",
+        "value": 1.0,
+        "rel_dev": 1.0
+       }
+      ],
+      "max_rel_dev": 1.0,
+      "note": "数值逼近不一致：在 1/100000000 处函数值 1，候选 0（相对偏差 1）"
+     }
+    },
+    "unhandled_conditions": [],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：独立求得的极限为 1，候选为 0；差式化简为 1"
+   ],
+   "elapsed_ms": 5.19
+  }
+ },
+ "simplify_wrong": {
+  "args": {
+   "kind": "simplify",
+   "expr": "(x^2-1)/(x-1)",
+   "candidate": "x"
+  },
+  "resp": {
+   "success": true,
+   "status": "ok",
+   "operation": "verify",
+   "method": "独立复核（kind=simplify）",
+   "input": {
+    "kind": "simplify",
+    "expr": "(x^2-1)/(x-1)",
+    "candidate": "x"
+   },
+   "result": {
+    "text": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "latex": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "approx": "复核结论：不通过（验证等级：symbolic）；方式：符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "passed": false,
+    "verification": {
+     "passed": false,
+     "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+     "level": "symbolic",
+     "evidence": {
+      "difference": "1",
+      "numeric": {
+       "agree": false,
+       "max_rel_dev": 1.0,
+       "checked_points": 12,
+       "note": "抽样点不一致：{x: -1/3} 处 0.666666666667 vs -0.333333333333（相对偏差 1）"
+      },
+      "complexity": {
+       "original_ops": 4,
+       "candidate_ops": 0,
+       "note": "候选确实更简单"
+      },
+      "domain_caveats": [
+       "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）"
+      ],
+      "counterexample": "在 {x: -1/3} 处：左边 = 0.666666666667，右边 = -0.333333333333（相对偏差 1）"
+     },
+     "unhandled_conditions": [
+      "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）（未处理：用户未声明该限制）"
+     ],
+     "cannot_verify_reason": null,
+     "conditions_used": [],
+     "methods": [
+      {
+       "method": "原式与候选的差式符号化简",
+       "passed": false,
+       "evidence": {
+        "difference": "1"
+       }
+      },
+      {
+       "method": "高精度数值抽样逐点比较",
+       "passed": false,
+       "evidence": {
+        "max_rel_dev": 1.0,
+        "note": "抽样点不一致：{x: -1/3} 处 0.666666666667 vs -0.333333333333（相对偏差 1）"
+       }
+      },
+      {
+       "method": "定义域陷阱检查",
+       "passed": false,
+       "evidence": {
+        "caveats": [
+         "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）"
+        ]
+       }
+      }
+     ],
+     "grade_note": "symbolic = 符号级证明；numeric = 仅为数值证据，不是符号证明；none = 无法验证"
+    },
+    "unhandled_conditions": [
+     "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）（未处理：用户未声明该限制）"
+    ],
+    "conditions_used": [],
+    "counterexample": "在 {x: -1/3} 处：左边 = 0.666666666667，右边 = -0.333333333333（相对偏差 1）"
+   },
+   "conditions": [
+    "本次复核获得符号级证据（差式化简 / 符号求导 / 特征多项式代入等）",
+    "未处理条件：x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）（未处理：用户未声明该限制）"
+   ],
+   "verification": {
+    "status": "cross",
+    "methods": [
+     {
+      "method": "原式与候选的差式符号化简",
+      "passed": false,
+      "evidence": {
+       "difference": "1"
+      }
+     },
+     {
+      "method": "高精度数值抽样逐点比较",
+      "passed": false,
+      "evidence": {
+       "max_rel_dev": 1.0,
+       "note": "抽样点不一致：{x: -1/3} 处 0.666666666667 vs -0.333333333333（相对偏差 1）"
+      }
+     },
+     {
+      "method": "定义域陷阱检查",
+      "passed": false,
+      "evidence": {
+       "caveats": [
+        "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）"
+       ]
+      }
+     }
+    ],
+    "passed": false,
+    "level": "symbolic",
+    "method": "符号差式不为 0，且数值抽样逐点不一致（已给出反例点）",
+    "evidence": {
+     "difference": "1",
+     "numeric": {
+      "agree": false,
+      "max_rel_dev": 1.0,
+      "checked_points": 12,
+      "note": "抽样点不一致：{x: -1/3} 处 0.666666666667 vs -0.333333333333（相对偏差 1）"
+     },
+     "complexity": {
+      "original_ops": 4,
+      "candidate_ops": 0,
+      "note": "候选确实更简单"
+     },
+     "domain_caveats": [
+      "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）"
+     ],
+     "counterexample": "在 {x: -1/3} 处：左边 = 0.666666666667，右边 = -0.333333333333（相对偏差 1）"
+    },
+    "unhandled_conditions": [
+     "x = 1 处 (x**2 - 1)/(x - 1) 无定义，而 x 有定义：等式只在 x ≠ 1 上成立（约去公因子改变了定义域）（未处理：用户未声明该限制）"
+    ],
+    "cannot_verify_reason": null,
+    "conditions_used": []
+   },
+   "warnings": [
+    "复核未通过：在 {x: -1/3} 处：左边 = 0.666666666667，右边 = -0.333333333333（相对偏差 1）"
+   ],
+   "elapsed_ms": 29.22
+  }
+ }
+}

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Logs and transient outputs
+*.log
+engine/_selftest_out.txt
+engine/_selftest_linalg_out.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-math
+      name: 'dsh-math'
+      config: {}

@@ -1,0 +1,36 @@
+layers: @deepseek-ai/dsh-base | dsh-math | skipped: []
+patch count: 3 rows: [{"id":"tool-plugin-manager","name":"@deepseek-ai/dsh-plugin-manager/tools","disabled":true},{"id":"plugin-manager","name":"@deepseek-ai/dsh-plugin-manager","disabled":{"__jsExpr":"!ctx.get('profileContext')"}},{"id":"timer","name":"@deepseek-ai/cordis-plugin-timer"},{"id":"hmr","name":"@deepseek-ai
+capture-probe: tools.register patched
+dsh: warning: 2 entries did not activate
+plugin-manager (@deepseek-ai/dsh-plugin-manager): TypeError: this.profile.startedBundles is not iterable
+    at new PluginManager (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/dsh-plugin-manager/lib/index.js:1384:36)
+    at Fiber.execute (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1068:24)
+    at file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1142:34
+    at file:///E:/dsh-math/_verify/profile-clone-full/#plugin-manager
+    at file:///E:/dsh-math/_verify/profile-clone-full/#include
+hmr (@deepseek-ai/dsh-hmr): Error: Profile HMR requires application readiness
+    at [cordis.init] (file:///D:/deepseek_harness/resources/app.asar/dsh/node_modules/@deepseek-ai/dsh-hmr/lib/index.js:342:33)
+    at file:///E:/dsh-math/_verify/profile-clone-full/#hmr
+    at file:///E:/dsh-math/_verify/profile-clone-full/#include
+BOOT OK; entries active
+registered tools: 38
+names: job_output, job_list, job_kill, skill, web_search, web_fetch, math_simplify, math_solve, math_limit, math_derivative, math_integrate, math_series, math_dsolve, math_matrix, math_probability, math_numeric, math_vector_calculus, math_verify, math_analysis, math_status, glob, grep, exit_plan_mode, todo_write, send_message, interrupt_agent, list_agents, get_goal, create_goal, update_goal, read, write, edit, subagent, subagent_fork, pwsh, read_image, workflow
+-- math_status (0ms):
+数学引擎状态 — 引擎尚未启动（首次调用任意数学工具时会自动拉起 Python 引擎）
+Python 解释器: 未探测
+worker: E:\dsh-math\_verify\profile-clone-full\node_modules\dsh-math\engine\worker.py
+
+-- math_simplify (1567ms):
+【化简与恒等变形】simplify — 成功
+结果: 1
+op_counts: {"simplify":0,"factor":5,"cancel":5,"radsimp":5,"powsimp":5,"trigsimp":0}
+chosen: simplify
+成立条件: 化简结果与原式在两者共同的定义域内恒等
+验证: 独立机制核验通过
+
+-- math_integrate (50ms):
+【积分】integrate — 成功
+结果: 1/3   ≈ 0.3333333333333333
+验证: 交叉验证通过
+
+disposed
