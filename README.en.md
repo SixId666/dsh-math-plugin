@@ -4,6 +4,7 @@
 
 ### Smart Computation & Verification Plugin for Postgraduate Entrance Exam Mathematics I, for DSH (DeepSeek Harness)
 
+[![CI](https://github.com/SixId666/dsh-math-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/SixId666/dsh-math-plugin/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![SymPy](https://img.shields.io/badge/powered%20by-SymPy-3B5584?logo=sympy&logoColor=white)](https://www.sympy.org/)
@@ -57,6 +58,8 @@ together a throwaway Python script just to evaluate one integral.
 | DSH | Local desktop build (desktop profile) | The plugin registers as a bundle + cordis patch |
 | Python | 3.10+ | The engine runs as a resident subprocess |
 | Python packages | `sympy`, `mpmath` (required); `numpy` / `scipy` (optional) | Verified with an Anaconda environment |
+
+One-shot install of all Python dependencies: `pip install -r requirements.txt`.
 
 The Python interpreter is resolved in the following order (`lib/bridge.js: resolvePython`):
 
@@ -195,31 +198,34 @@ Engine protocol: stderr is used for logs only (the plugin keeps the last 64 KiB 
 ```
 dsh-math-plugin/
 ├── README.md / README.en.md   # bilingual documentation
-├── LICENSE                    # MIT
-├── docs/                      # delivery documents (Chinese)
+├── LICENSE  CHANGELOG.md  CONTRIBUTING.md  SECURITY.md  requirements.txt
+├── docs/                      # delivery documents (Chinese is authoritative)
 │   ├── 工具说明.md             # tool reference: parameters, sub-operations, returns, examples
 │   ├── 使用示例.md             # real conversation examples for the four task modes
 │   ├── 测试报告.md             # test layers, real run records, reproduction commands
 │   ├── 已实现功能清单.md        # implemented features + runtime dependencies
 │   ├── 未实现与限制.md          # syllabus gaps and environment limitations
 │   └── 交付说明.md             # deliverables index + 11 acceptance criteria + evidence
-├── plugin/                    # installable plugin package (pack source)
+├── plugin/                    # installable plugin package (self-contained bundle, pack source)
 │   ├── package.json  cordis.patch.yml  icon.svg  README.md
 │   ├── locale/{zh,en}.json
 │   ├── lib/{entry,define_tool,bridge,tools,render}.js
-│   └── engine/                # synced from engine/ (_sync_engine.py)
-├── engine/                    # engine source (development; edit here, then sync)
+│   └── engine/                # generated from engine/ (do not edit directly, see CONTRIBUTING.md)
+├── engine/                    # engine source (single source of truth; edit here, then sync)
 │   ├── worker.py              # resident process entry (JSON lines over stdio)
 │   ├── mathkit/               # 14 .py files: 13 feature modules + __init__.py, 214 operators
 │   └── _selftest_*.py         # 7 engine self-test scripts
-├── _dist/dsh-math-1.0.2.tgz   # installable tarball
-├── _test_acceptance.py        # end-to-end acceptance (111 cases) + result JSON
-├── _test_special.py           # 8 special tests + result JSON
-├── _sync_engine.py            # engine/ → plugin/engine sync (whitelist)
-├── _pack.py                   # builds _dist/*.tgz (npm pack format)
-├── _dump_specs.mjs            # dumps the real parameter tables of the 14 tools → _specs.json
-├── _check_contract.py         # contract check: operator/parameter names vs. engine
-└── _verify/                   # in-host-loader verification scripts and outputs
+├── tests/                     # tests (run automatically by CI)
+│   ├── _test_acceptance.py    # end-to-end acceptance (111 cases) + result JSON
+│   └── _test_special.py       # 8 special tests + result JSON
+├── scripts/                   # build & validation scripts
+│   ├── _sync_engine.py        # engine/ → plugin/engine sync (whitelist)
+│   ├── _pack.py               # builds _dist/*.tgz (npm pack format)
+│   ├── _dump_specs.mjs        # dumps the real parameter tables of the 14 tools → _specs.json
+│   ├── _check_contract.py     # contract check: operator/parameter names vs. engine
+│   └── _specs.json            # tool→operator mapping dump (product of _dump_specs.mjs)
+├── _verify/                   # in-host-loader verification scripts and outputs (evidence)
+└── _dist/dsh-math-1.0.2.tgz   # installable tarball
 ```
 
 ## Documentation
@@ -246,6 +252,30 @@ dsh-math-plugin/
 | Full solving | "Fully solve this problem: …" | All eight parts: problem analysis, exam-point identification, approach, key formulas, computation, result verification, final answer, pattern-recognition tips |
 | Follow-up | "Expand on step 2" | Explains only that step, reusing verified results instead of re-solving |
 
+## FAQ
+
+**Q: The `math_*` tools don't show up after installing?**
+You must restart DSH after installing (see Quick Start step 3). Before a restart the bundle stays
+`inactive` — that is the host's normal resolution-table behavior, not a plugin defect.
+
+**Q: "No usable Python interpreter found"?**
+Set the `DSH_MATH_PYTHON` environment variable to the absolute path of python.exe, or set the
+`python:` key in the plugin config; also make sure `pip install sympy mpmath` has been run in that
+environment.
+
+**Q: The first call is slow?**
+The first call spawns the resident engine and loads the modules (about 1–2 s); afterwards calls
+within the same process are millisecond-level. Use `math_status` to inspect engine state and cache
+statistics.
+
+**Q: Is `unsolved` for ∫x^x dx a bug?**
+No. When no elementary antiderivative exists (e.g. `∫x^x dx`), or no closed-form quantile exists
+(χ²/F/t), the tool honestly returns `unsolved` instead of inventing a result; use `math_numeric`
+for a numerical answer.
+
+**Q: How do I contribute / reproduce the tests?**
+See [CONTRIBUTING.md](CONTRIBUTING.md); CI runs the full suite on every push.
+
 ## Known Limitations (Summary)
 
 The complete list is in [docs/未实现与限制.md](docs/未实现与限制.md).
@@ -258,11 +288,13 @@ The complete list is in [docs/未实现与限制.md](docs/未实现与限制.md)
 ## Tests & Evidence (Summary)
 
 All conclusions are reproducible from scripts in this repository (commands and real outputs in
-[docs/测试报告.md](docs/测试报告.md)):
+[docs/测试报告.md](docs/测试报告.md)); GitHub Actions re-runs the same suite on every push
+(see the CI badge above):
 
-- End-to-end acceptance `_test_acceptance.py`: **111/111 passed, exit 0**, details in `_test_acceptance_result.json`;
-- Eight special tests `_test_special.py`: **8/8 passed, exit 0** (all 214 operators registered, cache semantics, unevaluated-expression blocking, verification-level assertions, etc.);
+- End-to-end acceptance `tests/_test_acceptance.py`: **111/111 passed, exit 0**, details in `tests/_test_acceptance_result.json`;
+- Eight special tests `tests/_test_special.py`: **8/8 passed, exit 0** (all 214 operators registered, cache semantics, unevaluated-expression blocking, verification-level assertions, etc.);
 - Engine self-tests `engine/_selftest_*.py`: all 7 scripts **exit 0**;
+- Contract check `scripts/_check_contract.py`: every operator/parameter name in the tool table is accepted by the engine;
 - In-host-loader verification: `_verify/scratch_boot_full.mjs` → `BOOT OK`, all 14 tools registered and executed successfully.
 
 Measurement records and the criterion-by-criterion acceptance table are in

@@ -16,7 +16,7 @@ import shutil
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]  # 仓库根（脚本位于 <repo>/scripts/）
 SRC = ROOT / "engine"
 DST = ROOT / "plugin" / "engine"
 

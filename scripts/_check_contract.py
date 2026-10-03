@@ -8,7 +8,7 @@
 3. 算子的**必需参数**是否至少被工具表提供了一次（否则该工具永远只能用 invalid_input 收场）；
 4. spec.op（工具表声明的算子）与默认分支实际映射的算子是否一致。
 
-用法： python _check_contract.py [ _specs.json ]
+用法： python scripts/_check_contract.py [ scripts/_specs.json ]
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]  # 仓库根（脚本位于 <repo>/scripts/）
 sys.path.insert(0, str(ROOT / "engine"))
 
 from mathkit import engine as E  # noqa: E402
@@ -46,7 +46,7 @@ def declared_params(func) -> tuple[set[str], set[str]]:
 
 
 def main() -> int:
-    spec_file = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "_specs.json"
+    spec_file = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "_specs.json"
     # PowerShell 的 `Out-File -Encoding utf8` 会写 BOM，这里两种都接受。
     specs = json.loads(spec_file.read_text(encoding="utf-8-sig"))
 

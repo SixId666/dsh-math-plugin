@@ -5,8 +5,8 @@
 在 `<profile>/node_modules/dsh-math` 解出**真实目录**，与已稳定工作的
 dsh-context / dshmarket / modlens 完全同构。
 
-用法：
-    python E:\\dsh-math\\_pack.py            # 生成 _dist/dsh-math-1.0.0.tgz
+用法（任意位置）：
+    python scripts\\_pack.py                 # 在仓库根执行，生成 _dist/dsh-math-<version>.tgz
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ import sys
 import tarfile
 from pathlib import Path
 
-ROOT = Path(r"E:\dsh-math")
+ROOT = Path(__file__).resolve().parents[1]  # 仓库根（脚本位于 <repo>/scripts/）
 PLUGIN = ROOT / "plugin"
 DIST = ROOT / "_dist"
 

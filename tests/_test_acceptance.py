@@ -13,10 +13,10 @@
 只会静默取不到值，所以这里不允许「凭记忆写」。
 
 每个用例只断言「数学上可判定的性质」，不断言渲染文本，避免把测试写成实现快照。
-用法：
-    python -X utf8 _test_acceptance.py              # 全部
-    python -X utf8 _test_acceptance.py calculus     # 只跑某组
-    python -X utf8 _test_acceptance.py --list       # 只列组名与用例数
+用法（仓库根目录）：
+    python -X utf8 tests/_test_acceptance.py              # 全部
+    python -X utf8 tests/_test_acceptance.py calculus     # 只跑某组
+    python -X utf8 tests/_test_acceptance.py --list       # 只列组名与用例数
 """
 
 from __future__ import annotations
@@ -27,7 +27,8 @@ import sys
 import traceback
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-for candidate in (os.path.join(HERE, "engine"), HERE):
+REPO = os.path.dirname(HERE)  # 脚本位于 <repo>/tests/，引擎在 <repo>/engine/
+for candidate in (os.path.join(REPO, "engine"), os.path.join(HERE, "engine"), HERE):
     if os.path.isdir(os.path.join(candidate, "mathkit")):
         sys.path.insert(0, candidate)
         break

@@ -3,8 +3,32 @@
   "version": "1.0.2",
   "private": true,
   "type": "module",
-  "description": "考研数学一智能计算与验证插件：SymPy 驱动的精确计算 + 独立验证机制",
+  "description": "考研数学一智能计算与验证插件：SymPy 驱动的精确计算 + 独立验证机制 / Smart computation & verification plugin for postgraduate entrance exam Mathematics I, powered by SymPy",
   "icon": "./icon.svg",
+  "license": "MIT",
+  "author": "SixId666 <1027573327@qq.com>",
+  "homepage": "https://github.com/SixId666/dsh-math-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SixId666/dsh-math-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SixId666/dsh-math-plugin/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "math",
+    "sympy",
+    "mpmath",
+    "calculator",
+    "kaoyan",
+    "考研数学"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
   "exports": {
     ".": "./lib/entry.js",
     "./package.json": "./package.json",

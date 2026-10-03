@@ -1,12 +1,12 @@
 /**
  * 把 plugin/lib/tools.js 的工具表导出成 JSON，供 Python 侧做「工具→算子」契约校验。
  * 用法（Node 不在 PATH，用 Electron 当 Node）：
- *   $env:ELECTRON_RUN_AS_NODE=1; & "D:\deepseek_harness\DeepSeek Harness.exe" _dump_specs.mjs > _specs.json
+ *   $env:ELECTRON_RUN_AS_NODE=1; & "D:\deepseek_harness\DeepSeek Harness.exe" scripts/_dump_specs.mjs > scripts/_specs.json
  *
  * 分支选择参数（mode / operation / kind / action）会按其描述里的 "a | b | c" 逐个取值展开，
  * 这样每个工具的所有分支都会被 Python 侧校验到。
  */
-import { TOOL_SPECS } from "./plugin/lib/tools.js";
+import { TOOL_SPECS } from "../plugin/lib/tools.js";
 
 const SELECTOR_KEYS = ["mode", "operation", "kind", "action"];
 

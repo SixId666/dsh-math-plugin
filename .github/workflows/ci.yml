@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    # 与已验证环境一致（Windows + Python 3.13，见 docs/测试报告.md）；
+    # 引擎为纯 Python 实现，理论上跨平台，后续可按需扩展矩阵。
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Engine self-tests (7 scripts)
+        shell: bash
+        run: |
+          set -e
+          for f in engine/_selftest_*.py; do
+            echo "== $f =="
+            python -X utf8 "$f"
+          done
+
+      - name: Acceptance tests (111 cases)
+        run: python -X utf8 tests/_test_acceptance.py
+
+      - name: Special tests (8 cases)
+        run: python -X utf8 tests/_test_special.py
+
+      - name: Tool-operator contract check
+        run: python -X utf8 scripts/_check_contract.py

@@ -1,0 +1,11 @@
+# dsh-math 引擎（engine/mathkit）运行依赖
+# 安装：pip install -r requirements.txt
+# 验证环境：Python 3.13 / Anaconda（见 docs/测试报告.md）
+
+# 核心依赖（必需）
+sympy>=1.13
+mpmath>=1.3
+
+# 数值增强（可选，但推荐：未安装时部分数值算子会降级或返回 unsolved）
+numpy>=2.0
+scipy>=1.15

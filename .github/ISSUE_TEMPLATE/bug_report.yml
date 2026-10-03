@@ -1,0 +1,77 @@
+name: Bug 报告 / Bug report
+description: 报告插件、工具或引擎计算结果的问题
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！提交前请先搜索是否已有相同问题。
+        Thanks for reporting! Please search existing issues first.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述 / What happened?
+      description: |
+        请尽量附上：你发给 Agent 的原话、被调用的工具名（math_*）、返回的渲染文本或 JSON。
+        Please include your prompt to the Agent, the tool name (math_*), and the returned text/JSON.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤 / Steps to reproduce
+      placeholder: |
+        1. 发问：「计算 …」
+        2. Agent 调用 math_integrate
+        3. 返回 …（期望应为 …）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tool
+    attributes:
+      label: 涉及的工具 / Related tool
+      options:
+        - math_simplify
+        - math_solve
+        - math_limit
+        - math_derivative
+        - math_integrate
+        - math_series
+        - math_dsolve
+        - math_matrix
+        - math_probability
+        - math_numeric
+        - math_vector_calculus
+        - math_verify
+        - math_analysis
+        - math_status
+        - 安装/启用问题 / install or enable issue
+        - other / 其它
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python 版本 / Python version
+      description: "`python --version` 的输出"
+      placeholder: "3.13.5"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: 操作系统 / OS
+      placeholder: "Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / Logs
+      description: 引擎 stderr 尾部日志（插件保留 64 KiB）或任何报错信息。

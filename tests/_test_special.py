@@ -23,7 +23,16 @@ import os
 import sys
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "engine"))
+_here = os.path.dirname(os.path.abspath(__file__))
+for _candidate in (
+    os.path.join(_here, "engine"),
+    os.path.join(os.path.dirname(_here), "engine"),  # 脚本位于 <repo>/tests/，引擎在 <repo>/engine/
+):
+    if os.path.isdir(os.path.join(_candidate, "mathkit")):
+        sys.path.insert(0, _candidate)
+        break
+else:  # pragma: no cover
+    raise SystemExit("找不到 mathkit 包（应在 <repo>/engine/mathkit 下）")
 
 from mathkit import engine as E  # noqa: E402
 from mathkit import ops as _ops  # noqa: E402,F401  触发全部算子注册（与 worker.py 一致）
