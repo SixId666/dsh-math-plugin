@@ -31,8 +31,11 @@ jobs:
           set -euo pipefail
           ls -l _dist
           cp _dist/*.tgz dsh-math.tgz
+          ls -l dsh-math.tgz
+          # 注意：不要用 `grep -q` 或 `head` 直接接在 tar 后面 —— 它们提前退出会让
+          # tar 收到 SIGPIPE，配合 pipefail 就把整步判失败。这里让 grep 读完整个流。
           tar -tzf dsh-math.tgz | sed -n '1,5p'
-          tar -tzf dsh-math.tgz | grep -qx "package/package.json"
+          tar -tzf dsh-math.tgz | grep -x "package/package.json" > /dev/null
 
       - name: Create the release if it does not exist yet, then upload the asset
         env:
