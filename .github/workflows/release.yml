@@ -4,6 +4,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "要发布的 tag 名（必须是从未被 release 占用过的名字，例如 v1.0.4）"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -37,13 +42,21 @@ jobs:
           tar -tzf dsh-math.tgz | sed -n '1,5p'
           tar -tzf dsh-math.tgz | grep -x "package/package.json" > /dev/null
 
-      - name: Create the release if it does not exist yet, then upload the asset
+      # 这个仓库开启了「不可变 release」（immutable releases）：一旦某个 release
+      # 从 draft 变成 published，就再也不能追加或替换资产（API 会返回
+      # 422 "Cannot upload assets to an immutable release."），而且 tag 名会被
+      # 永久占用，连删掉重建 release 都用不了同一个 tag 名。
+      # 因此必须先建 draft → 上传资产 → 最后一步才发布。
+      - name: Create a draft release, upload the asset, then publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ inputs.tag || github.ref_name }}
         run: |
           set -euo pipefail
-          if ! gh release view "$TAG" >/dev/null 2>&1; then
-            gh release create "$TAG" --title "$TAG" --generate-notes
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::error::a release for tag $TAG already exists; immutable releases cannot receive new assets. Push a new tag instead."
+            exit 1
           fi
+          gh release create "$TAG" --draft --title "$TAG" --generate-notes
           gh release upload "$TAG" dsh-math.tgz --clobber
+          gh release edit "$TAG" --draft=false

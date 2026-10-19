@@ -15,6 +15,10 @@
   （不带版本号 —— 市场用 `releases/latest/download/dsh-math.tgz`，带版本号的文件名下次发版就 404）。
 - 新增 `docs/submission/`：市场条目文件（`data/plugins/…yml`）与投稿步骤。
 - `_verify/` 下的启动脚本改为读环境变量 `DSH_HOME`，不再硬编码 Harness 安装路径。
+- `Release` 工作流改为「先建 **draft** → 上传资产 → 最后一步才发布」。本仓库开启了
+  「不可变 release」（immutable releases）：release 一经发布，就不能再追加或替换资产
+  （REST 返回 `422 Cannot upload assets to an immutable release.`），tag 名也会被永久占用
+  （删掉 release 也换不回同名 tag）。所以资产必须在 draft 阶段补齐。
 
 ## [1.0.2] - 2026-10-03
 
