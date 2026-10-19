@@ -3,6 +3,19 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/) 风格，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.0.2+pkg] - 2026-10-19
+
+仅打包布局与仓库元数据的变更，**插件行为与 1.0.2 完全相同**，已安装的 1.0.2 无需升级，
+也无需重启（引擎、工具表、缓存语义均未改动）；tarball 里的 `package.json` 版本仍是 `1.0.2`。
+
+- 可安装包由 `plugin/` 移到 `plugins/dsh-math/`：awesome-dsh-plugin 市场 CI 只在**仓库根**或
+  `packages/` / `plugins/` / `apps/` 子包读取 `dsh.bundle` manifest，`plugin/` 不在其列。
+- `package.json` 去掉 `"private": true`，可发布到 npm（可选）。
+- `_dist/` 不再入库；tarball 改为 `Release` 工作流产出的 Release 资产，资产名固定为 `dsh-math.tgz`
+  （不带版本号 —— 市场用 `releases/latest/download/dsh-math.tgz`，带版本号的文件名下次发版就 404）。
+- 新增 `docs/submission/`：市场条目文件（`data/plugins/…yml`）与投稿步骤。
+- `_verify/` 下的启动脚本改为读环境变量 `DSH_HOME`，不再硬编码 Harness 安装路径。
+
 ## [1.0.2] - 2026-10-03
 
 首个公开发布版本（GitHub 开源）。
