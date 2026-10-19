@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Build the installable tarball
+        run: python scripts/_pack.py
+
+      # 资产名固定为 dsh-math.tgz（不带版本号）：
+      # storefront / 市场的 tarball 字段常用 .../releases/latest/download/<name>，
+      # 该 URL 只在请求时解析 latest，文件名照字面取 —— 名字里带版本号的话，
+      # 提交当天有效，下一次发版就 404。
+      - name: Normalize the asset name
+        run: |
+          set -euo pipefail
+          ls -l _dist
+          cp _dist/*.tgz dsh-math.tgz
+          tar -tzf dsh-math.tgz | sed -n '1,5p'
+          tar -tzf dsh-math.tgz | grep -qx "package/package.json"
+
+      - name: Create the release if it does not exist yet, then upload the asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "$TAG" --generate-notes
+          fi
+          gh release upload "$TAG" dsh-math.tgz --clobber

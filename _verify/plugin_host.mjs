@@ -8,7 +8,7 @@
 import { spawn } from "node:child_process";
 import { pathToFileURL } from "node:url";
 
-const ENTRY = pathToFileURL("E:/dsh-math/plugin/lib/entry.js").href;
+const ENTRY = pathToFileURL("E:/dsh-math/plugins/dsh-math/lib/entry.js").href;
 
 function createSubprocessShim() {
   return {

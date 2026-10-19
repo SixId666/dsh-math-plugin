@@ -3,10 +3,11 @@
  *   ['1,2','3,4']（字符串数组，工具层 matrixArg 会拼成 "1,2;3,4"）
  *   '1,2;3,4'    （单个字符串，此前会被 arguments.matrix must be a array 拒掉）
  * 并确认非法形态（数字、数组里混入数字）仍被拒。
- * 用法：$env:ELECTRON_RUN_AS_NODE=1; & "D:\deepseek_harness\DeepSeek Harness.exe" E:\dsh-math\_verify\probe_schema_forms.mjs
+ * 用法（把 DSH_HOME 换成你的 Harness 安装目录，默认就是下面这个）：
+ *   $env:ELECTRON_RUN_AS_NODE=1; & "$env:DSH_HOME\DeepSeek Harness.exe" E:\dsh-math\_verify\probe_schema_forms.mjs
  */
-import { TOOL_SPECS } from "../plugin/lib/tools.js";
-import { compileParameters, validateArguments } from "../plugin/lib/define_tool.js";
+import { TOOL_SPECS } from "../plugins/dsh-math/lib/tools.js";
+import { compileParameters, validateArguments } from "../plugins/dsh-math/lib/define_tool.js";
 
 const byName = new Map(TOOL_SPECS.map((s) => [s.name, s]));
 

@@ -4,8 +4,8 @@
 
 ## 改动范围 / Scope
 
-- [ ] 引擎 `engine/`（若改动，需运行 `python scripts/_sync_engine.py` 同步到 `plugin/engine/`）
-- [ ] 工具表 `plugin/lib/tools.js`（若改动，需更新 `scripts/_specs.json` 并跑契约校验）
+- [ ] 引擎 `engine/`（若改动，需运行 `python scripts/_sync_engine.py` 同步到 `plugins/dsh-math/engine/`）
+- [ ] 工具表 `plugins/dsh-math/lib/tools.js`（若改动，需更新 `scripts/_specs.json` 并跑契约校验）
 - [ ] 文档 `docs/`、`README.md` / `README.en.md`
 - [ ] 其它
 

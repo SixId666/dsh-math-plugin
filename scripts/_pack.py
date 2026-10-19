@@ -1,4 +1,4 @@
-"""把 E:\\dsh-math\\plugin 打成可被 plugin_manager 安装的 tarball。
+"""把 plugins/dsh-math 打成可被 plugin_manager 安装的 tarball。
 
 为什么要 tarball：profile 里用目录路径安装会得到 pnpm 的 `link:`（junction），
 其真实路径在 profile 之外，DSH 宿主的 linked 解析层可能拒绝加载；tarball 安装会
@@ -17,7 +17,7 @@ import tarfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]  # 仓库根（脚本位于 <repo>/scripts/）
-PLUGIN = ROOT / "plugin"
+PLUGIN = ROOT / "plugins" / "dsh-math"
 DIST = ROOT / "_dist"
 
 REQUIRED = ["package.json", "cordis.patch.yml", "icon.svg", "lib/entry.js", "engine/worker.py"]

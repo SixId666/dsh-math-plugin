@@ -1,4 +1,4 @@
-"""校验 plugin/lib/tools.js 的工具表与 Python 引擎算子签名是否一致。
+"""校验 plugins/dsh-math/lib/tools.js 的工具表与 Python 引擎算子签名是否一致。
 
 校验内容（每条都能抓出真实缺陷）：
 1. tools.js 里映射的算子名在引擎里是否存在（拼错/别名错 → Node 侧只会得到 unknown_operation）；

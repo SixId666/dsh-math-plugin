@@ -63,15 +63,33 @@ Python 解释器按以下顺序解析（`lib/bridge.js: resolvePython`）：
 
 ### 2. 安装
 
-产物：`_dist/dsh-math-1.0.2.tgz`（npm pack 格式）。
+两种来源，任选其一。
 
+**A. Release 资产（推荐给他人安装）**——资产名不带版本号，永远指向最新版：
+
+```text
+https://github.com/SixId666/dsh-math-plugin/releases/latest/download/dsh-math.tgz
 ```
+
+```text
+plugin_manager install_bundle target: "<下载到本地的 dsh-math.tgz 绝对路径>"
+plugin_manager list_bundles
+```
+
+**B. 本仓库内构建**（`_dist/` 是构建产物，不入库）：
+
+```powershell
+cd E:\dsh-math
+python -X utf8 scripts/_pack.py        # → _dist/dsh-math-1.0.2.tgz（npm pack 格式）
+```
+
+```text
 plugin_manager install_bundle target: "E:\dsh-math\_dist\dsh-math-1.0.2.tgz"
 plugin_manager list_bundles
 ```
 
 或在 DSH 插件界面选择「从本地文件安装」。手工登记到 profile 的方式见
-[plugin/README.md](plugin/README.md#2-安装)。
+[plugins/dsh-math/README.md](plugins/dsh-math/README.md#2-安装)。
 
 > **注意**：pnpm 对同路径的 `file:` tarball 会按 lockfile 复用已解包副本——改了插件内容后请提升
 > `package.json` 的 `version` 并重新打包，再安装一次。
@@ -190,7 +208,7 @@ dsh-math-plugin/
 │   ├── 已实现功能清单.md        # 已实现功能 + 运行依赖清单
 │   ├── 未实现与限制.md          # 数一考纲缺口与环境限制
 │   └── 交付说明.md             # 十项交付物索引 + 11 条验收标准对照 + 实测证据
-├── plugin/                    # 可安装插件包（自包含 bundle，pack 源）
+├── plugins/dsh-math/         # 可安装插件包（自包含 bundle，pack 源；DSH 插件市场条目指向此目录）
 │   ├── package.json  cordis.patch.yml  icon.svg  README.md
 │   ├── locale/{zh,en}.json
 │   ├── lib/{entry,define_tool,bridge,tools,render}.js
@@ -203,13 +221,14 @@ dsh-math-plugin/
 │   ├── _test_acceptance.py    # 端到端验收（111 例）+ _test_acceptance_result.json
 │   └── _test_special.py       # 八个专项测试 + _test_special_result.json
 ├── scripts/                   # 构建与校验脚本
-│   ├── _sync_engine.py        # engine/ → plugin/engine 同步（白名单）
+│   ├── _sync_engine.py        # engine/ → plugins/dsh-math/engine 同步（白名单）
 │   ├── _pack.py               # 生成 _dist/*.tgz（npm pack 格式）
 │   ├── _dump_specs.mjs        # 导出 14 个工具的真实参数表 → _specs.json
 │   ├── _check_contract.py     # 契约校验：工具表里的算子名/参数名能否被引擎接受
 │   └── _specs.json            # 工具→算子映射导出（_dump_specs.mjs 产物）
+├── docs/submission/           # 提交到 awesome-dsh-plugin 市场用的条目文件与步骤
 ├── _verify/                   # 宿主 loader 内真机验证脚本与输出（证据）
-└── _dist/dsh-math-1.0.2.tgz   # 安装包
+└── _dist/                     # 本地打包产物（不入库；发布用 GitHub Release 资产 dsh-math.tgz）
 ```
 
 ## 文档
@@ -222,7 +241,21 @@ dsh-math-plugin/
 | [docs/已实现功能清单.md](docs/已实现功能清单.md) | 已实现功能与运行依赖 |
 | [docs/未实现与限制.md](docs/未实现与限制.md) | 数一考纲缺口与环境限制 |
 | [docs/交付说明.md](docs/交付说明.md) | 十项交付物索引、11 条验收标准逐条对照、实测证据 |
-| [plugin/README.md](plugin/README.md) | 随 npm 包分发的安装/启用/配置/排错说明 |
+| [plugins/dsh-math/README.md](plugins/dsh-math/README.md) | 随 npm 包分发的安装/启用/配置/排错说明 |
+| [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md) | 提交到 awesome-dsh-plugin 市场的条目文件、步骤与 CI 检查项 |
+
+## 插件市场
+
+本仓库按 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 的收录要求整理为
+monorepo 子包形态，可提交收录：
+
+- manifest 在 [`plugins/dsh-math/package.json`](plugins/dsh-math/package.json)（`dsh.bundle.patch` → `cordis.patch.yml`），
+  位于指南认可的 `plugins/` 子包位置；条目 `url` 指向 `.../tree/main/plugins/dsh-math`。
+- 安装包由 `Release` 工作流产出，资产名固定为 `dsh-math.tgz`（不带版本号，避免 `latest/download/` 链接在下次发版后 404）。
+- 条目文件：[docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml](docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml)；
+  提交步骤与常见回退原因见 [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md)。
+
+不经过市场也能安装，见上文「2. 安装」。
 
 ## 常用问法
 

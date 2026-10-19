@@ -19,12 +19,13 @@ process.stderr.write = (chunk, ...rest) => {
   return rawErr(chunk, ...rest);
 };
 
-const ASAR_DSH = "D:/deepseek_harness/resources/app.asar/dsh";
+const DSH_HOME = process.env.DSH_HOME || "D:/deepseek harness";
+const ASAR_DSH = DSH_HOME + "/resources/app.asar/dsh";
 const app = await import(pathToFileURL(ASAR_DSH + "/node_modules/@deepseek-ai/dsh-app-boot/lib/index.js").href);
 const installAnchor = ASAR_DSH + "/node_modules/@deepseek-ai/dsh/package.json";
 const CLONE = "E:/dsh-math/_verify/profile-clone-full";
-const SRC = "E:/dsh-math/plugin";
-const HOME = "C:/Users/HP/.dsh";
+const SRC = "E:/dsh-math/plugins/dsh-math";
+const HOME = (process.env.USERPROFILE || "C:/Users/HP") + "/.dsh";
 const PYTHON = "E:\\anaconda3\\python.exe";
 
 await rm(CLONE, { recursive: true, force: true });

@@ -1,7 +1,7 @@
-"""把开发树 engine/ 同步到可安装包 plugin/engine/。
+"""把开发树 engine/ 同步到可安装包 plugins/dsh-math/engine/。
 
 单一事实来源是 `E:\\dsh-math\\engine\\`（开发与调试都在这里改），
-`plugin/` 必须是自包含的 bundle：安装到 DSH profile 后不会再回来读开发树。
+`plugins/dsh-math/` 必须是自包含的 bundle：安装到 DSH profile 后不会再回来读开发树。
 
 同步内容（白名单，其它一律删除 —— 之前的镜像是手工拷贝的，混进了
 _probe_*.py / _tmp_*.py / *.log / __pycache__ 和过期版本）：
@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]  # 仓库根（脚本位于 <repo>/scripts/）
 SRC = ROOT / "engine"
-DST = ROOT / "plugin" / "engine"
+DST = ROOT / "plugins" / "dsh-math" / "engine"
 
 
 def main() -> int:

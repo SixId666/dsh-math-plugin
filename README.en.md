@@ -81,7 +81,7 @@ plugin_manager list_bundles
 ```
 
 Or choose "Install from local file" in the DSH plugin UI. To register it manually in a profile, see
-[plugin/README.md](plugin/README.md#2-安装) (Chinese).
+[plugins/dsh-math/README.md](plugins/dsh-math/README.md#2-安装) (Chinese).
 
 > **Note**: pnpm reuses the unpacked copy of a same-path `file:` tarball according to the lockfile —
 > after changing the plugin, bump `version` in `package.json` and re-pack before installing again.
@@ -206,7 +206,7 @@ dsh-math-plugin/
 │   ├── 已实现功能清单.md        # implemented features + runtime dependencies
 │   ├── 未实现与限制.md          # syllabus gaps and environment limitations
 │   └── 交付说明.md             # deliverables index + 11 acceptance criteria + evidence
-├── plugin/                    # installable plugin package (self-contained bundle, pack source)
+├── plugins/dsh-math/         # installable plugin package (self-contained bundle, pack source; the market entry points here)
 │   ├── package.json  cordis.patch.yml  icon.svg  README.md
 │   ├── locale/{zh,en}.json
 │   ├── lib/{entry,define_tool,bridge,tools,render}.js
@@ -219,13 +219,14 @@ dsh-math-plugin/
 │   ├── _test_acceptance.py    # end-to-end acceptance (111 cases) + result JSON
 │   └── _test_special.py       # 8 special tests + result JSON
 ├── scripts/                   # build & validation scripts
-│   ├── _sync_engine.py        # engine/ → plugin/engine sync (whitelist)
+│   ├── _sync_engine.py        # engine/ → plugins/dsh-math/engine sync (whitelist)
 │   ├── _pack.py               # builds _dist/*.tgz (npm pack format)
 │   ├── _dump_specs.mjs        # dumps the real parameter tables of the 14 tools → _specs.json
 │   ├── _check_contract.py     # contract check: operator/parameter names vs. engine
 │   └── _specs.json            # tool→operator mapping dump (product of _dump_specs.mjs)
+├── docs/submission/           # entry file + steps for submitting to the awesome-dsh-plugin market
 ├── _verify/                   # in-host-loader verification scripts and outputs (evidence)
-└── _dist/dsh-math-1.0.2.tgz   # installable tarball
+└── _dist/                     # local build output (not committed; releases use the dsh-math.tgz asset)
 ```
 
 ## Documentation
@@ -238,9 +239,24 @@ dsh-math-plugin/
 | [docs/已实现功能清单.md](docs/已实现功能清单.md) | Implemented features and runtime dependencies |
 | [docs/未实现与限制.md](docs/未实现与限制.md) | Syllabus gaps and environment limitations |
 | [docs/交付说明.md](docs/交付说明.md) | Deliverables index, 11 acceptance criteria with evidence, measurement records |
-| [plugin/README.md](plugin/README.md) | npm-distributed install/enable/config/troubleshooting guide |
+| [plugins/dsh-math/README.md](plugins/dsh-math/README.md) | npm-distributed install/enable/config/troubleshooting guide |
+| [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md) | Entry file and steps for submitting to the awesome-dsh-plugin market |
 
 > The `docs/` files are written in Chinese; they remain the authoritative, code-accurate reference.
+
+## Plugin market
+
+This repository follows the [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
+submission rules and is laid out as a monorepo subpackage:
+
+- the manifest lives in [`plugins/dsh-math/package.json`](plugins/dsh-math/package.json)
+  (`dsh.bundle.patch` → `cordis.patch.yml`), inside the `plugins/` subpackage location the guide recognizes;
+  the entry `url` points at `.../tree/main/plugins/dsh-math`.
+- the installable tarball is produced by the `Release` workflow with a fixed asset name (`dsh-math.tgz`, no version),
+  so the `releases/latest/download/` link never rots after a new release.
+- entry file: [docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml](docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml);
+  steps and common bounce reasons: [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md).
+
 
 ## Typical Prompts
 

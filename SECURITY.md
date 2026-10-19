@@ -23,7 +23,7 @@
 本插件为**本地运行**的 DSH bundle，不提供网络服务、不采集数据。数学引擎通过
 JSON lines over stdio 与一个常驻 Python 子进程通信。特别欢迎以下方向的报告：
 
-- `plugin/lib/bridge.js` 的 Python 解释器解析（`resolvePython`）与子进程启动参数是否可被环境变量/配置操纵；
+- `plugins/dsh-math/lib/bridge.js` 的 Python 解释器解析（`resolvePython`）与子进程启动参数是否可被环境变量/配置操纵；
 - 引擎 `ast.py` 表达式解析层对恶意构造输入的处理（拒绝服务、无限求值、内存耗尽等）；
 - `workerPath` / `python` 配置项被非预期覆盖导致的任意代码执行路径；
 - 缓存与失败记账（`engine/worker.py`）中键规范化不足导致的语义混用。

@@ -5,15 +5,15 @@
 ## 仓库结构速览
 
 ```
-engine/        引擎源码（唯一事实来源，开发与调试都在这里改）
-plugin/        可安装插件包（自包含 bundle；plugin/engine/ 由脚本同步生成）
-tests/         验收测试与专项测试
-scripts/       同步 / 打包 / 契约校验脚本
-docs/          交付文档（中文为权威版本）
+engine/              引擎源码（唯一事实来源，开发与调试都在这里改）
+plugins/dsh-math/    可安装插件包（自包含 bundle；plugins/dsh-math/engine/ 由脚本同步生成）
+tests/               验收测试与专项测试
+scripts/             同步 / 打包 / 契约校验脚本
+docs/                交付文档（中文为权威版本）
 ```
 
-> **重要**：`plugin/engine/` 是由 `engine/` 同步生成的镜像，**不要直接修改**。
-> `plugin/` 必须自包含：安装进 DSH profile 后不会再回来读仓库其它目录。
+> **重要**：`plugins/dsh-math/engine/` 是由 `engine/` 同步生成的镜像，**不要直接修改**。
+> `plugins/dsh-math/` 必须自包含：安装进 DSH profile 后不会再回来读仓库其它目录。
 
 ## 开发流程
 
@@ -21,7 +21,7 @@ docs/          交付文档（中文为权威版本）
 
 ```powershell
 # 1. 在 engine/mathkit/ 下改代码
-# 2. 同步到 plugin/engine/（白名单：worker.py、mathkit/*.py、_selftest_*.py）
+# 2. 同步到 plugins/dsh-math/engine/（白名单：worker.py、mathkit/*.py、_selftest_*.py）
 python scripts/_sync_engine.py
 
 # 3. 跑测试
@@ -30,13 +30,16 @@ python -X utf8 tests/_test_special.py        # 8 个行为专项
 python -X utf8 engine/_selftest_calculus.py  # 对应模块的引擎自检
 ```
 
-### 场景 B：改工具接口（`plugin/lib/tools.js`）
+### 场景 B：改工具接口（`plugins/dsh-math/lib/tools.js`）
 
 工具表里的算子名与参数名必须与引擎签名一致，改完请跑契约校验：
 
 ```powershell
-# 1. 重新导出工具→算子映射表（Node 不在 PATH 时可用 Electron 充当 Node）
-$env:ELECTRON_RUN_AS_NODE=1; & "DeepSeek Harness.exe" scripts/_dump_specs.mjs > scripts/_specs.json
+# 0. 指向你的 Harness 安装目录（Node 不在 PATH 时用 Electron 充当 Node）
+$env:DSH_HOME = "D:\deepseek harness"
+
+# 1. 重新导出工具→算子映射表
+$env:ELECTRON_RUN_AS_NODE=1; & "$env:DSH_HOME\DeepSeek Harness.exe" scripts/_dump_specs.mjs > scripts/_specs.json
 
 # 2. 契约校验（会抓出拼错的算子名、不被接受的参数名、必需参数缺失）
 python -X utf8 scripts/_check_contract.py
@@ -45,7 +48,7 @@ python -X utf8 scripts/_check_contract.py
 ### 场景 C：打包发布
 
 ```powershell
-# 1. 提升 plugin/package.json 的 version（pnpm 对同路径 file: tarball 会复用旧副本）
+# 1. 提升 plugins/dsh-math/package.json 的 version（pnpm 对同路径 file: tarball 会复用旧副本）
 # 2. 打包
 python scripts/_pack.py    # 生成 _dist/dsh-math-<version>.tgz
 # 3. 安装后重启 DSH（宿主解析表要求进程重启）
