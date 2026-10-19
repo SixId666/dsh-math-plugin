@@ -22,7 +22,8 @@ process.stderr.write = (chunk, ...rest) => {
   return rawErr(chunk, ...rest);
 };
 
-const DSH_HOME = process.env.DSH_HOME || "D:/deepseek harness";
+// DSH_HOME 在 DSH 会话里指 ~/.dsh，不是安装目录；用 DSH_APP_DIR 指定安装目录。
+const DSH_HOME = process.env.DSH_APP_DIR || "D:/deepseek harness";
 const ASAR_DSH = DSH_HOME + "/resources/app.asar/dsh";
 const app = await import(pathToFileURL(ASAR_DSH + "/node_modules/@deepseek-ai/dsh-app-boot/lib/index.js").href);
 const installAnchor = ASAR_DSH + "/node_modules/@deepseek-ai/dsh/package.json";

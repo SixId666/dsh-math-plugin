@@ -6,7 +6,7 @@ import { appendFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
-const OUT = "E:/dsh-math/_verify/scratch_boot_full_out.txt";
+const OUT = process.env.DSH_MATH_OUT || "E:/dsh-math/_verify/scratch_boot_full_out.txt";
 writeFileSync(OUT, "");
 const rawLog = console.log.bind(console);
 console.log = (...args) => {
@@ -19,12 +19,14 @@ process.stderr.write = (chunk, ...rest) => {
   return rawErr(chunk, ...rest);
 };
 
-const DSH_HOME = process.env.DSH_HOME || "D:/deepseek harness";
+// 注意：DSH_HOME 在 DSH 自己的会话里指 ~/.dsh（用户主目录），不是 Harness 安装目录，
+// 所以这里用独立的 DSH_APP_DIR，避免两者撞名。
+const DSH_HOME = process.env.DSH_APP_DIR || "D:/deepseek harness";
 const ASAR_DSH = DSH_HOME + "/resources/app.asar/dsh";
 const app = await import(pathToFileURL(ASAR_DSH + "/node_modules/@deepseek-ai/dsh-app-boot/lib/index.js").href);
 const installAnchor = ASAR_DSH + "/node_modules/@deepseek-ai/dsh/package.json";
-const CLONE = "E:/dsh-math/_verify/profile-clone-full";
-const SRC = "E:/dsh-math/plugins/dsh-math";
+const CLONE = process.env.DSH_MATH_CLONE || "E:/dsh-math/_verify/profile-clone-full";
+const SRC = process.env.DSH_MATH_SRC || "E:/dsh-math/plugins/dsh-math";
 const HOME = (process.env.USERPROFILE || "C:/Users/HP") + "/.dsh";
 const PYTHON = "E:\\anaconda3\\python.exe";
 
