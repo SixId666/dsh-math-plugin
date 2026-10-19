@@ -252,6 +252,10 @@ monorepo 子包形态，可提交收录：
 - manifest 在 [`plugins/dsh-math/package.json`](plugins/dsh-math/package.json)（`dsh.bundle.patch` → `cordis.patch.yml`），
   位于指南认可的 `plugins/` 子包位置；条目 `url` 指向 `.../tree/main/plugins/dsh-math`。
 - 安装包由 `Release` 工作流产出，资产名固定为 `dsh-math.tgz`（不带版本号，避免 `latest/download/` 链接在下次发版后 404）。
+  已发布：`v1.0.3`（资产 `dsh-math.tgz`，314531 B），稳定地址
+  <https://github.com/SixId666/dsh-math-plugin/releases/latest/download/dsh-math.tgz> 已验证可下载。
+- 仓库开启了「不可变 release」：已发布的 release 不能再补资产，tag 名也永久占用；
+  发布流程因此是 draft → 上传 → 发布（详见 [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md)）。
 - 条目文件：[docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml](docs/submission/SixId666__dsh-math-plugin--plugins-dsh-math.yml)；
   提交步骤与常见回退原因见 [docs/submission/投稿步骤.md](docs/submission/投稿步骤.md)。
 
